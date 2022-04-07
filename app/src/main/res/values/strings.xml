@@ -8,4 +8,15 @@
     <string name="signup_employeeNEXT">NEXT</string>
     <string name="signup_employeeRegisterAccount">Register Account</string>
     <string name="signup_employeeFillDetails">Fill your details or continue with social media</string>
+    <string name="signup_employeeContinueWith">-- Or Continue with --</string>
+    <string name="signup_employeeAlreadyHaveAccount">Already Have An Account?</string>
+    <string name="employee_signupLoginHere">Log in</string>
+    <string name="google_logo">Google Logo</string>
+    <string name="facebook_logo">Facebook Logo</string>
+    <string name="signup_employeeFillPersonalDetails">Fill your personal details</string>
+    <string name="signup_employeeSIGNUP">SIGN UP</string>
+    <string name="signup_employeeHomeAddress">Home Address</string>
+    <string name="signup_employeeDrivingLicence">Driving Licence Categories</string>
+    <string name="signup_employeeNationality">Nationality</string>
+    <string name="signup_employeeGender">Gender</string>
 </resources>

@@ -9,11 +9,11 @@
 
     <TextView
         android:id="@+id/signup_employeeBoldTextView1"
-        android:text="@string/signup_employeeRegisterAccount"
         style="@style/boldText"
+        android:text="@string/signup_employeeRegisterAccount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/signup_employeeSmallTextView1"
@@ -22,6 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signup_employeeBoldTextView1" />
+
     <EditText
         android:id="@+id/signup_employeeUsername"
         style="@style/editTextStyling"
@@ -56,10 +57,58 @@
         app:layout_constraintTop_toBottomOf="@+id/signup_employeeEmail" />
 
     <Button
+        android:id="@+id/signup_employeeNextButton1"
         style="@style/defaultButton"
         android:text="@string/signup_employeeNEXT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_employeePassword" />
 
+    <TextView
+        android:id="@+id/signup_employeeContinueWithTextView"
+        style="@style/smallText"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/signup_employeeContinueWith"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_employeeNextButton1" />
+
+    <ImageView
+        android:id="@+id/signup_employeeGoogleImage"
+        style="@style/loginRegisterLogos"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/google_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_employeeContinueWithTextView"
+        app:srcCompat="@drawable/image_google" />
+
+    <ImageView
+        android:id="@+id/signup_employeeFacebookImage"
+        style="@style/loginRegisterLogos"
+        android:layout_marginStart="20dp"
+        android:contentDescription="@string/facebook_logo"
+        app:layout_constraintStart_toEndOf="@id/signup_employeeGoogleImage"
+        app:layout_constraintTop_toBottomOf="@id/signup_employeeContinueWithTextView"
+        app:srcCompat="@drawable/image_facebook" />
+
+    <TextView
+        android:id="@+id/signup_employeeAlreadyAccountTextView"
+        style="@style/smallText"
+        android:text="@string/signup_employeeAlreadyHaveAccount"
+        android:layout_marginTop="40dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_employeeGoogleImage" />
+
+    <TextView
+        android:id="@+id/signup_employeeLoginHereTextView"
+        style="@style/boldText"
+        android:layout_marginTop="40dp"
+        android:text="@string/employee_signupLoginHere"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/signup_employeeAlreadyAccountTextView"
+        app:layout_constraintTop_toBottomOf="@id/signup_employeeFacebookImage" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColorForLayout"
+    tools:context=".signupEmployeeAdditionalDetailsFragment">
+
+    <TextView
+        android:id="@+id/signup_employeeBoldTextView2"
+        style="@style/boldText"
+        android:text="@string/signup_employeeRegisterAccount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/signup_employeeSmallTextView2"
+        style="@style/smallText"
+        android:text="@string/signup_employeeFillPersonalDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_employeeBoldTextView2" />
+
+    <EditText
+        android:id="@+id/signup_employeeCPR"
+        style="@style/editTextStyling"
+        android:layout_marginTop="50dp"
+        android:autofillHints="username"
+        android:drawableStart="@drawable/prompt_cpr"
+        android:hint="@string/signup_employeeUsername"
+        android:inputType="textVisiblePassword|textNoSuggestions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_employeeSmallTextView2" />
+
+    <EditText
+        android:id="@+id/signup_employeeAddress"
+        style="@style/editTextStyling"
+        android:autofillHints="postalAddress"
+        android:drawableStart="@drawable/prompt_address"
+        android:hint="@string/signup_employeeHomeAddress"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_employeeCPR" />
+
+    <EditText
+        android:id="@+id/signup_employeeDrivingLicence"
+        style="@style/editTextStyling"
+        android:drawableStart="@drawable/prompt_drivinglicense"
+        android:hint="@string/signup_employeeDrivingLicence"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_employeeAddress" />
+    <EditText
+        android:id="@+id/signup_employeeNationality"
+        style="@style/editTextStyling"
+        android:drawableStart="@drawable/prompt_nationality"
+        android:hint="@string/signup_employeeNationality"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_employeeDrivingLicence" />
+    <EditText
+        android:id="@+id/signup_employeeGender"
+        style="@style/editTextStyling"
+        android:drawableStart="@drawable/prompt_gender"
+        android:hint="@string/signup_employeeGender"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_employeeNationality" />
+
+    <Button
+        android:id="@+id/signup_employeeNextButton1"
+        style="@style/defaultButton"
+        android:text="@string/signup_employeeSIGNUP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_employeeGender" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
