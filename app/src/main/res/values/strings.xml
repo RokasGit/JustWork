@@ -19,4 +19,7 @@
     <string name="signup_employeeDrivingLicence">Driving Licence Categories</string>
     <string name="signup_employeeNationality">Nationality</string>
     <string name="signup_employeeGender">Gender</string>
+    <string name="splash_findPerfectTextView">Find a Perfect Job Match</string>
+    <string name="splash_finding_job_slogan">Finding a part-time job was never easier with JustWork</string>
+    <string name="splash_button_text">Let\'s get Started</string>
 </resources>

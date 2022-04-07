@@ -39,7 +39,10 @@
         <item name="android:layout_marginEnd">20dp</item>
         <item name="android:padding">10dp</item>
         <item name="android:gravity">center</item>
-
+    </style>
+    <style name="defaultLogo">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
     </style>
     <style name="loginRegisterLogos">
         <item name="android:layout_height">60dp</item>
