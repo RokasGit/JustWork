@@ -18,5 +18,6 @@
     <color name="rejectColorOnPrimary">#EA4C89</color>
     <color name="completedColorPrimary">#DDFFE9</color>
     <color name="completedColorOnPrimary">#1ED760</color>
+    <color name="backgroundColorForLayout">#FBFBFB</color>
 
 </resources>
