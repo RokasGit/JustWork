@@ -12,5 +12,11 @@
     <color name="nightColorSecondary">#087779</color>
     <color name="nightColorOnSecondary">#FFFFFFFF</color>
     <color name="nightColorSecondaryVariant">#004b4d</color>
+    <color name="acceptColorPrimary">#A5CFFA</color>
+    <color name="acceptColorOnPrimary">#1976D2</color>
+    <color name="rejectColorPrimary">#FFD4E5</color>
+    <color name="rejectColorOnPrimary">#EA4C89</color>
+    <color name="completedColorPrimary">#DDFFE9</color>
+    <color name="completedColorOnPrimary">#1ED760</color>
 
 </resources>
