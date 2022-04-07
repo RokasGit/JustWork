@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/colorOnPrimary">
+
+
+    <ImageView
+        android:id="@+id/Company_icon"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:src=""
+        android:layout_weight="1"
+        />
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="3">
+
+        <TextView
+            android:id="@+id/Job_name"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Forklift Driver"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/boldTextColor"
+            />
+
+        <TextView
+            android:id="@+id/Job_type"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Full time"
+            android:textSize="20sp"
+            android:textColor="@color/smallTextColor"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/Job_Pay"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="100 Dkk/h"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:textColor="@color/smallTextColor"/>
+
+</LinearLayout>
