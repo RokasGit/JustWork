@@ -3,10 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Nick/AndroidStudioProjects/JustWork/app/src/main/res/drawable/app_icon.xml" value="0.1465" />
-        <entry key="..\:/Users/Nick/AndroidStudioProjects/JustWork/app/src/main/res/drawable/splash_icon.xml" value="0.1465" />
-        <entry key="..\:/Users/Nick/AndroidStudioProjects/JustWork/app/src/main/res/layout/activity_main.xml" value="0.22327898550724637" />
-        <entry key="..\:/Users/Nick/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_splash_screen.xml" value="0.136" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/image_facebook.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/image_google.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/justword_logo.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/prompt_address.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/prompt_cpr.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/prompt_drivinglicense.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/prompt_email.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/prompt_gender.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/prompt_nationality.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/prompt_password.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/prompt_username.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/splash_box.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/splash_chart.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/splash_gage.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/splash_human.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_splash_screen.xml" value="0.264" />
       </map>
     </option>
   </component>
