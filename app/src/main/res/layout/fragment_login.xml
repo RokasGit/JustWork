@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColorForLayout"
     tools:context=".Login">
 
     <TextView
         android:id="@+id/Login_Fill_Details"
-        android:layout_width="266dp"
+        android:layout_width="0dp"
         android:layout_height="59dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="100dp"
         android:text="@string/fill_your_details_or_continue_with_social_media"
         android:textColor="@color/smallTextColor"
         android:textSize="20sp"
@@ -22,9 +25,11 @@
 
     <TextView
         android:id="@+id/Login_Welcome_back"
-        android:layout_width="225dp"
+        android:layout_width="0dp"
         android:layout_height="47dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="36dp"
+        android:layout_marginEnd="150dp"
         android:text="@string/welcome_back"
         android:textColor="@color/boldTextColor"
         android:textSize="30sp"
@@ -36,24 +41,16 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="332dp"
+        android:layout_width="0dp"
         android:layout_height="64dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Login_editTextTextPassword" />
-
-    <ImageView
-        android:id="@+id/Login_imageView_pass"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
-        android:src="@drawable/prompt_password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Login_imageView_email" />
 
     <TextView
         android:id="@+id/Login_textView3_ForgotPass"
@@ -66,44 +63,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Login_editTextTextPassword" />
 
-    <ImageView
-        android:id="@+id/Login_imageView_email"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="204dp"
-        android:src="@drawable/prompt_email"
+    <EditText
+        android:id="@+id/Login_editTextTextPersonName"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="192dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/colorOnPrimary"
+        android:drawableStart="@drawable/prompt_email"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Login_editTextTextPersonName"
-        android:layout_width="279dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
         android:id="@+id/Login_editTextTextPassword"
-        android:layout_width="279dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/colorOnPrimary"
+        android:drawableStart="@drawable/prompt_password"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Login_editTextTextPersonName" />
 
     <TextView
         android:id="@+id/Login_textView4_CreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="148dp"
         android:text="@string/create_account"
         android:textColor="@color/boldTextColor"
         android:textSize="20sp"
