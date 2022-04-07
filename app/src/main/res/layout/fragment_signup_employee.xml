@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColorForLayout"
+    tools:context=".signupEmployeeFragment">
+
+    <TextView
+        android:id="@+id/signup_employeeBoldTextView1"
+        android:text="@string/signup_employeeRegisterAccount"
+        style="@style/boldText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/signup_employeeSmallTextView1"
+        style="@style/smallText"
+        android:text="@string/signup_employeeFillDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_employeeBoldTextView1" />
+    <EditText
+        android:id="@+id/signup_employeeUsername"
+        style="@style/editTextStyling"
+        android:autofillHints="username"
+        android:drawableStart="@drawable/prompt_username"
+        android:hint="@string/signup_employeeUsername"
+        android:inputType="textVisiblePassword|textNoSuggestions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_employeeSmallTextView1" />
+
+    <EditText
+        android:id="@+id/signup_employeeEmail"
+        style="@style/editTextStyling"
+        android:autofillHints="emailAddress"
+        android:drawableStart="@drawable/prompt_email"
+        android:hint="@string/signup_employeeEmail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_employeeUsername" />
+
+    <EditText
+        android:id="@+id/signup_employeePassword"
+        style="@style/editTextStyling"
+        android:autofillHints="password"
+        android:drawableStart="@drawable/prompt_password"
+        android:hint="@string/employee_signupPassword"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_employeeEmail" />
+
+    <Button
+        style="@style/defaultButton"
+        android:text="@string/signup_employeeNEXT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_employeePassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

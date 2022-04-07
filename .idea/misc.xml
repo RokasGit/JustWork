@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/button_roundcorners.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/image_facebook.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/image_google.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/justword_logo.xml" value="0.127" />
@@ -14,11 +15,13 @@
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/prompt_nationality.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/prompt_password.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/prompt_username.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/roundcorners.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/splash_box.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/splash_chart.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/splash_gage.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/splash_human.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_signup_employee.xml" value="0.536" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_splash_screen.xml" value="0.264" />
       </map>
     </option>

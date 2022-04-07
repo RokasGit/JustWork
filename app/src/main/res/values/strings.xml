@@ -2,4 +2,10 @@
     <string name="app_name">Just Work</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signup_employeeUsername">Username</string>
+    <string name="signup_employeeEmail">Email Address</string>
+    <string name="employee_signupPassword">Password</string>
+    <string name="signup_employeeNEXT">NEXT</string>
+    <string name="signup_employeeRegisterAccount">Register Account</string>
+    <string name="signup_employeeFillDetails">Fill your details or continue with social media</string>
 </resources>
