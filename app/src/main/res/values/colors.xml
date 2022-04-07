@@ -19,5 +19,5 @@
     <color name="completedColorPrimary">#DDFFE9</color>
     <color name="completedColorOnPrimary">#1ED760</color>
     <color name="backgroundColorForLayout">#FBFBFB</color>
-
+    <color name="Transparent">#00000000</color>
 </resources>
