@@ -18,5 +18,7 @@
     <color name="rejectColorOnPrimary">#EA4C89</color>
     <color name="completedColorPrimary">#DDFFE9</color>
     <color name="completedColorOnPrimary">#1ED760</color>
+    <color name="BlackText">#000000</color>
+    <color name="GrayText">#8E8E8E</color>
 
 </resources>

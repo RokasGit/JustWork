@@ -2,4 +2,14 @@
     <string name="app_name">Just Work</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fill_your_details_or_continue_with_social_media">Fill your details or continue with social media</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="Login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="create_account">Create Account</string>
+    <string name="new_user">New User?</string>
+    <string name="or_continue_with">-- Or continue with --</string>
+    <string name="find_a_perfect_job_match">Find a Perfect Job Match</string>
+    <string name="finding_your_dream_job_is_more_easire_and_faster_with_jobhub">Finding your dream job is more easire and faster with JobHub</string>
+    <string name="let_s_get_started"><![CDATA[Let\'s get Started ->]]></string>
 </resources>
