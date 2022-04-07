@@ -21,5 +21,6 @@
     <color name="backgroundColorForLayout">#FBFBFB</color>
     <color name="boldTextColor">#1A1D1E</color>
     <color name="smallTextColor">#6A6A6A</color>
+    <color name="Transparent">#00000000</color>
 
 </resources>
