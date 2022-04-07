@@ -2,4 +2,6 @@
     <string name="app_name">Just Work</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register_company">Register Company</string>
+    <string name="fill_details">Fill your details</string>
 </resources>
