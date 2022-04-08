@@ -31,88 +31,52 @@
         android:layout_height="24sp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="140dp"
-        android:text="@string/fill_details"
+        android:text="@string/fill_details_second"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/set_company_name"
+        android:id="@+id/set_company_cvrNo"
         android:layout_width="335sp"
         android:layout_height="54sp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="252dp"
         android:background="@color/colorOnPrimary"
-        android:drawableStart="@drawable/prompt_username"
+        android:drawableStart="@drawable/prompt_cpr"
         android:drawablePadding="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Company Name"
+        android:text="CVR Number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
-        android:id="@+id/set_company_email"
+        android:id="@+id/set_company_headQ_address"
         android:layout_width="335sp"
         android:layout_height="54sp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="330dp"
         android:background="@color/colorOnPrimary"
-        android:drawableStart="@drawable/prompt_email"
+        android:drawableStart="@drawable/prompt_address"
         android:drawablePadding="30dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="Email Address"
+        android:text="Headquarters Address"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <EditText
-        android:id="@+id/set_company_password"
-        android:layout_width="335sp"
-        android:layout_height="54sp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="408dp"
-        android:background="@color/colorOnPrimary"
-        android:drawableStart="@drawable/prompt_password"
-        android:drawablePadding="30dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:text="Email Address"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_company_next"
+        android:id="@+id/button_company_signUp"
         android:layout_width="335dp"
         android:layout_height="54dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="502dp"
-        android:text="Next"
+        android:text="Sign Up"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/already_have_account"
-        style="@style/ordinary_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="596dp"
-        android:text="Already Have an Account?"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/company_log_in"
-        style="@style/bolded_ordinary_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="596dp"
-        android:layout_marginStart="5dp"
-
-        android:text="Log In"
-        app:layout_constraintStart_toEndOf="@+id/already_have_account"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
