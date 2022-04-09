@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".company_home">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/options"
+        app:flow_horizontalAlign="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/company_home_search"
+        style="@style/editTextStyling"
+        android:layout_width="335sp"
+        android:layout_height="54sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="114dp"
+        android:backgroundTint="@color/Transparent"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="321dp"
+        android:layout_marginTop="114dp"
+        android:src="@drawable/search_settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/defaultButton"
+        android:layout_width="335dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="198dp"
+        android:text="POST A JOB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="282dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/recent_jobs_textView"
+            style="@style/fragment_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:text="RECENT JOBS" />
+
+        <TextView
+            android:id="@+id/show_all_jobs_textView"
+            style="@style/ordinary_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="140dp"
+            android:layout_weight="0.2"
+
+            android:text="Show All"
+            app:layout_constraintStart_toStartOf="@+id/recent_jobs_textView"
+
+            />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="409dp"
+        android:layout_height="567dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <ImageView
+        android:id="@+id/dg_logo_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="321dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/dg_jobs_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,7 @@
 
     <TextView
         android:id="@+id/register_company_title"
-        style="@style/fragment_title"
+        style="@style/boldText"
         android:layout_width="283sp"
         android:layout_height="40sp"
         android:layout_marginStart="30dp"
@@ -26,7 +26,7 @@
 
     <TextView
         android:id="@+id/fill_details"
-        style="@style/ordinary_text"
+        style="@style/smallText"
         android:layout_width="229sp"
         android:layout_height="24sp"
         android:layout_marginStart="30dp"
@@ -37,6 +37,7 @@
 
     <EditText
         android:id="@+id/set_company_cvrNo"
+        style="@style/editTextStyling"
         android:layout_width="335sp"
         android:layout_height="54sp"
         android:layout_marginStart="40dp"
@@ -53,6 +54,7 @@
 
     <EditText
         android:id="@+id/set_company_headQ_address"
+        style="@style/editTextStyling"
         android:layout_width="335sp"
         android:layout_height="54sp"
         android:layout_marginStart="40dp"
@@ -70,6 +72,7 @@
 
     <Button
         android:id="@+id/button_company_signUp"
+        style="@style/defaultButton"
         android:layout_width="335dp"
         android:layout_height="54dp"
         android:layout_marginStart="40dp"

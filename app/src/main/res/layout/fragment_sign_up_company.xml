@@ -12,7 +12,7 @@
 
     <TextView
         android:id="@+id/register_company_title"
-        style="@style/fragment_title"
+        style="@style/boldText"
         android:layout_width="283sp"
         android:layout_height="40sp"
         android:layout_marginStart="30dp"
@@ -21,12 +21,13 @@
         android:text="@string/register_company"
         android:viewportWidth="238"
         android:viewportHeight="33"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/fill_details"
-        style="@style/ordinary_text"
+        style="@style/smallText"
         android:layout_width="229sp"
         android:layout_height="24sp"
         android:layout_marginStart="30dp"
@@ -37,6 +38,7 @@
 
     <EditText
         android:id="@+id/set_company_name"
+        style="@style/editTextStyling"
         android:layout_width="335sp"
         android:layout_height="54sp"
         android:layout_marginStart="40dp"
@@ -53,6 +55,8 @@
 
     <EditText
         android:id="@+id/set_company_email"
+        style="@style/editTextStyling"
+
         android:layout_width="335sp"
         android:layout_height="54sp"
         android:layout_marginStart="40dp"
@@ -69,6 +73,7 @@
 
     <EditText
         android:id="@+id/set_company_password"
+        style="@style/editTextStyling"
         android:layout_width="335sp"
         android:layout_height="54sp"
         android:layout_marginStart="40dp"
@@ -88,6 +93,7 @@
         android:layout_height="54dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="502dp"
+        style="@style/defaultButton"
         android:text="Next"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
