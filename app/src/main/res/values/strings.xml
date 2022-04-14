@@ -31,4 +31,7 @@
     <string name="search_salary">Salary</string>
     <string name="search_company_address">Address</string>
     <string name="search_post_time">Post Time</string>
+    <string name="employee_home_popularJobs">Popular Jobs</string>
+    <string name="employee_homeShowAll">Show All</string>
+    <string name="employee_homeRecentPosts">Recent Posts</string>
 </resources>

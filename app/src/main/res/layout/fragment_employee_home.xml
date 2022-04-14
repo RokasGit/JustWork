@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmployeeHomeFragment">
+
+    <EditText
+        android:id="@+id/employee_homeSearchText"
+        style="@style/editTextStyling"
+        android:autofillHints="job"
+        android:hint="@string/search_string"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/employee_homeSearchFilter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/employee_homeSearchFilter"
+        style="@style/defaultButton"
+        android:drawableTop="@drawable/search_filter"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/popularJobs"
+        style="@style/boldText"
+        android:text="@string/employee_home_popularJobs"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/employee_homeShowAllPopular"
+        app:layout_constraintEnd_toStartOf="@+id/employee_homeShowAllPopular"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/employee_homeShowAllPopular"
+        style="@style/smallText"
+        android:gravity="end"
+        android:text="@string/employee_homeShowAll"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employee_homeSearchFilter" />
+<!--    This has to be a horizontal recycler view-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/employee_homeRecyclerPopular"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popularJobs" />
+
+    <TextView
+        android:id="@+id/recentPosts"
+        style="@style/boldText"
+        android:text="@string/employee_homeRecentPosts"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employee_homeRecyclerPopular"
+        app:layout_constraintBaseline_toBaselineOf="@+id/employee_homeShowAllRecent"
+        app:layout_constraintEnd_toStartOf="@+id/employee_homeShowAllRecent"/>
+    <TextView
+        android:id="@+id/employee_homeShowAllRecent"
+        style="@style/smallText"
+        android:gravity="end"
+        android:text="@string/employee_homeShowAll"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employee_homeRecyclerPopular" />
+<!--    Vertical-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/employee_homeRecyclerRecent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recentPosts" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
