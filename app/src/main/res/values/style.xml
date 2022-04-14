@@ -4,7 +4,7 @@
     <style name="editTextStyling">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">50dp</item>
-        <item name="android:background">@drawable/edittext_roundcorners</item>
+        <item name="android:background">@drawable/white_roundcorners</item>
         <item name="android:layout_marginTop">30dp</item>
         <item name="android:layout_marginStart">20dp</item>
         <item name="android:layout_marginEnd">20dp</item>
@@ -33,7 +33,18 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:textColor">@color/colorOnPrimary</item>
-        <item name="android:background">@drawable/button_roundcorners</item>
+        <item name="android:background">@drawable/green_roundcorners</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="defaultButtonNotActive">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">@color/smallTextColor</item>
+        <item name="android:background">@drawable/grey_roundcorners</item>
         <item name="android:layout_marginTop">40dp</item>
         <item name="android:layout_marginStart">20dp</item>
         <item name="android:layout_marginEnd">20dp</item>

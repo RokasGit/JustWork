@@ -22,4 +22,13 @@
     <string name="splash_findPerfectTextView">Find a Perfect Job Match</string>
     <string name="splash_finding_job_slogan">Finding a part-time job was never easier with JustWork</string>
     <string name="splash_button_text">Let\'s get Started</string>
+    <string name="search_string">Search</string>
+    <string name="search_Job_Opportunities">0 Job opportunities</string>
+    <string name="search_most_relevant">Most Relevant</string>
+    <string name="search_most_recent">Most Recent</string>
+    <string name="search_company_name">Company Name</string>
+    <string name="search_job_title">Job title</string>
+    <string name="search_salary">Salary</string>
+    <string name="search_company_address">Address</string>
+    <string name="search_post_time">Post Time</string>
 </resources>
