@@ -9,15 +9,9 @@
 
     <TextView
         android:id="@+id/Login_Fill_Details"
-        android:layout_width="0dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="20dp"
+        style="@style/smallText"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="100dp"
         android:text="@string/fill_your_details_or_continue_with_social_media"
-        android:textColor="@color/smallTextColor"
-        android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,15 +19,10 @@
 
     <TextView
         android:id="@+id/Login_Welcome_back"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="150dp"
-        android:text="@string/welcome_back"
+        style="@style/boldText"
+        android:text="Welcome Back !"
         android:textColor="@color/boldTextColor"
-        android:textSize="30sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.196"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,53 +30,40 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="20dp"
+        style="@style/defaultButton"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/Login"
+        android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Login_editTextTextPassword" />
 
     <TextView
         android:id="@+id/Login_textView3_ForgotPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/smallText"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/forgot_password"
+        android:text="Forgot Password"
+        android:textSize="13sp"
         android:textColor="@color/smallTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Login_editTextTextPassword" />
 
     <EditText
         android:id="@+id/Login_editTextTextPersonName"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/colorOnPrimary"
+        style="@style/editTextStyling"
+        android:autofillHints="emailAddress"
         android:drawableStart="@drawable/prompt_email"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:hint="@string/signup_employeeEmail"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/Login_Fill_Details" />
 
     <EditText
         android:id="@+id/Login_editTextTextPassword"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/colorOnPrimary"
+        style="@style/editTextStyling"
+        android:autofillHints="password"
         android:drawableStart="@drawable/prompt_password"
-        android:ems="10"
+        android:hint="@string/employee_signupPassword"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,25 +71,20 @@
 
     <TextView
         android:id="@+id/Login_textView4_CreateAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="148dp"
-        android:text="@string/create_account"
+        style="@style/smallText"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="52dp"
+        android:text="Create Account"
         android:textColor="@color/boldTextColor"
-        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/Login_textView3_NewUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        style="@style/smallText"
         android:text="@string/new_user"
         android:textColor="@color/smallTextColor"
-        android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/Login_textView4_CreateAccount"
         app:layout_constraintEnd_toStartOf="@+id/Login_textView4_CreateAccount" />
 
@@ -121,30 +92,31 @@
         android:id="@+id/Login_imageView2_google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
         android:src="@drawable/image_google"
-        app:layout_constraintStart_toStartOf="@+id/Login_textView4_continue"
+        app:layout_constraintEnd_toStartOf="@+id/Login_imageView3_fb"
+        app:layout_constraintHorizontal_bias="0.668"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Login_textView4_continue" />
 
     <ImageView
         android:id="@+id/Login_imageView3_fb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="116dp"
         android:src="@drawable/image_facebook"
-        app:layout_constraintEnd_toEndOf="@+id/Login_textView4_continue"
-        app:layout_constraintStart_toEndOf="@+id/Login_imageView2_google"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Login_textView4_continue" />
 
     <TextView
         android:id="@+id/Login_textView4_continue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/smallText"
         android:layout_marginTop="40dp"
-        android:text="@string/or_continue_with"
+        android:text="-- Or continue with --"
+        android:textSize="20sp"
+        android:textAlignment="center"
         android:textColor="@color/smallTextColor"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
