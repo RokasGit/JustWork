@@ -10,89 +10,81 @@
 
     <ImageView
         android:id="@+id/splash_logo"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        style="@style/defaultLogo"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/justwork_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/splash_perfectJobTextView"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Find a Perfect Job Match"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        style="@style/boldText"
+        android:textSize="44sp"
+        android:text="@string/splash_findPerfectTextView"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/splash_humanImageView" />
 
     <TextView
         android:id="@+id/splash_perfectJobTextView2"
-        android:layout_width="274dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="32dp"
-        android:text="Finding your dream job is more easire and faster with JobHub"
-        android:textAlignment="center"
-        android:textColor="#8E8E8E"
-        android:textSize="16sp"
+        style="@style/smallText"
+        android:gravity="center"
+        android:text="@string/splash_finding_job_slogan"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/splash_perfectJobTextView"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="@+id/splash_perfectJobTextView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/splash_perfectJobTextView" />
 
     <Button
         android:id="@+id/splash_button"
-        android:layout_width="256dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="48dp"
-        android:text="Let's get Started ->"
+        style="@style/defaultButton"
+        android:text="@string/splash_button_text"
+        android:layout_marginBottom="60dp"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:drawableEnd="@drawable/splash_rightarrow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/splash_humanImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="220dp"
+        android:layout_height="270dp"
         android:layout_marginTop="148dp"
+
         android:src="@drawable/splash_human"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/splash_chartImageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="140dp"
+        style="@style/defaultLogo"
+        android:layout_width="65dp"
         android:src="@drawable/splash_chart"
+        app:layout_constraintEnd_toStartOf="@+id/splash_gageImageView4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/splash_boxImageView3" />
 
     <ImageView
         android:id="@+id/splash_boxImageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="192dp"
+        style="@style/defaultLogo"
         android:layout_marginTop="84dp"
+        android:layout_marginStart="30dp"
         android:src="@drawable/splash_box"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/splash_gageImageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginTop="84dp"
         android:layout_marginEnd="36dp"
         android:src="@drawable/splash_gage"

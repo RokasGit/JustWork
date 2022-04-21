@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColorForLayout"
+    tools:context=".SearchFragment">
+
+    <EditText
+        android:id="@+id/search_searchText"
+        style="@style/editTextStyling"
+        android:autofillHints="job"
+        android:hint="@string/search_string"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/search_filter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/search_filter"
+        style="@style/defaultButton"
+        android:drawableTop="@drawable/search_filter"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/search_jobOpportunities"
+        style="@style/smallText"
+        android:text="@string/search_Job_Opportunities"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_searchText" />
+
+    <Button
+        android:id="@+id/search_mostRelevant"
+        style="@style/defaultButton"
+        android:text="@string/search_most_relevant"
+        app:layout_constraintBaseline_toBaselineOf="@+id/search_mostRecent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/search_mostRecent"
+        style="@style/defaultButtonNotActive"
+        android:text="@string/search_most_recent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/search_mostRelevant"
+        app:layout_constraintTop_toBottomOf="@+id/search_jobOpportunities" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_resultListView"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_mostRelevant" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
