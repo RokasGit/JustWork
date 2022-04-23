@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_edit_profile">
+
+    <fragment
+        android:id="@+id/nav_edit_profile"
+        android:name="com.example.justwork.EmployeeHomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_employee_home" />
+
+    <fragment
+        android:id="@+id/nav_notification_settings"
+        android:name="com.example.justwork.SearchFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/nav_applications"
+        android:name="com.example.justwork.UserApplicationsFragment"
+        android:label="fragment_user_applications"
+        tools:layout="@layout/fragment_user_applications" />
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.example.justwork.SplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" />
+</navigation>
