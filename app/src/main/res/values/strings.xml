@@ -49,7 +49,6 @@
     <string name="post_a_job_job_create">Job Create</string>
     <string name="job_title">Job Title</string>
     <string name="job_location">Location</string>
-    <string name="job_type">Job Type</string>
     <string name="job_description">Description</string>
     <string name="job_salary">Salary</string>
     <string name="search_string">Search</string>
