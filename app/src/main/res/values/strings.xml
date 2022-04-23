@@ -66,6 +66,9 @@
     <string name="rv_jobApplicantPosition">Applied position</string>
     <string name="rv_job_applicantName">Job Applicant Name</string>
     <string name="rv_applicant_applicationTime">Application time</string>
+    <string name="fill_your_details_or_continue_with_social_media">Fill your details or continue with social media</string>
+    <string name="login">Login</string>
+    <string name="new_user">new user ?</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="name_profile">Name</string>
     <string name="email_Profile">Email</string>
