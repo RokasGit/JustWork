@@ -19,6 +19,14 @@
     <string name="job_details_company">Company</string>
     <string name="job_details_reviews">Reviews</string>
     <string name="job_details_apply_now">Apply Now</string>
+    <string name="job_apply_fisrt_name">First Name</string>
+    <string name="job_apply_last_name">Last Name</string>
+    <string name="job_apply_your_email">Your Email</string>
+    <string name="job_apply_country">Country</string>
+    <string name="job_apply_message">Message</string>
+    <string name="job_apply_CV">CV</string>
+    <string name="job_apply_upload_here">Upload Here</string>
+
 
 
     <string name="signup_employeeUsername">Username</string>
