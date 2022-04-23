@@ -27,6 +27,7 @@
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/splash_human.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/splash_rightarrow.xml" value="0.129" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_company_home.xml" value="0.264" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_employee_home.xml" value="0.2" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_job_applications.xml" value="0.259375" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_job_apply.xml" value="0.4" />
@@ -34,9 +35,23 @@
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_signup_employee.xml" value="0.2" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_signup_employee_additional_details.xml" value="0.264" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_splash_screen.xml" value="0.264" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_user_applications.xml" value="0.1" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_view__job__applicant.xml" value="0.264" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/job_item.xml" value="0.536" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/rv_job_applicant.xml" value="0.259375" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/layout/rv_job_item.xml" value="0.264" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWorka/app/src/main/res/drawable/menu_notification_settings.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWorka/app/src/main/res/drawable/side_nav_bar.xml" value="0.127" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWorka/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWorka/app/src/main/res/layout/app_bar_main.xml" value="0.11614583333333334" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWorka/app/src/main/res/layout/content_main.xml" value="0.11614583333333334" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWorka/app/src/main/res/layout/fragment_job_apply_form.xml" value="0.2" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWorka/app/src/main/res/layout/fragment_post_a_job.xml" value="0.176" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWorka/app/src/main/res/layout/fragment_post_a_job_second.xml" value="0.176" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWorka/app/src/main/res/layout/fragment_slideshow.xml" value="0.11614583333333334" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWorka/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWorka/app/src/main/res/menu/activity_main_drawer.xml" value="0.536" />
+        <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWorka/app/src/main/res/menu/main.xml" value="0.11614583333333334" />
       </map>
     </option>
   </component>
