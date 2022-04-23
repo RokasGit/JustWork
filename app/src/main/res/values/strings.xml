@@ -37,4 +37,5 @@
     <string name="rv_jobApplicantPosition">Applied position</string>
     <string name="rv_job_applicantName">Job Applicant Name</string>
     <string name="rv_applicant_applicationTime">Application time</string>
+    <string name="your_applications">Your Applications</string>
 </resources>
