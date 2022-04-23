@@ -38,4 +38,18 @@
     <string name="rv_job_applicantName">Job Applicant Name</string>
     <string name="rv_applicant_applicationTime">Application time</string>
     <string name="your_applications">Your Applications</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Full name</string>
+    <string name="nav_header_subtitle">email.email@email.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_notification_settings">Notification Settings</string>
+    <string name="menu_applications">Applications (0)</string>
+    <string name="menu_edit_profile">Edit Profile</string>
 </resources>
