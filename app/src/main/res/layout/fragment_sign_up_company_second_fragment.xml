@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColorForLayout"
+        tools:context=".signUpCompany">
+
+        <!-- TODO: Update blank fragment layout -->
+
+
+        <TextView
+            android:id="@+id/register_company_title"
+            style="@style/boldText"
+            android:layout_marginTop="20dp"
+            android:text="@string/register_company"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fill_details"
+            style="@style/smallText"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/fill_details_second"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/register_company_title" />
+
+        <EditText
+            android:id="@+id/set_company_cvrNo"
+            style="@style/editTextStyling"
+            android:layout_marginTop="40dp"
+            android:drawableStart="@drawable/prompt_cpr"
+            android:drawablePadding="30dp"
+            android:inputType="textPersonName"
+            android:text="CVR Number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fill_details" />
+
+
+        <EditText
+            android:id="@+id/set_company_headQ_address"
+            style="@style/editTextStyling"
+            android:layout_marginTop="40dp"
+            android:drawableStart="@drawable/prompt_address"
+            android:drawablePadding="30dp"
+            android:inputType="textEmailAddress"
+            android:text="Headquarters Address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/set_company_cvrNo" />
+
+
+        <Button
+            android:id="@+id/button_company_signUp"
+            style="@style/defaultButton"
+            android:layout_marginTop="50dp"
+            android:text="Sign Up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/set_company_headQ_address" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
