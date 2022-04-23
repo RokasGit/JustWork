@@ -5,9 +5,15 @@
     <string name="register_company">Register Company</string>
     <string name="fill_details">Fill your details</string>
     <string name="fill_details_second">Fill your company data</string>
-    <string name="log_in">Log In
+    <string name="company_log_in">Already Have an Account? Log in</string>
+    <string name="date">Date</string>
+    <string name="start_time">Shift start time:</string>
+    <string name="end_time">Shift ends:</string>
+    <string name="contact_person">Contact Person</string>
+    <string name="required_employees">Requiered Employees</string>
 
-    </string>
+
+
     <string name="signup_employeeUsername">Username</string>
     <string name="signup_employeeEmail">Email Address</string>
     <string name="employee_signupPassword">Password</string>
@@ -28,6 +34,13 @@
     <string name="splash_findPerfectTextView">Find a Perfect Job Match</string>
     <string name="splash_finding_job_slogan">Finding a part-time job was never easier with JustWork</string>
     <string name="splash_button_text">Let\'s get Started</string>
+    <string name="post_a_job_job_create">Job Create</string>
+    <string name="job_title">Job Title</string>
+    <string name="job_location">Location</string>
+    <string name="job_type">Job Type</string>
+    <string name="job_description">Description</string>
+    <string name="job_salary">Salary</string>
+
     <string name="search_string">Search</string>
     <string name="search_Job_Opportunities">0 Job opportunities</string>
     <string name="search_most_relevant">Most Relevant</string>

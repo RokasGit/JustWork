@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColorForLayout"
-    tools:context=".sign_up_company">
+    tools:context=".signUpCompany">
 
     <!-- TODO: Update blank fragment layout -->
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
 
     <TextView
         android:id="@+id/register_company_title"
         style="@style/boldText"
         android:layout_width="283sp"
         android:layout_height="40sp"
-        android:layout_marginStart="30dp"
-
-        android:layout_marginTop="100dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="0dp"
         android:text="@string/register_company"
         android:viewportWidth="238"
         android:viewportHeight="33"
@@ -28,21 +36,22 @@
     <TextView
         android:id="@+id/fill_details"
         style="@style/smallText"
-        android:layout_width="229sp"
-        android:layout_height="24sp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="140dp"
+        android:layout_width="283sp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="20dp"
         android:text="@string/fill_details"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <EditText
         android:id="@+id/set_company_name"
         style="@style/editTextStyling"
         android:layout_width="335sp"
         android:layout_height="54sp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="252dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="78dp"
         android:background="@color/colorOnPrimary"
         android:drawableStart="@drawable/prompt_username"
         android:drawablePadding="30dp"
@@ -59,8 +68,8 @@
 
         android:layout_width="335sp"
         android:layout_height="54sp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="330dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
         android:background="@color/colorOnPrimary"
         android:drawableStart="@drawable/prompt_email"
         android:drawablePadding="30dp"
@@ -76,8 +85,8 @@
         style="@style/editTextStyling"
         android:layout_width="335sp"
         android:layout_height="54sp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="408dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
         android:background="@color/colorOnPrimary"
         android:drawableStart="@drawable/prompt_password"
         android:drawablePadding="30dp"
@@ -91,8 +100,8 @@
         android:id="@+id/button_company_next"
         android:layout_width="335dp"
         android:layout_height="54dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="502dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="94dp"
         style="@style/defaultButton"
         android:text="Next"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,22 +112,12 @@
         style="@style/ordinary_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="596dp"
-        android:text="Already Have an Account?"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="94dp"
+        android:text="@string/company_log_in"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/company_log_in"
-        style="@style/bolded_ordinary_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="596dp"
-        android:layout_marginStart="5dp"
-
-        android:text="Log In"
-        app:layout_constraintStart_toEndOf="@+id/already_have_account"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
