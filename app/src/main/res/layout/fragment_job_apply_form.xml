@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".job_apply_form">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/job_apply_first_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:gravity="start"
+        android:text="@string/job_apply_fisrt_name"
+        app:layout_constraintEnd_toStartOf="@+id/job_apply_last_name"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/job_apply_last_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/job_apply_last_name"
+        app:layout_constraintBottom_toBottomOf="@+id/job_apply_first_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/job_apply_first_name"
+        app:layout_constraintTop_toTopOf="@+id/job_apply_first_name" />
+
+    <EditText
+        android:id="@+id/job_apply_first_name_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/white_roundcorners"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="@string/job_apply_fisrt_name"
+        app:layout_constraintEnd_toStartOf="@+id/job_apply_last_name_edit_text"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/job_apply_first_name" />
+
+    <EditText
+        android:id="@+id/job_apply_last_name_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
+        android:background="@drawable/white_roundcorners"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="@string/job_apply_last_name"
+        app:layout_constraintBottom_toBottomOf="@+id/job_apply_first_name_edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/job_apply_first_name_edit_text"
+        app:layout_constraintTop_toTopOf="@+id/job_apply_first_name_edit_text" />
+
+    <TextView
+        android:id="@+id/job_apply_your_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="start"
+        android:text="@string/job_apply_your_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/job_apply_first_name_edit_text" />
+
+    <EditText
+        android:id="@+id/job_apply_applicants_email"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/white_roundcorners"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textEmailAddress"
+        android:text="@string/job_apply_your_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/job_apply_your_email" />
+
+    <TextView
+        android:id="@+id/job_apply_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/job_apply_country"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/job_apply_applicants_email" />
+
+    <Spinner
+        android:id="@+id/spinner_countries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:prompt="Denmark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/job_apply_country" />
+
+    <TextView
+        android:id="@+id/job_apply_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/job_apply_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_countries" />
+
+    <EditText
+        android:id="@+id/job_apply_application_message"
+        android:background="@drawable/white_roundcorners"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/job_apply_message" />
+
+    <TextView
+        android:id="@+id/job_apply_cv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/job_apply_CV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/job_apply_application_message" />
+
+    <Button
+        android:id="@+id/job_apply_upload_cv_btn"
+        android:layout_marginTop="30dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_job_apply_upload_cv"
+        android:text="@string/job_apply_upload_here"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/job_apply_cv" />
+
+    <Button
+        android:id="@+id/button3"
+        style="@style/defaultButton"
+        android:layout_marginTop="30dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/job_details_apply_now"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/job_apply_upload_cv_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
