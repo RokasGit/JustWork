@@ -94,4 +94,13 @@
     <string name="menu_notification_settings">Notification Settings</string>
     <string name="menu_applications">Applications (0)</string>
     <string name="menu_edit_profile">Edit Profile</string>
+    <string name="prompt_Job_Title">Job title</string>
+    <string name="job_post_location">Job Location</string>
+    <string name="job_type">Job Type</string>
+    <string name="job_post_salary">Salary dkk/h</string>
+    <string name="description">Description</string>
+    <string name="message_hint">Interesting information about you. Can be left empty</string>
+    <string name="time_format">Time (hh:mm)</string>
+    <string name="required_employees_hint">Required amount of employees</string>
+    <string name="job_post_now">Post Now</string>
 </resources>
