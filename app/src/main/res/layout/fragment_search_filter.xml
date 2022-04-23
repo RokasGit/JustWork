@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".search_filter">
+
+
+    <TextView
+        android:id="@+id/search_filter_Category"
+        style="@style/boldText"
+        android:layout_marginTop="16dp"
+        android:text="@string/category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_category"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_filter_Category" />
+
+
+    <TextView
+        android:id="@+id/search_filter_SubCategory"
+        style="@style/boldText"
+        android:layout_marginTop="24dp"
+        android:text="@string/sub_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_category" />
+
+    <Spinner
+        android:id="@+id/spinner_SubCategory"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_filter_SubCategory" />
+
+
+    <TextView
+        android:id="@+id/search_filter_Location"
+        style="@style/boldText"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/location"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_SubCategory" />
+
+    <TextView
+        android:id="@+id/search_filter_Salary"
+        style="@style/boldText"
+        android:layout_marginEnd="20dp"
+        android:text="@string/salary"
+        app:layout_constraintBaseline_toBaselineOf="@+id/search_filter_Location"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <TextView
+        android:id="@+id/search_filter_JobType"
+        style="@style/boldText"
+        android:layout_marginTop="24dp"
+        android:text="@string/job_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_Location" />
+
+    <RadioGroup
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_filter_JobType">
+
+        <RadioButton
+            android:id="@+id/radioButton_FullTime"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/full_time" />
+
+        <RadioButton
+            android:id="@+id/radioButton_PartTime"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/part_time" />
+
+        <RadioButton
+            android:id="@+id/radioButton_Temporary"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/temporary" />
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/spinner_Location"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spinner_Salary"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_filter_Location" />
+
+    <Spinner
+        android:id="@+id/spinner_Salary"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/spinner_Location"
+        app:layout_constraintTop_toBottomOf="@+id/search_filter_Salary" />
+
+    <Button
+        android:id="@+id/search_filter_button_apply"
+        style="@style/defaultButton"
+        android:layout_marginBottom="32dp"
+        android:text="@string/apply_filters"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

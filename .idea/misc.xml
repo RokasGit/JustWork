@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Nick/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_employee__profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nick/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_search_filter.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/button_roundcorners.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/button_roundcorners_notactive.xml" value="0.129" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/edittext_roundcorners.xml" value="0.129" />
