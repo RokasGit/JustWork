@@ -96,7 +96,6 @@
     <string name="menu_edit_profile">Edit Profile</string>
     <string name="prompt_Job_Title">Job title</string>
     <string name="job_post_location">Job Location</string>
-    <string name="job_type">Job Type</string>
     <string name="job_post_salary">Salary dkk/h</string>
     <string name="description">Description</string>
     <string name="message_hint">Interesting information about you. Can be left empty</string>
