@@ -6,13 +6,15 @@ public class Company {
     private String name;
     private String password;
     private String address;
+    private String logo;
 
-    public Company(int cvr, String email, String name, String password, String address) {
+    public Company(int cvr, String email, String name, String password, String address, String logo) {
         this.cvr = cvr;
         this.email = email;
         this.name = name;
         this.password = password;
         this.address = address;
+        this.logo = logo;
     }
 
     public int getCvr() {
@@ -53,5 +55,13 @@ public class Company {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 }
