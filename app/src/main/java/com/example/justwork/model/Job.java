@@ -1,5 +1,12 @@
 package com.example.justwork.model;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import java.time.DateTimeException;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 
 public class Job {
@@ -49,8 +56,20 @@ public class Job {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public boolean setDate(Date date) {
+        Date dateNow = new Date();
+        if(date.getTime()>= dateNow.getTime()){
+            this.date = date;
+            return  true;
+        }
+        else{
+            try {
+                throw new Exception("Date must be in the future!");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return  false;
     }
 
     public String getDescription() {
@@ -90,7 +109,15 @@ public class Job {
     }
 
     public void setTakenStatus(boolean takenStatus) {
-        this.takenStatus = takenStatus;
+        if(this.getAmountOfNeededWorkers()==0){
+            takenStatus = true;
+            this.takenStatus = takenStatus;
+        }
+        else if (this.getAmountOfNeededWorkers()>0){
+            takenStatus = false;
+            this.takenStatus = takenStatus;
+        }
+
     }
 
     public String getTitle() {
@@ -105,15 +132,37 @@ public class Job {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public boolean setStartTime(Date startTime) {
+        if (startTime.getTime()<endTime.getTime()){
+            this.startTime = startTime;
+            return true;
+        }
+        else{
+            try {
+                throw new Exception("Start time must be earlier than end time");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return false;
+        }
     }
 
     public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public boolean setEndTime(Date endTime) {
+        if (endTime.getTime()>startTime.getTime()){
+            this.endTime = endTime;
+            return true;
+        }
+        else{
+            try {
+                throw new Exception("End time must be later than start time");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return false;
+        }
     }
 }
