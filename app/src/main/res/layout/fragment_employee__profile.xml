@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColorForLayout"
-    tools:context=".Employee_Profile">
+    tools:context=".view.Employee_Profile">
 
     <ImageView
         android:id="@+id/imageView2"

@@ -1,4 +1,4 @@
-package com.example.justwork;
+package com.example.justwork.view;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.justwork.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link UserApplicationsFragment#newInstance} factory method to
+ * Use the {@link job_apply_form#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UserApplicationsFragment extends Fragment {
+public class job_apply_form extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class UserApplicationsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public UserApplicationsFragment() {
+    public job_apply_form() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class UserApplicationsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment UserApplicationsFragment.
+     * @return A new instance of fragment job_apply_form.
      */
     // TODO: Rename and change types and number of parameters
-    public static UserApplicationsFragment newInstance(String param1, String param2) {
-        UserApplicationsFragment fragment = new UserApplicationsFragment();
+    public static job_apply_form newInstance(String param1, String param2) {
+        job_apply_form fragment = new job_apply_form();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class UserApplicationsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_applications, container, false);
+        return inflater.inflate(R.layout.fragment_job_apply_form, container, false);
     }
 }

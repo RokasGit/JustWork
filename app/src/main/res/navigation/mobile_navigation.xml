@@ -7,23 +7,23 @@
 
     <fragment
         android:id="@+id/nav_edit_profile"
-        android:name="com.example.justwork.Employee_Profile"
+        android:name="com.example.justwork.view.Employee_Profile"
         android:label="@string/menu_edit_profile"
         tools:layout="@layout/fragment_employee__profile" />
 
     <fragment
         android:id="@+id/nav_notification_settings"
-        android:name="com.example.justwork.NotificationWindow"
+        android:name="com.example.justwork.view.NotificationWindow"
         android:label="@string/menu_notification_settings"
         tools:layout="@layout/fragment_notification_window" />
     <fragment
         android:id="@+id/nav_applications"
-        android:name="com.example.justwork.UserApplicationsFragment"
+        android:name="com.example.justwork.view.UserApplicationsFragment"
         android:label="@string/menu_applications"
         tools:layout="@layout/fragment_user_applications" />
     <fragment
         android:id="@+id/splashScreen"
-        android:name="com.example.justwork.SplashScreen"
+        android:name="com.example.justwork.view.SplashScreen"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" />
 </navigation>
