@@ -11,10 +11,10 @@ public class User {
     private String address;
     private String gender;
     private String nationality;
-    private byte[] picture;
+    private String picture;
     private DrivingLicenceList drivingLicences;
 
-    public User(int cpr, String userName, String email, String password, int phoneNumber, String address, String gender, String nationality, byte[] picture) {
+    public User(int cpr, String userName, String email, String password, int phoneNumber, String address, String gender, String nationality, String picture) {
         this.cpr = cpr;
         this.userName = userName;
         this.email = email;
@@ -91,11 +91,11 @@ public class User {
         this.nationality = nationality;
     }
 
-    public byte[] getPicture() {
+    public String getPicture() {
         return picture;
     }
 
-    public void setPicture(byte[] picture) {
+    public void setPicture(String picture) {
         this.picture = picture;
     }
 
