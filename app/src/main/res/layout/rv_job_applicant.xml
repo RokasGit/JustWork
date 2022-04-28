@@ -6,7 +6,7 @@
     android:background="@drawable/white_roundcorners">
 
     <ImageView
-        android:id="@+id/applicant_image"
+        android:id="@+id/search_applicant_image"
         android:layout_width="50dp"
         android:src="@drawable/no_logo"
         android:layout_height="50dp"
@@ -15,48 +15,48 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/search_companyName"
+        android:id="@+id/search_applicant_companyName"
         style="@style/smallText"
         android:text="@string/rv_jobApplicantPosition"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/applicant_image"
+        app:layout_constraintStart_toEndOf="@+id/search_applicant_image"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/search_jobTitle"
+        android:id="@+id/search_applicant_jobTitle"
         style="@style/boldText"
         android:text="@string/rv_job_applicantName"
         android:textSize="20sp"
         android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/applicant_image"
-        app:layout_constraintTop_toBottomOf="@+id/search_companyName" />
+        app:layout_constraintStart_toEndOf="@+id/search_applicant_image"
+        app:layout_constraintTop_toBottomOf="@+id/search_applicant_companyName" />
 
     <TextView
-        android:id="@+id/search_salary"
+        android:id="@+id/search_applicant_salary"
         style="@style/smallText"
         android:layout_marginTop="0dp"
         android:textSize="16sp"
         android:text="@string/search_salary"
-        app:layout_constraintStart_toEndOf="@+id/applicant_image"
-        app:layout_constraintTop_toBottomOf="@+id/search_jobTitle" />
+        app:layout_constraintStart_toEndOf="@+id/search_applicant_image"
+        app:layout_constraintTop_toBottomOf="@+id/search_applicant_jobTitle" />
 
     <TextView
-        android:id="@+id/search_companyAddress"
+        android:id="@+id/search_applicant_companyAddress"
         style="@style/smallText"
         android:text="@string/search_company_address"
         android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/search_salary"
-        app:layout_constraintEnd_toStartOf="@+id/search_postTime"
-        app:layout_constraintStart_toEndOf="@+id/search_salary" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/search_applicant_salary"
+        app:layout_constraintEnd_toStartOf="@+id/search_applicant_postTime"
+        app:layout_constraintStart_toEndOf="@+id/search_applicant_salary" />
 
     <TextView
-        android:id="@+id/search_postTime"
+        android:id="@+id/search_applicant_postTime"
         style="@style/smallText"
         android:text="@string/rv_applicant_applicationTime"
         android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/search_companyAddress"
+        app:layout_constraintBaseline_toBaselineOf="@+id/search_applicant_companyAddress"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
