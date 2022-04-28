@@ -1,6 +1,6 @@
 package com.example.justwork.model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class User {
     private int cpr;
@@ -13,6 +13,7 @@ public class User {
     private String nationality;
     private byte[] picture;
     private DrivingLicenceList drivingLicences;
+    private ArrayList<JobApplication> jobApplications;
 
     public User(int cpr, String userName, String email, String password, int phoneNumber, String address, String gender, String nationality, byte[] picture) {
         this.cpr = cpr;
@@ -25,6 +26,7 @@ public class User {
         this.nationality = nationality;
         this.picture = picture;
         this.drivingLicences = new DrivingLicenceList();
+        jobApplications = new ArrayList<>();
     }
 
     public int getCpr() {
@@ -105,6 +107,17 @@ public class User {
 
     public void setDrivingLicences(DrivingLicenceList drivingLicences) {
         this.drivingLicences = drivingLicences;
+    }
+
+    public ArrayList<JobApplication> getJobApplications() {
+        return jobApplications;
+    }
+
+    public void addJobApplication(Job job, String status){
+        JobApplication toAdd = new JobApplication(job.getId(), job.getSalary(), job.getDate(), job.getDescription(),
+                job.getLocation(), job.getContactInfo(), job.getAmountOfNeededWorkers(), job.isTakenStatus(), job.getTitle(), job.getStartTime(),
+                job.getEndTime(), job.getJobType(), job.getCompanyName(), status);
+        jobApplications.add(toAdd);
     }
 }
 

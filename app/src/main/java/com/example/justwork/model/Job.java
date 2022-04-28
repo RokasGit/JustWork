@@ -12,10 +12,13 @@ public class Job {
     private int amountOfNeededWorkers;
     private boolean takenStatus;
     private String title;
+    private String companyName;
+    private String jobType;
     private Date startTime;
     private Date endTime;
 
-    public Job(int id, double salary, Date date, String description, String location, String contactInfo, int amountOfNeededWorkers, boolean takenStatus, String title, Date startTime, Date endTime) {
+    public Job(int id, double salary, Date date, String description, String location, String contactInfo,
+               int amountOfNeededWorkers, boolean takenStatus, String title, Date startTime, Date endTime, String jobType, String companyName) {
         this.id = id;
         this.salary = salary;
         this.date = date;
@@ -27,6 +30,8 @@ public class Job {
         this.title = title;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.jobType = jobType;
+        this.companyName = companyName;
     }
 
     public int getId() {
@@ -115,5 +120,21 @@ public class Job {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public String getJobType() {
+        return jobType;
+    }
+
+    public void setJobType(String jobType) {
+        this.jobType = jobType;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }
