@@ -16,7 +16,7 @@ public class JobTest extends TestCase {
 
     @BeforeAll
     public void setUp() throws ParseException {
-        testJob = new Job(1212, 124.5, new Date(), "description", "Brabrand", "Call this number: +4552681029", 23, false, "Unloading Containers", new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse("2022-04-28 07:00:00"), new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse("2022-04-28 15:00:00"));
+        testJob = new Job(1212, 124.5, new Date(), "description", "Brabrand", "Call this number: +4552681029", 23, false, "Unloading Containers", new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse("2022-04-28 07:00:00"), new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse("2022-04-28 15:00:00"), null, null);
     }
 
     @Test

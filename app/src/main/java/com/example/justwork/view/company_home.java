@@ -24,6 +24,7 @@ import com.example.justwork.viewmodel.CompanyViewModel;
 public class company_home extends Fragment {
 
     private CompanyViewModel viewModel;
+    private View view;
 
     EditText searchBar;
     ImageView menuButton;
@@ -35,20 +36,16 @@ public class company_home extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_company_home, container, false);
-    }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+        view = inflater.inflate(R.layout.fragment_company_home, container, false);
         viewModel = new ViewModelProvider(this).get(CompanyViewModel.class);
-        searchBar = (EditText) getView().findViewById(R.id.company_home_search);
-        menuButton = (ImageView) getView().findViewById(R.id.Company_home_imageView);
-        companyLogo = (ImageView) getView().findViewById(R.id.company_home_company_logo_img);
-        filterOptions = (ImageView) getView().findViewById(R.id.company_home_imageView2);
-        postAJob = (Button) getView().findViewById(R.id.company_home_button_postJob);
-        JobRecyclerView = (RecyclerView) getView().findViewById(R.id.company_home_Recycler);
+
+        searchBar = view.findViewById(R.id.company_home_search);
+        menuButton = view.findViewById(R.id.Company_home_imageView);
+        companyLogo = view.findViewById(R.id.company_home_company_logo_img);
+        filterOptions = view.findViewById(R.id.company_home_imageView2);
+        postAJob = view.findViewById(R.id.company_home_button_postJob);
+        JobRecyclerView = view.findViewById(R.id.company_home_Recycler);
 
         jobAdapter = new JobAdapter(viewModel.getJobPostings());
 
@@ -57,17 +54,19 @@ public class company_home extends Fragment {
         });
 
         JobRecyclerView.setAdapter(jobAdapter);
+
+        return view;
     }
 
-    public void filterOptions(View view){
+    public void filterOptions(View v){
 
     }
 
-    public void PostAJob(View view){
+    public void PostAJob(View v){
 
     }
 
-    public void MenuButton(View view){
+    public void MenuButton(View v){
 
     }
 
