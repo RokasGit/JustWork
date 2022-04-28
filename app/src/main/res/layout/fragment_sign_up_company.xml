@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColorForLayout"
-    tools:context=".signUpCompany">
+    tools:context=".view.signUpCompany">
 
     <TextView
         android:id="@+id/register_company_title"
