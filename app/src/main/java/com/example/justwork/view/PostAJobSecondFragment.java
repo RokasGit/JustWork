@@ -22,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class PostAJobSecondFragment extends Fragment {
@@ -35,6 +36,8 @@ public class PostAJobSecondFragment extends Fragment {
     EditText contactInfo;
     EditText nrOfEmployees;
     Button postJob;
+
+    private static AtomicInteger ID_GENERATOR = new AtomicInteger(1);
 
     SimpleDateFormat dateFormat;
     SimpleDateFormat timeFormat;
@@ -53,22 +56,23 @@ public class PostAJobSecondFragment extends Fragment {
         nrOfEmployees = view.findViewById(R.id.job_required_employees);
         postJob = view.findViewById(R.id.button_post_job);
 
+
+
+
         dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.GERMANY);
         timeFormat = new SimpleDateFormat("HH : mm", Locale.GERMANY);
 
         postJob.setOnClickListener(v ->{
             try {
-                Job toPost = viewModel.getTempJob();
-
                 Date date = dateFormat.parse(jobDate.getText().toString());
                 Date startD = timeFormat.parse(startTime.getText().toString());
                 Date endD = timeFormat.parse(endTime.getText().toString());
 
-                toPost.setDate(date);
-                toPost.setStartTime(startD);
-                toPost.setEndTime(endD);
-                toPost.setContactInfo(contactInfo.getText().toString());
-                toPost.setAmountOfNeededWorkers(Integer.parseInt(nrOfEmployees.getText().toString()));
+
+                Job toPost = new Job(ID_GENERATOR.getAndIncrement(), getArguments().getInt("jobSalary"), date,
+                        getArguments().getString("jobDescription"), getArguments().getString("jobLocation"), contactInfo.getText().toString(),
+                        Integer.parseInt(nrOfEmployees.getText().toString()), false, getArguments().getString("jobTitle")
+                        ,startD, endD, getArguments().getString("jobType"), viewModel.getCompanyName());
 
                 viewModel.addJob(toPost);
 

@@ -12,12 +12,12 @@ import java.util.ArrayList;
 public class CompanyViewModel extends AndroidViewModel {
 
     private ArrayList<Job> jobPostings;
-    private Job tempJob;
+    private String companyName;
 
     public CompanyViewModel(Application application){
         super(application);
         jobPostings = new ArrayList<>();
-        tempJob = null;
+        companyName = "";
     }
 
     public ArrayList<Job> getJobPostings() {
@@ -28,11 +28,12 @@ public class CompanyViewModel extends AndroidViewModel {
         jobPostings.add(job);
     }
 
-    public void setTempJob(Job tempJob) {
-        this.tempJob = tempJob;
+
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public Job getTempJob() {
-        return tempJob;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }

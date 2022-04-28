@@ -23,8 +23,6 @@ public class PostAJob extends Fragment {
     private CompanyViewModel viewModel;
     private View view;
 
-    private static AtomicInteger ID_GENERATOR = new AtomicInteger(0);
-
     EditText jobTitle;
     EditText jobLocation;
     EditText jobType;
@@ -48,10 +46,14 @@ public class PostAJob extends Fragment {
         nextPage = view.findViewById(R.id.button_post_job_next);
 
         nextPage.setOnClickListener(v->{
-            Job tempJob = new Job(ID_GENERATOR.getAndIncrement(),
-                    Integer.parseInt(jobSalary.getText().toString()), null,  jobDescription.getText().toString(), jobLocation.getText().toString(), null, 0,
-                    false, jobTitle.getText().toString(), null, null, jobType.getText().toString(), null);
-            viewModel.setTempJob(tempJob);
+
+            Bundle toSend = new Bundle();
+            toSend.putString("jobTitle", jobTitle.getText().toString());
+            toSend.putString("jobLocation", jobLocation.getText().toString());
+            toSend.putString("jobType", jobType.getText().toString());
+            toSend.putString("jobDescription", jobDescription.getText().toString());
+            toSend.putInt("jobSalary", Integer.parseInt(jobSalary.getText().toString()));
+
             // next page
         });
 
