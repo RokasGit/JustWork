@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/loginButton"
         style="@style/defaultButton"
         android:layout_width="335dp"
         android:layout_height="54dp"

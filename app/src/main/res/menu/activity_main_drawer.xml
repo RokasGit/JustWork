@@ -16,5 +16,9 @@
             android:id="@+id/nav_notification_settings"
             android:icon="@drawable/menu_notification_settings"
             android:title="@string/menu_notification_settings" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/menu_logout"
+            android:title="@string/menu_logout"/>
     </group>
 </menu>

@@ -16,7 +16,6 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/backgroundColorForLayout"
             app:popupTheme="@style/Theme.JustWork.PopupOverlay" />
-
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
