@@ -1,10 +1,11 @@
 package com.example.justwork.view;
 
-import android.icu.text.TimeZoneFormat;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,11 +17,7 @@ import com.example.justwork.R;
 import com.example.justwork.model.Job;
 import com.example.justwork.viewmodel.CompanyViewModel;
 
-import java.sql.Time;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -29,6 +26,7 @@ public class PostAJobSecondFragment extends Fragment {
 
     private CompanyViewModel viewModel;
     private View view;
+    private NavController navController;
 
     EditText jobDate;
     EditText startTime;
@@ -38,9 +36,6 @@ public class PostAJobSecondFragment extends Fragment {
     Button postJob;
 
     private static AtomicInteger ID_GENERATOR = new AtomicInteger(1);
-
-    SimpleDateFormat dateFormat;
-    SimpleDateFormat timeFormat;
 
 
     @Override
@@ -57,26 +52,20 @@ public class PostAJobSecondFragment extends Fragment {
         postJob = view.findViewById(R.id.button_post_job);
 
 
-
-
-        dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.GERMANY);
-        timeFormat = new SimpleDateFormat("HH : mm", Locale.GERMANY);
+        setupNavigation();
 
         postJob.setOnClickListener(v ->{
             try {
-                Date date = dateFormat.parse(jobDate.getText().toString());
-                Date startD = timeFormat.parse(startTime.getText().toString());
-                Date endD = timeFormat.parse(endTime.getText().toString());
 
-
-                Job toPost = new Job(ID_GENERATOR.getAndIncrement(), getArguments().getInt("jobSalary"), date,
+                Job toPost = new Job(ID_GENERATOR.getAndIncrement(), getArguments().getInt("jobSalary"), jobDate.getText().toString(),
                         getArguments().getString("jobDescription"), getArguments().getString("jobLocation"), contactInfo.getText().toString(),
                         Integer.parseInt(nrOfEmployees.getText().toString()), false, getArguments().getString("jobTitle")
-                        ,startD, endD, getArguments().getString("jobType"), viewModel.getCompanyName());
+                        ,startTime.getText().toString(), endTime.getText().toString(), getArguments().getString("jobType"), viewModel.getCompanyName());
+
 
                 viewModel.addJob(toPost);
 
-                // return to main menu
+                navController.navigate(R.id.company_home);
             } catch (Exception e){
                 e.printStackTrace();
             }
@@ -85,4 +74,9 @@ public class PostAJobSecondFragment extends Fragment {
 
         return view;
     }
+
+    private void setupNavigation(){
+        navController = NavHostFragment.findNavController(this);
+    }
+
 }

@@ -30,6 +30,6 @@ public class Login extends Fragment {
     }
     private void initViews(){
         loginButton = loginView.findViewById(R.id.loginButton);
-        loginButton.setOnClickListener(view -> navController.navigate(R.id.employeeHomeFragment));
+        loginButton.setOnClickListener(view -> navController.navigate(R.id.company_home));
     }
 }

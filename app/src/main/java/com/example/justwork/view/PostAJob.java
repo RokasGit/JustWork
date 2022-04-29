@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,7 @@ public class PostAJob extends Fragment {
 
     private CompanyViewModel viewModel;
     private View view;
+    private NavController navController;
 
     EditText jobTitle;
     EditText jobLocation;
@@ -45,6 +48,8 @@ public class PostAJob extends Fragment {
         jobSalary = view.findViewById(R.id.job_salary);
         nextPage = view.findViewById(R.id.button_post_job_next);
 
+        setupNavigation();
+
         nextPage.setOnClickListener(v->{
 
             Bundle toSend = new Bundle();
@@ -54,11 +59,15 @@ public class PostAJob extends Fragment {
             toSend.putString("jobDescription", jobDescription.getText().toString());
             toSend.putInt("jobSalary", Integer.parseInt(jobSalary.getText().toString()));
 
-            // next page
+            navController.navigate(R.id.postAJobSecondFragment, toSend);
         });
 
 
         return view;
+    }
+
+    private void setupNavigation(){
+        navController = NavHostFragment.findNavController(this);
     }
 
 }
