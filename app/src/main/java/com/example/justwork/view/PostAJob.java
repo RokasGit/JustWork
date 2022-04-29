@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.justwork.R;
 import com.example.justwork.model.Job;
@@ -51,15 +52,18 @@ public class PostAJob extends Fragment {
         setupNavigation();
 
         nextPage.setOnClickListener(v->{
+            try {
+                Bundle toSend = new Bundle();
+                toSend.putString("jobTitle", jobTitle.getText().toString());
+                toSend.putString("jobLocation", jobLocation.getText().toString());
+                toSend.putString("jobType", jobType.getText().toString());
+                toSend.putString("jobDescription", jobDescription.getText().toString());
+                toSend.putInt("jobSalary", Integer.parseInt(jobSalary.getText().toString()));
 
-            Bundle toSend = new Bundle();
-            toSend.putString("jobTitle", jobTitle.getText().toString());
-            toSend.putString("jobLocation", jobLocation.getText().toString());
-            toSend.putString("jobType", jobType.getText().toString());
-            toSend.putString("jobDescription", jobDescription.getText().toString());
-            toSend.putInt("jobSalary", Integer.parseInt(jobSalary.getText().toString()));
-
-            navController.navigate(R.id.postAJobSecondFragment, toSend);
+                navController.navigate(R.id.postAJobSecondFragment, toSend);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
         });
 
 

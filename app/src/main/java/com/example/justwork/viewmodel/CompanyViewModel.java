@@ -7,6 +7,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.justwork.model.Job;
+import com.example.justwork.model.JobApplication;
+import com.example.justwork.repository.CompanyRepository;
 import com.example.justwork.repository.JobRepository;
 
 import java.util.ArrayList;
@@ -14,23 +16,30 @@ import java.util.List;
 
 public class CompanyViewModel extends AndroidViewModel {
 
-    private JobRepository jobRepository;
+    private CompanyRepository companyRepository;
     private String companyName;
 
     public CompanyViewModel(Application application){
         super(application);
-        jobRepository = JobRepository.getInstance();
+        companyRepository = CompanyRepository.getInstance();
         companyName = "";
     }
 
     public LiveData<List<Job>> getJobPostings() {
-        return jobRepository.getCompanyJobs();
+        return companyRepository.getCompanyJobs();
     }
 
     public void addJob(Job job) {
-        jobRepository.addCompanyJob(job);
+        companyRepository.addCompanyJob(job);
     }
 
+    public LiveData<List<JobApplication>> getJobApplicants() {
+        return companyRepository.getJobApplications();
+    }
+
+    public void addJobApplication(JobApplication jobApplication){
+        companyRepository.addJobApplicant(jobApplication);
+    }
 
     public String getCompanyName() {
         return companyName;
