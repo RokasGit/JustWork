@@ -117,4 +117,5 @@
     <string name="time_format">Time (hh:mm)</string>
     <string name="required_employees_hint">Required amount of employees</string>
     <string name="job_post_now">Post Now</string>
+    <string name="menu_logout">Logout</string>
 </resources>
