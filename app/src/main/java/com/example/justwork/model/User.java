@@ -113,6 +113,15 @@ public class User {
         return jobApplications;
     }
 
+    public JobApplication getJobApplicationByID(String id){
+        for (JobApplication jobApplication: jobApplications) {
+            if(id.equals(jobApplication.getJobApplicationID())){
+                return jobApplication;
+            }
+        }
+        return null;
+    }
+
     public void addJobApplication(Job job, String status){
         JobApplication toAdd = new JobApplication(job.getId(), job.getSalary(), job.getDate(), job.getDescription(),
                 job.getLocation(), job.getContactInfo(), job.getAmountOfNeededWorkers(), job.isTakenStatus(), job.getTitle(), job.getStartTime(),

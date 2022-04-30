@@ -41,6 +41,10 @@ public class CompanyViewModel extends AndroidViewModel {
         companyRepository.addJobApplicant(jobApplication);
     }
 
+    public void deleteJobApplication(JobApplication jobApplication){
+        companyRepository.deleteJobApplicant(jobApplication);
+    }
+
     public String getCompanyName() {
         return companyName;
     }

@@ -60,6 +60,7 @@ public class JobApplicationsFragment extends Fragment {
 
                 Bundle toSend = new Bundle();
                 toSend.putString("ApplicantEmail", jobApplication.getEmail());
+                toSend.putString("ApplicationID", jobApplication.getJobApplicationID());
 
                 navController.navigate(R.id.view_Job_Applicant, toSend);
             } catch (Exception e){

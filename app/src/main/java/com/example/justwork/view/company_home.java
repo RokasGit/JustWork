@@ -36,9 +36,7 @@ public class company_home extends Fragment {
     private NavController navController;
 
     EditText searchBar;
-    ImageView menuButton;
     ImageView filterOptions;
-    ImageView companyLogo;
     Button postAJob;
     RecyclerView JobRecyclerView;
     JobAdapter jobAdapter;
@@ -50,8 +48,6 @@ public class company_home extends Fragment {
         viewModel = new ViewModelProvider(this).get(CompanyViewModel.class);
 
         searchBar = view.findViewById(R.id.company_home_search);
-        menuButton = view.findViewById(R.id.Company_home_imageView);
-        companyLogo = view.findViewById(R.id.company_home_company_logo_img);
         filterOptions = view.findViewById(R.id.company_home_imageView2);
         postAJob = view.findViewById(R.id.company_home_button_postJob);
         JobRecyclerView = view.findViewById(R.id.company_home_Recycler);
@@ -92,9 +88,7 @@ public class company_home extends Fragment {
         postAJob.setOnClickListener(view -> navController.navigate(R.id.postAJob));
     }
 
-    public void MenuButton(View v){
 
-    }
 
 
 }

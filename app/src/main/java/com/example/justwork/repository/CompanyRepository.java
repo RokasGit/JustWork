@@ -53,4 +53,10 @@ public class CompanyRepository {
         currentJobApplication.add(jobApplication);
         jobApplicants.setValue(currentJobApplication);
     }
+
+    public void deleteJobApplicant(JobApplication jobApplication){
+        List<JobApplication> currentJobApplication = jobApplicants.getValue();
+        currentJobApplication.remove(jobApplication);
+        jobApplicants.setValue(currentJobApplication);
+    }
 }
