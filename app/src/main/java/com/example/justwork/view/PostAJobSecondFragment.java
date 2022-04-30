@@ -16,6 +16,7 @@ import android.widget.EditText;
 import com.example.justwork.R;
 import com.example.justwork.model.Job;
 import com.example.justwork.viewmodel.CompanyViewModel;
+import com.example.justwork.viewmodel.JobViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -24,7 +25,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class PostAJobSecondFragment extends Fragment {
 
-    private CompanyViewModel viewModel;
+    private JobViewModel jobviewModel;
+    private CompanyViewModel companyViewModel;
     private View view;
     private NavController navController;
 
@@ -42,7 +44,8 @@ public class PostAJobSecondFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view =  inflater.inflate(R.layout.fragment_post_a_job_second, container, false);
-        viewModel = new ViewModelProvider(this).get(CompanyViewModel.class);
+        companyViewModel = new ViewModelProvider(this).get(CompanyViewModel.class);
+        jobviewModel = new ViewModelProvider(this).get(JobViewModel.class);
 
         jobDate = view.findViewById(R.id.job_date);
         startTime = view.findViewById(R.id.job_start_time);
@@ -60,10 +63,10 @@ public class PostAJobSecondFragment extends Fragment {
                 Job toPost = new Job(ID_GENERATOR.getAndIncrement(), getArguments().getInt("jobSalary"), jobDate.getText().toString(),
                         getArguments().getString("jobDescription"), getArguments().getString("jobLocation"), contactInfo.getText().toString(),
                         Integer.parseInt(nrOfEmployees.getText().toString()), false, getArguments().getString("jobTitle")
-                        ,startTime.getText().toString(), endTime.getText().toString(), getArguments().getString("jobType"), viewModel.getCompanyName());
+                        ,startTime.getText().toString(), endTime.getText().toString(), getArguments().getString("jobType"), companyViewModel.getCompanyName());
 
 
-                viewModel.addJob(toPost);
+                jobviewModel.addJob(toPost);
 
                 navController.navigate(R.id.company_home);
             } catch (Exception e){

@@ -10,10 +10,13 @@ import java.util.List;
 
 public class JobRepository{
 
+    private MutableLiveData<List<Job>> companyJobs;
     private static JobRepository instance;
 
     private JobRepository(){
-        //
+        companyJobs = new MutableLiveData<>();
+        List<Job> NewListJob = new ArrayList<>();
+        companyJobs.setValue(NewListJob);
     }
 
     public static JobRepository getInstance(){
@@ -21,6 +24,16 @@ public class JobRepository{
             instance=new JobRepository();
         }
         return instance;
+    }
+
+    public LiveData<List<Job>> getJobs(){
+        return companyJobs;
+    }
+
+    public void addJob(Job job){
+        List<Job> currentJobs = companyJobs.getValue();
+        currentJobs.add(job);
+        companyJobs.setValue(currentJobs);
     }
 
 

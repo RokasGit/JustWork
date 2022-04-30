@@ -22,8 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class PostAJob extends Fragment {
-
-    private CompanyViewModel viewModel;
+    
     private View view;
     private NavController navController;
 
@@ -40,7 +39,6 @@ public class PostAJob extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_post_a_job, container, false);
-        viewModel = new ViewModelProvider(this).get(CompanyViewModel.class);
 
         jobTitle = view.findViewById(R.id.job_title);
         jobLocation = view.findViewById(R.id.job_location);

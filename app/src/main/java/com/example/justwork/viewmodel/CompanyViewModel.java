@@ -25,14 +25,6 @@ public class CompanyViewModel extends AndroidViewModel {
         companyName = "";
     }
 
-    public LiveData<List<Job>> getJobPostings() {
-        return companyRepository.getCompanyJobs();
-    }
-
-    public void addJob(Job job) {
-        companyRepository.addCompanyJob(job);
-    }
-
     public LiveData<List<JobApplication>> getJobApplicants() {
         return companyRepository.getJobApplications();
     }

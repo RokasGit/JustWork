@@ -11,19 +11,14 @@ import java.util.List;
 
 public class CompanyRepository {
 
-    private MutableLiveData<List<Job>> companyJobs;
     private MutableLiveData<List<JobApplication>> jobApplicants;
 
     private static CompanyRepository instance;
 
 
     private CompanyRepository(){
-        companyJobs = new MutableLiveData<>();
         jobApplicants = new MutableLiveData<>();
-
-        List<Job> NewListJob = new ArrayList<>();
         List<JobApplication> NewListJobApplicant = new ArrayList<>();
-        companyJobs.setValue(NewListJob);
         jobApplicants.setValue(NewListJobApplicant);
     }
 
@@ -32,16 +27,6 @@ public class CompanyRepository {
             instance=new CompanyRepository();
         }
         return instance;
-    }
-
-    public LiveData<List<Job>> getCompanyJobs(){
-        return companyJobs;
-    }
-
-    public void addCompanyJob(Job job){
-        List<Job> currentJobs = companyJobs.getValue();
-        currentJobs.add(job);
-        companyJobs.setValue(currentJobs);
     }
 
     public LiveData<List<JobApplication>> getJobApplications(){

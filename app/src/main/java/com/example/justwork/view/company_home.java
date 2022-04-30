@@ -24,6 +24,7 @@ import com.example.justwork.Adapters.JobAdapter;
 import com.example.justwork.R;
 import com.example.justwork.model.Job;
 import com.example.justwork.viewmodel.CompanyViewModel;
+import com.example.justwork.viewmodel.JobViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ import java.util.List;
 
 public class company_home extends Fragment {
 
-    private CompanyViewModel viewModel;
+    private JobViewModel viewModel;
     private View view;
     private NavController navController;
 
@@ -45,7 +46,7 @@ public class company_home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_company_home, container, false);
-        viewModel = new ViewModelProvider(this).get(CompanyViewModel.class);
+        viewModel = new ViewModelProvider(this).get(JobViewModel.class);
 
         searchBar = view.findViewById(R.id.company_home_search);
         filterOptions = view.findViewById(R.id.company_home_imageView2);
@@ -56,10 +57,10 @@ public class company_home extends Fragment {
         JobRecyclerView.hasFixedSize();
         JobRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        jobAdapter = new JobAdapter(viewModel.getJobPostings().getValue());
+        jobAdapter = new JobAdapter(viewModel.getJobs().getValue());
 
 
-        viewModel.getJobPostings().observe(getViewLifecycleOwner(), new Observer<List<Job>>() {
+        viewModel.getJobs().observe(getViewLifecycleOwner(), new Observer<List<Job>>() {
             @Override
             public void onChanged(List<Job> jobs) {
                 jobAdapter.setJobs(jobs);
