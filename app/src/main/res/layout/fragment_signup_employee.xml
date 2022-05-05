@@ -26,6 +26,7 @@
     <EditText
         android:id="@+id/signup_employeeUsername"
         style="@style/editTextStyling"
+        android:layout_marginTop="28dp"
         android:autofillHints="username"
         android:drawableStart="@drawable/prompt_username"
         android:hint="@string/signup_employeeUsername"
@@ -37,6 +38,7 @@
     <EditText
         android:id="@+id/signup_employeeEmail"
         style="@style/editTextStyling"
+        android:layout_marginTop="28dp"
         android:autofillHints="emailAddress"
         android:drawableStart="@drawable/prompt_email"
         android:hint="@string/signup_employeeEmail"
@@ -75,15 +77,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signup_employeeNextButton1" />
 
-    <ImageView
+    <Button
         android:id="@+id/signup_employeeGoogleImage"
         style="@style/loginRegisterLogos"
+        android:background="@drawable/image_google"
         android:layout_marginEnd="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="@string/google_logo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signup_employeeContinueWithTextView"
-        app:srcCompat="@drawable/image_google" />
+        app:layout_constraintTop_toBottomOf="@id/signup_employeeContinueWithTextView"/>
+<!--        app:srcCompat="@drawable/image_google"-->
 
     <ImageView
         android:id="@+id/signup_employeeFacebookImage"

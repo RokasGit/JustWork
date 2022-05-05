@@ -15,6 +15,8 @@ public class User {
     private DrivingLicenceList drivingLicences;
     private ArrayList<JobApplication> jobApplications;
 
+    public User(){}
+
     public User(int cpr, String userName, String email, String password, int phoneNumber, String address, String gender, String nationality, String picture) {
         this.cpr = cpr;
         this.userName = userName;
