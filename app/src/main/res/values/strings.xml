@@ -117,4 +117,8 @@
     <string name="time_format">Time (hh:mm)</string>
     <string name="required_employees_hint">Required amount of employees</string>
     <string name="job_post_now">Post Now</string>
+    <string name="menu_logout">Logout</string>
+    <string name="job_application_item_status">Applied</string>
+    <string name="job_application_item_salary">150dkk</string>
+    <string name="job_application_item_job_type" >Hourly</string>
 </resources>

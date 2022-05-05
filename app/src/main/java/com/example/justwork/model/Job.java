@@ -1,18 +1,11 @@
 package com.example.justwork.model;
 
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
-import java.time.DateTimeException;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Date;
 
 public class Job {
     private int id;
     private double salary;
-    private Date date;
+    private String date;
     private String description;
     private String location;
     private String contactInfo;
@@ -21,11 +14,11 @@ public class Job {
     private String title;
     private String companyName;
     private String jobType;
-    private Date startTime;
-    private Date endTime;
+    private String startTime;
+    private String endTime;
 
-    public Job(int id, double salary, Date date, String description, String location, String contactInfo,
-               int amountOfNeededWorkers, boolean takenStatus, String title, Date startTime, Date endTime, String jobType, String companyName) {
+    public Job(int id, double salary, String date, String description, String location, String contactInfo,
+               int amountOfNeededWorkers, boolean takenStatus, String title, String startTime, String endTime, String jobType, String companyName) {
         this.id = id;
         this.salary = salary;
         this.date = date;
@@ -57,24 +50,12 @@ public class Job {
         this.salary = salary;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public boolean setDate(Date date) {
-        Date dateNow = new Date();
-        if(date.getTime()>= dateNow.getTime()){
-            this.date = date;
-            return  true;
-        }
-        else{
-            try {
-                throw new Exception("Date must be in the future!");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return  false;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getDescription() {
@@ -133,42 +114,20 @@ public class Job {
         this.title = title;
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public boolean setStartTime(Date startTime) {
-        if (startTime.getTime()<endTime.getTime()){
-            this.startTime = startTime;
-            return true;
-        }
-        else{
-            try {
-                throw new Exception("Start time must be earlier than end time");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return false;
-        }
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public boolean setEndTime(Date endTime) {
-        if (endTime.getTime()>startTime.getTime()){
-            this.endTime = endTime;
-            return true;
-        }
-        else{
-            try {
-                throw new Exception("End time must be later than start time");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return false;
-        }
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public String getJobType() {

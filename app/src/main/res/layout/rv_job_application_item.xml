@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@drawable/white_roundcorners">
+
+    <ImageView
+        android:id="@+id/job_application_logoId"
+        android:layout_width="50dp"
+        android:src="@drawable/no_logo"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/job_application_companyName"
+        style="@style/smallText"
+        android:text="@string/search_company_name"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/job_application_logoId"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/job_application_job_title"
+        style="@style/boldText"
+        android:text="@string/search_job_title"
+        android:textSize="20sp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/job_application_logoId"
+        app:layout_constraintTop_toBottomOf="@+id/job_application_companyName" />
+
+    <TextView
+        android:id="@+id/job_application_status"
+        style="@style/smallText"
+        android:layout_marginTop="0dp"
+        android:textSize="16sp"
+        android:text="@string/job_application_item_status"
+        app:layout_constraintStart_toEndOf="@+id/job_application_logoId"
+        app:layout_constraintTop_toBottomOf="@+id/job_application_job_title" />
+
+    <TextView
+        android:id="@+id/job_application_salary"
+        style="@style/smallText"
+        android:textAlignment="center"
+        android:text="@string/job_application_item_salary"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/job_application_status"
+        app:layout_constraintEnd_toStartOf="@+id/job_application_job_type"
+        app:layout_constraintStart_toEndOf="@+id/job_application_status" />
+
+    <TextView
+        android:id="@+id/job_application_job_type"
+        style="@style/smallText"
+        android:text="@string/job_application_item_job_type"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/job_application_salary"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/job_application_options_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/white_roundcorners"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:onClick="showPopup"
+        android:src="@drawable/dots_vertical_options"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/job_application_companyName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

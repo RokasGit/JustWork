@@ -15,6 +15,8 @@ public class User {
     private DrivingLicenceList drivingLicences;
     private ArrayList<JobApplication> jobApplications;
 
+    public User(){}
+
     public User(int cpr, String userName, String email, String password, int phoneNumber, String address, String gender, String nationality, String picture) {
         this.cpr = cpr;
         this.userName = userName;
@@ -113,10 +115,19 @@ public class User {
         return jobApplications;
     }
 
+    public JobApplication getJobApplicationByID(String id){
+        for (JobApplication jobApplication: jobApplications) {
+            if(id.equals(jobApplication.getJobApplicationID())){
+                return jobApplication;
+            }
+        }
+        return null;
+    }
+
     public void addJobApplication(Job job, String status){
         JobApplication toAdd = new JobApplication(job.getId(), job.getSalary(), job.getDate(), job.getDescription(),
                 job.getLocation(), job.getContactInfo(), job.getAmountOfNeededWorkers(), job.isTakenStatus(), job.getTitle(), job.getStartTime(),
-                job.getEndTime(), job.getJobType(), job.getCompanyName(), status);
+                job.getEndTime(), job.getJobType(), job.getCompanyName(), status, userName, email);
         jobApplications.add(toAdd);
     }
 }

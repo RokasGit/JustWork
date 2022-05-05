@@ -3,64 +3,73 @@ package com.example.justwork.view;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.justwork.R;
+import com.example.justwork.model.Job;
+import com.example.justwork.viewmodel.CompanyViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PostAJob#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.concurrent.atomic.AtomicInteger;
+
+
 public class PostAJob extends Fragment {
+    
+    private View view;
+    private NavController navController;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    EditText jobTitle;
+    EditText jobLocation;
+    EditText jobType;
+    EditText jobDescription;
+    EditText jobSalary;
+    Button nextPage;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public PostAJob() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PostAJob.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PostAJob newInstance(String param1, String param2) {
-        PostAJob fragment = new PostAJob();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        view = inflater.inflate(R.layout.fragment_post_a_job, container, false);
+
+        jobTitle = view.findViewById(R.id.job_title);
+        jobLocation = view.findViewById(R.id.job_location);
+        jobType = view.findViewById(R.id.job_type);
+        jobDescription = view.findViewById(R.id.job_description);
+        jobSalary = view.findViewById(R.id.job_salary);
+        nextPage = view.findViewById(R.id.button_post_job_next);
+
+        setupNavigation();
+
+        nextPage.setOnClickListener(v->{
+            try {
+                Bundle toSend = new Bundle();
+                toSend.putString("jobTitle", jobTitle.getText().toString());
+                toSend.putString("jobLocation", jobLocation.getText().toString());
+                toSend.putString("jobType", jobType.getText().toString());
+                toSend.putString("jobDescription", jobDescription.getText().toString());
+                toSend.putInt("jobSalary", Integer.parseInt(jobSalary.getText().toString()));
+
+                navController.navigate(R.id.postAJobSecondFragment, toSend);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        });
+
+
+        return view;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_post_a_job, container, false);
+    private void setupNavigation(){
+        navController = NavHostFragment.findNavController(this);
     }
+
 }

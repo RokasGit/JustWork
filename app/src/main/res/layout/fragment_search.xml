@@ -13,12 +13,12 @@
         android:autofillHints="job"
         android:hint="@string/search_string"
         android:inputType="text"
-        app:layout_constraintEnd_toStartOf="@+id/search_filter"
+        app:layout_constraintEnd_toStartOf="@+id/search_filterButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/search_filter"
+        android:id="@+id/search_filterButton"
         style="@style/defaultButton"
         android:drawableTop="@drawable/search_filter"
         android:layout_marginTop="30dp"

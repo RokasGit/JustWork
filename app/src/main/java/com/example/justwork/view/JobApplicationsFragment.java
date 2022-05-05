@@ -2,65 +2,78 @@ package com.example.justwork.view;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.justwork.Adapters.JobApplicantAdapter;
 import com.example.justwork.R;
+import com.example.justwork.model.JobApplication;
+import com.example.justwork.viewmodel.CompanyViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link JobApplicationsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.List;
+
+
 public class JobApplicationsFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private CompanyViewModel viewModel;
+    private View view;
+    private NavController navController;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public JobApplicationsFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment JobApplicationsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static JobApplicationsFragment newInstance(String param1, String param2) {
-        JobApplicationsFragment fragment = new JobApplicationsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    RecyclerView JobApplicationsRecycler;
+    JobApplicantAdapter applicantAdapter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+
+        view = inflater.inflate(R.layout.fragment_job_applications, container, false);
+        viewModel = new ViewModelProvider(this).get(CompanyViewModel.class);
+
+        JobApplicationsRecycler = view.findViewById(R.id.search_resultListView);
+
+        JobApplicationsRecycler.hasFixedSize();
+        JobApplicationsRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        applicantAdapter = new JobApplicantAdapter(viewModel.getJobApplicants().getValue());
+
+        viewModel.getJobApplicants().observe(getViewLifecycleOwner(), new Observer<List<JobApplication>>() {
+            @Override
+            public void onChanged(List<JobApplication> jobApplications) {
+                applicantAdapter.setJobApplications(jobApplications);
+            }
+        });
+
+        setupNavigation();
+
+        applicantAdapter.setOnClickListener(jobApplication -> {
+            try {
+
+                Bundle toSend = new Bundle();
+                toSend.putString("ApplicantEmail", jobApplication.getEmail());
+                toSend.putString("ApplicationID", jobApplication.getJobApplicationID());
+
+                navController.navigate(R.id.view_Job_Applicant, toSend);
+            } catch (Exception e){
+
+            }
+        });
+
+        JobApplicationsRecycler.setAdapter(applicantAdapter);
+
+        return view;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_job_applications, container, false);
+    private void setupNavigation(){
+        navController = NavHostFragment.findNavController(this);
     }
 }

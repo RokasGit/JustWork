@@ -14,18 +14,23 @@ import com.example.justwork.R;
 import com.example.justwork.model.Job;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
 
-    private ArrayList<Job> jobs;
+    private List<Job> jobs;
     private onClickListener onClickListener;
 
-    public JobAdapter(ArrayList<Job> jobs){
+    public JobAdapter(List<Job> jobs){
         this.jobs = jobs;
     }
 
     public void setOnClickListener(onClickListener onClickListener){
         this.onClickListener = onClickListener;
+    }
+
+    public void setJobs(List<Job> jobs){
+        this.jobs = jobs;
     }
 
     @NonNull

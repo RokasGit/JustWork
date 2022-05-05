@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_edit_profile">
+    app:startDestination="@+id/splashScreen">
 
     <fragment
         android:id="@+id/nav_edit_profile"
@@ -25,5 +25,176 @@
         android:id="@+id/splashScreen"
         android:name="com.example.justwork.view.SplashScreen"
         android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen" />
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_login"
+            app:destination="@id/nav_logout" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.justwork.view.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_signupEmployeeFragment"
+            app:destination="@id/signupEmployeeFragment" />
+        <action
+            android:id="@+id/action_login_to_signUpCompany2"
+            app:destination="@id/signUpCompany" />
+        <action
+            android:id="@+id/action_login_to_employeeHomeFragment2"
+            app:destination="@id/employeeHomeFragment" />
+        <action
+            android:id="@+id/action_login_to_company_home"
+            app:destination="@id/company_home" />
+        <action
+            android:id="@+id/action_nav_logout_to_splashScreen"
+            app:destination="@id/splashScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupEmployeeFragment"
+        android:name="com.example.justwork.view.signupEmployeeFragment"
+        android:label="fragment_signup_employee"
+        tools:layout="@layout/fragment_signup_employee" >
+        <action
+            android:id="@+id/action_signupEmployeeFragment_to_signupEmployeeAdditionalDetailsFragment"
+            app:destination="@id/signupEmployeeAdditionalDetailsFragment" />
+        <action
+            android:id="@+id/action_signupEmployeeFragment_to_login2"
+            app:destination="@id/nav_logout" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupEmployeeAdditionalDetailsFragment"
+        android:name="com.example.justwork.view.signupEmployeeAdditionalDetailsFragment"
+        android:label="fragment_signup_employee_additional_details"
+        tools:layout="@layout/fragment_signup_employee_additional_details" >
+        <action
+            android:id="@+id/action_signupEmployeeAdditionalDetailsFragment_to_signupEmployeeFragment"
+            app:destination="@id/signupEmployeeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpCompany"
+        android:name="com.example.justwork.view.signUpCompany"
+        android:label="signUpCompany" >
+        <action
+            android:id="@+id/action_signUpCompany_to_sign_up_company_second_fragment"
+            app:destination="@id/sign_up_company_second_fragment" />
+        <action
+            android:id="@+id/action_signUpCompany_to_login2"
+            app:destination="@id/nav_logout" />
+    </fragment>
+    <fragment
+        android:id="@+id/sign_up_company_second_fragment"
+        android:name="com.example.justwork.view.sign_up_company_second_fragment"
+        android:label="sign_up_company_second_fragment" >
+        <action
+            android:id="@+id/action_sign_up_company_second_fragment_to_signUpCompany"
+            app:destination="@id/signUpCompany" />
+    </fragment>
+    <fragment
+        android:id="@+id/employeeHomeFragment"
+        android:name="com.example.justwork.view.EmployeeHomeFragment"
+        android:label=""
+        tools:layout="@layout/fragment_employee_home" >
+        <action
+            android:id="@+id/action_employeeHomeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_employeeHomeFragment_to_job_apply_job_info"
+            app:destination="@id/job_apply_job_info" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.justwork.view.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_search_filter2"
+            app:destination="@id/search_filter" />
+        <action
+            android:id="@+id/action_searchFragment_to_employeeHomeFragment2"
+            app:destination="@id/employeeHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/search_filter"
+        android:name="com.example.justwork.view.search_filter"
+        android:label="fragment_search_filter"
+        tools:layout="@layout/fragment_search_filter" >
+        <action
+            android:id="@+id/action_search_filter2_to_searchFragment2"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/job_apply_job_info"
+        android:name="com.example.justwork.view.job_apply_job_info"
+        android:label="fragment_job_apply_job_info"
+        tools:layout="@layout/fragment_job_apply_job_info" >
+        <action
+            android:id="@+id/action_job_apply_job_info_to_employeeHomeFragment"
+            app:destination="@id/employeeHomeFragment" />
+        <action
+            android:id="@+id/action_job_apply_job_info_to_job_apply_form"
+            app:destination="@id/job_apply_form" />
+    </fragment>
+    <fragment
+        android:id="@+id/job_apply_form"
+        android:name="com.example.justwork.view.job_apply_form"
+        android:label="job_apply_form" >
+        <action
+            android:id="@+id/action_job_apply_form_to_job_apply_job_info"
+            app:destination="@id/job_apply_job_info" />
+    </fragment>
+    <fragment
+        android:id="@+id/company_home"
+        android:name="com.example.justwork.view.company_home"
+        android:label="fragment_company_home"
+        tools:layout="@layout/fragment_company_home" >
+        <action
+            android:id="@+id/action_company_home_to_postAJob"
+            app:destination="@id/postAJob" />
+        <action
+            android:id="@+id/action_company_home_to_jobApplicationsFragment"
+            app:destination="@id/jobApplicationsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postAJob"
+        android:name="com.example.justwork.view.PostAJob"
+        android:label="PostAJob" >
+        <action
+            android:id="@+id/action_postAJob_to_company_home"
+            app:destination="@id/company_home" />
+        <action
+            android:id="@+id/action_postAJob_to_postAJobSecondFragment"
+            app:destination="@id/postAJobSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postAJobSecondFragment"
+        android:name="com.example.justwork.view.PostAJobSecondFragment"
+        android:label="fragment_post_a_job_second"
+        tools:layout="@layout/fragment_post_a_job_second" >
+        <action
+            android:id="@+id/action_postAJobSecondFragment_to_postAJob"
+            app:destination="@id/postAJob" />
+    </fragment>
+    <fragment
+        android:id="@+id/jobApplicationsFragment"
+        android:name="com.example.justwork.view.JobApplicationsFragment"
+        android:label="fragment_job_applications"
+        tools:layout="@layout/fragment_job_applications" >
+        <action
+            android:id="@+id/action_jobApplicationsFragment_to_company_home"
+            app:destination="@id/company_home" />
+        <action
+            android:id="@+id/action_jobApplicationsFragment_to_view_Job_Applicant"
+            app:destination="@id/view_Job_Applicant" />
+    </fragment>
+    <fragment
+        android:id="@+id/view_Job_Applicant"
+        android:name="com.example.justwork.view.View_Job_Applicant"
+        android:label="fragment_view__job__applicant"
+        tools:layout="@layout/fragment_view__job__applicant" >
+        <action
+            android:id="@+id/action_view_Job_Applicant_to_jobApplicationsFragment"
+            app:destination="@id/jobApplicationsFragment" />
+    </fragment>
 </navigation>

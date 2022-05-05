@@ -14,13 +14,18 @@ import com.example.justwork.model.JobApplication;
 import com.example.justwork.model.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class JobApplicantAdapter extends RecyclerView.Adapter<JobApplicantAdapter.ViewHolder>{
 
-    private ArrayList<JobApplication> jobApplications;
+    private List<JobApplication> jobApplications;
     private onClickListener onClickListener;
 
-    public JobApplicantAdapter(ArrayList<JobApplication> jobApplications){
+    public JobApplicantAdapter(List<JobApplication> jobApplications){
+        this.jobApplications = jobApplications;
+    }
+
+    public void setJobApplications(List<JobApplication> jobApplications) {
         this.jobApplications = jobApplications;
     }
 
