@@ -2,7 +2,7 @@ package com.example.justwork.model;
 
 import java.util.ArrayList;
 
-public class User {
+public class User extends UserType{
     private int cpr;
     private String userName;
     private String email;
@@ -15,9 +15,12 @@ public class User {
     private DrivingLicenceList drivingLicences;
     private ArrayList<JobApplication> jobApplications;
 
-    public User(){}
+    public User(){
+        super("Employee");
+    }
 
     public User(int cpr, String userName, String email, String password, int phoneNumber, String address, String gender, String nationality) {
+        super("Employee");
         this.cpr = cpr;
         this.userName = userName;
         this.email = email;

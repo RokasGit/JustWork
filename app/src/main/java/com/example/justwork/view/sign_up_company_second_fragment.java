@@ -3,64 +3,104 @@ package com.example.justwork.view;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.justwork.R;
+import com.example.justwork.model.Company;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link sign_up_company_second_fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class sign_up_company_second_fragment extends Fragment {
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase database;
+    private DatabaseReference dbRef;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private EditText companyCVRNo;
+    private EditText companyAddress;
+    private NavController navController;
+    private View view;
+    private String companyName;
+    private String companyPassword;
+    private String companyEmail;
+    private Button signup;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public sign_up_company_second_fragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment sign_up_company_second_fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static sign_up_company_second_fragment newInstance(String param1, String param2) {
-        sign_up_company_second_fragment fragment = new sign_up_company_second_fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    String tempCVRNo;
+    String tempAddress;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up_company_second_fragment, container, false);
+        view = inflater.inflate(R.layout.fragment_sign_up_company_second_fragment, container, false);
+        mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        dbRef = database.getReference();
+
+        setupNavigation();
+        initViews();
+
+        return view;
     }
+
+    private void initViews() {
+        companyCVRNo = view.findViewById(R.id.set_company_cvrNo);
+        companyAddress = view.findViewById(R.id.set_company_headQ_address);
+        signup = view.findViewById(R.id.button_company_signUp);
+
+        companyName = getArguments().getString("username");
+        companyPassword = getArguments().getString("password");
+        companyEmail = getArguments().getString("email");
+
+        signup.setOnClickListener(view -> registerCompany());
+
+
+    }
+
+    private void registerCompany() {
+
+         tempCVRNo =  companyCVRNo.getText().toString().trim();
+         tempAddress= companyAddress.getText().toString().trim();
+
+        if(tempCVRNo.isEmpty()){
+            companyCVRNo.setError("Home address is required ");
+            companyCVRNo.requestFocus();
+            return;
+        }
+        if(tempAddress.isEmpty()){
+            companyAddress.setError("Driving licence is required ");
+            companyAddress.requestFocus();
+            return;
+        }
+
+        int finalcvr = Integer.parseInt(tempCVRNo);
+        Company company = new Company(finalcvr, companyEmail, companyName, companyPassword, tempAddress);
+
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(company.getEmail(), company.getPassword())
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        dbRef.child("Companies").child(FirebaseAuth.getInstance().getUid()).setValue(company);
+                        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
+                                .setDisplayName(company.getName())
+                                .build();
+                        FirebaseAuth.getInstance().getCurrentUser().updateProfile(request);
+                        navController.navigate(R.id.company_home);
+                    }
+                });
+
+
+    }
+
+    private void setupNavigation(){
+        navController = NavHostFragment.findNavController(this);
+    }
+
 }

@@ -37,9 +37,9 @@
             style="@style/editTextStyling"
             android:layout_marginTop="40dp"
             android:drawableStart="@drawable/prompt_cpr"
-            android:drawablePadding="30dp"
+            android:drawablePadding="10dp"
             android:inputType="textPersonName"
-            android:text="CVR Number"
+            android:hint="CVR Number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fill_details" />
@@ -50,9 +50,9 @@
             style="@style/editTextStyling"
             android:layout_marginTop="40dp"
             android:drawableStart="@drawable/prompt_address"
-            android:drawablePadding="30dp"
+            android:drawablePadding="10dp"
             android:inputType="textEmailAddress"
-            android:text="Headquarters Address"
+            android:hint="Headquarters Address"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/set_company_cvrNo" />

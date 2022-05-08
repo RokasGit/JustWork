@@ -75,7 +75,7 @@
     <fragment
         android:id="@+id/signUpCompany"
         android:name="com.example.justwork.view.signUpCompany"
-        android:label="signUpCompany" >
+        android:label="Sign up Company" >
         <action
             android:id="@+id/action_signUpCompany_to_sign_up_company_second_fragment"
             app:destination="@id/sign_up_company_second_fragment" />
