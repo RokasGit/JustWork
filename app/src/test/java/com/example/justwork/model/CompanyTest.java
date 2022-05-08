@@ -11,7 +11,7 @@ public class CompanyTest extends TestCase {
 
     @BeforeAll
     public void setUp(){
-        testCompany = new Company(121234, "company@email.com", "companyname", "password", "Via 39, Horsens", "logo picture");
+        testCompany = new Company(121234, "company@email.com", "companyname", "password", "Via 39, Horsens");
     }
 
     @Test

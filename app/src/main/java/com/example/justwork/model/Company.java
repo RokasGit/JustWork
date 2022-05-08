@@ -1,20 +1,19 @@
 package com.example.justwork.model;
 
-public class Company {
+public class Company extends UserType{
     private int cvr;
     private String email;
     private String name;
     private String password;
     private String address;
-    private String logo;
 
-    public Company(int cvr, String email, String name, String password, String address, String logo) {
+    public Company(int cvr, String email, String name, String password, String address) {
+        super("Company");
         this.cvr = cvr;
         this.email = email;
         this.name = name;
         this.password = password;
         this.address = address;
-        this.logo = logo;
     }
 
     public int getCvr() {
@@ -57,11 +56,5 @@ public class Company {
         this.address = address;
     }
 
-    public String getLogo() {
-        return logo;
-    }
 
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
 }

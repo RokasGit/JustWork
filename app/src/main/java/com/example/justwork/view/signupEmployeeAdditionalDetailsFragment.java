@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -90,40 +91,6 @@ public class signupEmployeeAdditionalDetailsFragment extends Fragment {
 
     }
 
-    private void signUpUser() {
-        System.out.println("Beginnign og method1");
-//        mAuth.createUserWithEmailAndPassword(email, username)
-//                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        System.out.println("Beginnign og method1");
-//
-//                        if (task.isSuccessful()){
-//                            System.out.println("Beginnign og method1");
-//                            User user = new User(Integer.parseInt(tempCpr), username, email, password, phoneNumber, homeAddressTemp, genderTemp, nationalityTemp);
-//                            FirebaseDatabase.getInstance().getReference("Users")
-//                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-//                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<Void> task) {
-//                                    if(task.isSuccessful()){
-//                                        Log.i("Success registration", "User registered successfully!");
-//                                        Toast.makeText(getActivity(), "User registered successfully!", Toast.LENGTH_LONG).show();
-//                                        //redirect user to his profile
-//                                    }
-//                                    else{
-//                                        Log.i("Fail registration", "User not registered successfully!");
-//                                        Toast.makeText(getActivity(), "User not registered successfully!", Toast.LENGTH_LONG).show();
-//
-//                                    }
-//                                }
-//                            });
-//
-//                        }
-//                    }
-//                });
-    }
-
     private void registerUser(){
 
         tempCpr = cprNumber.getText().toString().trim();
@@ -132,8 +99,8 @@ public class signupEmployeeAdditionalDetailsFragment extends Fragment {
         nationalityTemp = nationality.getText().toString().trim();
         genderTemp = gender.getText().toString().trim();
 
-        if(String.valueOf(tempCpr).isEmpty() || String.valueOf(tempCpr).contains("-")){
-            cprNumber.setError("Cpr is required and without '-'!");
+        if(String.valueOf(tempCpr).isEmpty() || String.valueOf(tempCpr).contains("-") || String.valueOf(tempCpr).length()>10 ){
+            cprNumber.setError("Cpr is required and without '-' and less than 10 digits!");
             cprNumber.requestFocus();
             return;
         }
@@ -163,11 +130,11 @@ public class signupEmployeeAdditionalDetailsFragment extends Fragment {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         dbRef.child("Users").child(FirebaseAuth.getInstance().getUid()).setValue(user);
-
                         UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
                                 .setDisplayName(user.getUserName())
                                 .build();
                         FirebaseAuth.getInstance().getCurrentUser().updateProfile(request);
+                        navController.navigate(R.id.employeeHomeFragment);
                     }
                 });
     }

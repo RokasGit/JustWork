@@ -68,7 +68,7 @@
     <string name="rv_applicant_applicationTime">Application time</string>
     <string name="fill_your_details_or_continue_with_social_media">Fill your details or continue with social media</string>
     <string name="login">Login</string>
-    <string name="new_user">new user ?</string>
+    <string name="new_user">New user ?</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="name_profile">Name</string>
     <string name="email_Profile">Email</string>
@@ -123,4 +123,6 @@
     <string name="job_application_item_job_type" >Hourly</string>
     <string name="signup_employeeCPR">CPR-Number</string>
     <string name="employee_signupPhoneNumber">ex: 52682010</string>
+    <string name="RegisterUser">Register as Employee</string>
+    <string name="RegisterCompoany">Register as Company</string>
 </resources>
