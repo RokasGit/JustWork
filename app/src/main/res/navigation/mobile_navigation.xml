@@ -54,7 +54,7 @@
     <fragment
         android:id="@+id/signupEmployeeFragment"
         android:name="com.example.justwork.view.signupEmployeeFragment"
-        android:label="fragment_signup_employee"
+        android:label="Signup employee"
         tools:layout="@layout/fragment_signup_employee" >
         <action
             android:id="@+id/action_signupEmployeeFragment_to_signupEmployeeAdditionalDetailsFragment"
@@ -66,7 +66,7 @@
     <fragment
         android:id="@+id/signupEmployeeAdditionalDetailsFragment"
         android:name="com.example.justwork.view.signupEmployeeAdditionalDetailsFragment"
-        android:label="fragment_signup_employee_additional_details"
+        android:label="Signup employee"
         tools:layout="@layout/fragment_signup_employee_additional_details" >
         <action
             android:id="@+id/action_signupEmployeeAdditionalDetailsFragment_to_signupEmployeeFragment"

@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -26,10 +30,11 @@
     <EditText
         android:id="@+id/signup_employeeCPR"
         style="@style/editTextStyling"
-        android:layout_marginTop="50dp"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="48dp"
         android:autofillHints="username"
         android:drawableStart="@drawable/prompt_cpr"
-        android:hint="@string/signup_employeeUsername"
+        android:hint="@string/signup_employeeCPR"
         android:inputType="textVisiblePassword|textNoSuggestions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +42,8 @@
 
     <EditText
         android:id="@+id/signup_employeeAddress"
+        android:drawablePadding="10dp"
+
         style="@style/editTextStyling"
         android:autofillHints="postalAddress"
         android:drawableStart="@drawable/prompt_address"
@@ -49,6 +56,8 @@
     <EditText
         android:id="@+id/signup_employeeDrivingLicence"
         style="@style/editTextStyling"
+        android:drawablePadding="10dp"
+
         android:drawableStart="@drawable/prompt_drivinglicense"
         android:hint="@string/signup_employeeDrivingLicence"
         android:autofillHints="drivingLicence"
@@ -60,6 +69,8 @@
         android:id="@+id/signup_employeeNationality"
         style="@style/editTextStyling"
         android:drawableStart="@drawable/prompt_nationality"
+        android:drawablePadding="10dp"
+
         android:hint="@string/signup_employeeNationality"
         android:autofillHints="nationality"
         android:inputType="text"
@@ -69,6 +80,7 @@
     <EditText
         android:id="@+id/signup_employeeGender"
         style="@style/editTextStyling"
+        android:drawablePadding="10dp"
         android:drawableStart="@drawable/prompt_gender"
         android:hint="@string/signup_employeeGender"
         android:autofillHints="gender"
@@ -78,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signup_employeeNationality" />
 
     <Button
-        android:id="@+id/signup_employeeNextButton1"
+        android:id="@+id/signup_employeeSignUpButton"
         style="@style/defaultButton"
         android:text="@string/signup_employeeSIGNUP"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,3 +98,4 @@
         app:layout_constraintTop_toBottomOf="@+id/signup_employeeGender" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

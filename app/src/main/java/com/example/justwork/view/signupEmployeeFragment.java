@@ -20,20 +20,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link signupEmployeeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class signupEmployeeFragment extends Fragment {
 
-    private FirebaseAuth mAuth;
 
     private NavController navController;
     private View signupEomployeeView;
     private EditText username;
     private EditText email;
     private EditText password;
+    private EditText phoneNumber;
     private Button signUpGoogle;
     private Button next;
 
@@ -49,11 +45,11 @@ public class signupEmployeeFragment extends Fragment {
     }
 
     private void initViews() {
-        mAuth = FirebaseAuth.getInstance();
         next = signupEomployeeView.findViewById(R.id.signup_employeeNextButton1);
         username = signupEomployeeView.findViewById(R.id.signup_employeeUsername);
         email = signupEomployeeView.findViewById(R.id.signup_employeeEmail);
         password = signupEomployeeView.findViewById(R.id.signup_employeePassword);
+        phoneNumber = signupEomployeeView.findViewById(R.id.signup_employeePhoneNumber);
         signUpGoogle = signupEomployeeView.findViewById(R.id.signup_employeeGoogleImage);
 
 
@@ -63,6 +59,7 @@ public class signupEmployeeFragment extends Fragment {
                 registerInfo.putString("username", username.getText().toString().trim());
                 registerInfo.putString("password", password.getText().toString().trim());
                 registerInfo.putString("email", email.getText().toString().trim());
+                registerInfo.putString("phoneNumber", String.valueOf(phoneNumber.getText().toString().trim()));
 
                 navController.navigate(R.id.signupEmployeeAdditionalDetailsFragment, registerInfo);
 
@@ -75,6 +72,7 @@ public class signupEmployeeFragment extends Fragment {
             String tempEmail = email.getText().toString().trim();
             String passwordTemp =  password.getText().toString().trim();
             String usernameTemp = username.getText().toString().trim();
+            String phoneNumbertemp = String.valueOf(phoneNumber.getText().toString().trim());
 
             if(usernameTemp.isEmpty()){
                 username.setError("Username is required!");
@@ -91,6 +89,11 @@ public class signupEmployeeFragment extends Fragment {
                 email.requestFocus();
                 return false;
             }
+            if(phoneNumbertemp.isEmpty()){
+                phoneNumber.setError("Phone number is required!");
+                phoneNumber.requestFocus();
+                return false;
+            }
             if(!Patterns.EMAIL_ADDRESS.matcher(tempEmail).matches()){
                 email.setError("Must be valid email");
                 email.requestFocus();
@@ -101,33 +104,15 @@ public class signupEmployeeFragment extends Fragment {
                 password.requestFocus();
                 return false;
             }
-
-
-
-
         return  true;
 
-//            mAuth.createUserWithEmailAndPassword(tempEmail, passwordTemp)
-//                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<AuthResult> task) {
-//                            if(task.isSuccessful()){
 //
-//                            }
-//                        }
-//                    })
 
 
         }
 
 
-    public static signupEmployeeFragment newInstance(String param1, String param2) {
-        signupEmployeeFragment fragment = new signupEmployeeFragment();
-        Bundle args = new Bundle();
 
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     private void setupNavigation(){
         navController = NavHostFragment.findNavController(this);

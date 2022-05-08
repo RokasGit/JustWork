@@ -121,4 +121,6 @@
     <string name="job_application_item_status">Applied</string>
     <string name="job_application_item_salary">150dkk</string>
     <string name="job_application_item_job_type" >Hourly</string>
+    <string name="signup_employeeCPR">CPR-Number</string>
+    <string name="employee_signupPhoneNumber">ex: 52682010</string>
 </resources>

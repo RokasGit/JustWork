@@ -12,7 +12,7 @@ public class UserTest extends TestCase {
 
     @Before
     public void setUp(){
-        testUser = new User(231101, "asoldan", "mail@.com", "password", 52681020, "kamtjatka 10", "male", "Romania", "picture");
+        testUser = new User(231101, "asoldan", "mail@.com", "password", 52681020, "kamtjatka 10", "male", "Romania");
     }
 
     @Test
