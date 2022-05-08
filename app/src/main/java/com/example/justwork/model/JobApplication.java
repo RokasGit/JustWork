@@ -4,7 +4,7 @@ public class JobApplication extends Job  {
 
     private String status;
     private String jobApplicationID;
-    private String Email;
+    private String email;
 
     public JobApplication(int id, double salary, String date, String description, String location, String contactInfo,
                           int amountOfNeededWorkers, boolean takenStatus, String title, String startTime,
@@ -12,7 +12,7 @@ public class JobApplication extends Job  {
         super(id, salary, date, description, location, contactInfo, amountOfNeededWorkers, takenStatus, title, startTime, endTime, jobType, companyName);
         this.status = status;
         this.jobApplicationID = userName;
-        this.Email = email;
+        this.email = email;
     }
 
 
@@ -33,10 +33,10 @@ public class JobApplication extends Job  {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 }

@@ -11,13 +11,13 @@ public class User {
     private String address;
     private String gender;
     private String nationality;
-    private String picture;
+//    private String picture;
     private DrivingLicenceList drivingLicences;
     private ArrayList<JobApplication> jobApplications;
 
     public User(){}
 
-    public User(int cpr, String userName, String email, String password, int phoneNumber, String address, String gender, String nationality, String picture) {
+    public User(int cpr, String userName, String email, String password, int phoneNumber, String address, String gender, String nationality) {
         this.cpr = cpr;
         this.userName = userName;
         this.email = email;
@@ -26,7 +26,7 @@ public class User {
         this.address = address;
         this.gender = gender;
         this.nationality = nationality;
-        this.picture = picture;
+//        this.picture = picture;
         this.drivingLicences = new DrivingLicenceList();
         jobApplications = new ArrayList<>();
     }
@@ -95,13 +95,7 @@ public class User {
         this.nationality = nationality;
     }
 
-    public String getPicture() {
-        return picture;
-    }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
 
     public DrivingLicenceList getDrivingLicences() {
         return drivingLicences;
