@@ -17,14 +17,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.justwork.R;
+import com.example.justwork.model.Company;
+import com.example.justwork.model.User;
 import com.example.justwork.model.UserType;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.EventListener;
 
 
 public class Login extends Fragment {
@@ -87,14 +94,28 @@ public class Login extends Fragment {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d("Logged in", "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                if(dbRefUsers.child("email").equals(user.getEmail())){
-                                    System.out.println("This is an emplyee logging in");
-                                    navController.navigate(R.id.employeeHomeFragment);
-                                }
-                                else if (dbRefCompanies.child("email").equals(user.getEmail())){
-                                    System.out.println("This is an company logging in");
-                                    navController.navigate(R.id.company_home);
-                                }
+
+                                database.getReference("Users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        User user = snapshot.getValue(User.class);
+
+                                        if(user != null){
+                                            navController.navigate(R.id.employeeHomeFragment);
+                                        } else {
+                                            navController.navigate(R.id.company_home);
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+
+
                             }
 
                                 else {
