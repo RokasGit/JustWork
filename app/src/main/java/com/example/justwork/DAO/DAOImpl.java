@@ -4,13 +4,20 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.justwork.model.Company;
 import com.example.justwork.model.DrivingLicenceList;
+import com.example.justwork.model.Job;
 import com.example.justwork.model.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAOImpl implements DAO{
     private UserDAO userDAO;
+    private JobDAO jobDAO;
     private static DAO daoInstance;
+
     private DAOImpl(){
         userDAO = UserDAOImpl.getInstance();
+        jobDAO = JobDAOImpl.getInstance();
     }
     public static DAO getInstance(){
         if(daoInstance==null){
@@ -42,4 +49,21 @@ public class DAOImpl implements DAO{
     public MutableLiveData<Company> getCompany() {
         return userDAO.getCompany();
     }
+
+    @Override
+    public void PostJob(Job job) {
+        jobDAO.PostJob(job);
+    }
+
+    @Override
+    public MutableLiveData<List<Job>> getCompanyJobs(int cvr) {
+        return jobDAO.getCompanyJobs(cvr);
+    }
+
+    @Override
+    public Job getCompanyJobById(int id) {
+        return jobDAO.getCompanyJobById(id);
+    }
+
+
 }

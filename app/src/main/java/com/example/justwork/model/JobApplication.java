@@ -1,20 +1,33 @@
 package com.example.justwork.model;
 
-public class JobApplication extends Job  {
+public class JobApplication {
 
+    private int userId;
+    private int jobId;
     private String status;
-    private String jobApplicationID;
-    private String email;
 
-    public JobApplication(int id, double salary, String date, String description, String location, String contactInfo,
-                          int amountOfNeededWorkers, boolean takenStatus, String title, String startTime,
-                          String endTime, String jobType, String companyName, String status, String userName, String email) {
-        super(id, salary, date, description, location, contactInfo, amountOfNeededWorkers, takenStatus, title, startTime, endTime, jobType, companyName);
+    public JobApplication(int userId, int jobId, String status){
+        this.jobId = jobId;
+        this.userId = userId;
         this.status = status;
-        this.jobApplicationID = userName;
-        this.email = email;
     }
 
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(int jobId) {
+        this.jobId = jobId;
+    }
 
     public String getStatus() {
         return status;
@@ -22,21 +35,5 @@ public class JobApplication extends Job  {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getJobApplicationID() {
-        return jobApplicationID;
-    }
-
-    public void setJobApplicationID(String jobApplicationID) {
-        this.jobApplicationID = jobApplicationID;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }

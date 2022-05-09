@@ -32,11 +32,12 @@ public class JobViewModel extends AndroidViewModel {
     }
 
 
-    public void addJobApplication(JobApplication jobApplication, String username){
-        jobRepository.addJobApplication(jobApplication,username);
-    }
 
-    public LiveData<List<JobApplication>> getJobApplications(String username) {
-        return jobRepository.getJobApplications(username);
-    }
+//    public void addJobApplication(JobApplication jobApplication, String username){
+//        jobRepository.addJobApplication(jobApplication,username);
+//    }
+//
+//    public LiveData<List<JobApplication>> getJobApplications(String username) {
+//        return jobRepository.getJobApplications(username);
+//    }
 }

@@ -70,23 +70,23 @@ public class View_Job_Applicant extends Fragment {
 
         setupNavigation();
 
-        accept.setOnClickListener(v -> {
-            try {
-                toShow.getJobApplicationByID(getArguments().getString("ApplicationID")).setStatus("Approved");
-                navController.navigate(R.id.jobApplicationsFragment);
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        });
-
-        decline.setOnClickListener(v -> {
-            try {
-                viewModel.deleteJobApplication(toShow.getJobApplicationByID(getArguments().getString("ApplicationID")));
-                navController.navigate(R.id.jobApplicationsFragment);
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        });
+//        accept.setOnClickListener(v -> {
+//            try {
+//                toShow.getJobApplicationByID(getArguments().getString("ApplicationID")).setStatus("Approved");
+//                navController.navigate(R.id.jobApplicationsFragment);
+//            } catch (Exception e){
+//                e.printStackTrace();
+//            }
+//        });
+//
+//        decline.setOnClickListener(v -> {
+//            try {
+//                viewModel.deleteJobApplication(toShow.getJobApplicationByID(getArguments().getString("ApplicationID")));
+//                navController.navigate(R.id.jobApplicationsFragment);
+//            } catch (Exception e){
+//                e.printStackTrace();
+//            }
+//        });
 
 
         return view;

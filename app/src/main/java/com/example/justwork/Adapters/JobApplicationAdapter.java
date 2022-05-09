@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.justwork.R;
 import com.example.justwork.model.Job;
 import com.example.justwork.model.JobApplication;
+import com.example.justwork.repository.JobRepository;
 
 import java.util.List;
 
@@ -20,8 +21,11 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
 
     private List<JobApplication> jobApplications;
     private JobAdapter.onClickListener onClickListener;
+    private JobRepository jobRepository;
+
     public void setOnClickListener(JobAdapter.onClickListener onClickListener){
         this.onClickListener = onClickListener;
+        this.jobRepository = JobRepository.getInstance();
     }
 
     public JobApplicationAdapter(List<JobApplication> jobApplications){
@@ -44,11 +48,13 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //holder.companyLogo.setImageDrawable(jobs.get(position)); for image logo but we dont have that in class
-        holder.jobTitle.setText(jobApplications.get(position).getTitle());
-        holder.companyName.setText(jobApplications.get(position).getCompanyName());
-        holder.jobApplicationStatus.setText(jobApplications.get(position).getJobType());
-        holder.jobType.setText(jobApplications.get(position).getLocation());
-        holder.jobWage.setText(jobApplications.get(position).getSalary() + "");
+        Job tempJob = jobRepository.getCompanyJobById(jobApplications.get(position).getJobId());
+
+        holder.jobTitle.setText(tempJob.getTitle());
+        holder.companyName.setText(tempJob.getCompanyName());
+        holder.jobApplicationStatus.setText(tempJob.getJobType());
+        holder.jobType.setText(tempJob.getLocation());
+        holder.jobWage.setText(tempJob.getSalary() + "");
     }
 
     @Override
@@ -80,7 +86,7 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
 //                onClickListener.onClick();
 //            }); need to open some other view (Job info or company info?)
             jobTitle.setOnClickListener(v -> {
-                onClickListener.onClick(jobApplications.get(getBindingAdapterPosition()));
+                //onClickListener.onClick(jobApplications.get(getBindingAdapterPosition()));
             });
         }
     }

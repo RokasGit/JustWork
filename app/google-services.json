@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "1019782830786",
+    "firebase_url": "https://justwork-c0d27-default-rtdb.firebaseio.com",
+    "project_id": "justwork-c0d27",
+    "storage_bucket": "justwork-c0d27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019782830786:android:b5a53e5932c66b61bbb95b",
+        "android_client_info": {
+          "package_name": "com.example.justwork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019782830786-ds27l26u69hn5ieeruoi03nfeb7ilhv5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.justwork",
+            "certificate_hash": "f0b16ed954509cc582383b40ddb554a55ae0771a"
+          }
+        },
+        {
+          "client_id": "1019782830786-ok3ug8gm7sm84ils165rvko7ug4bdshi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.justwork",
+            "certificate_hash": "a1b8efb09cbe7f20bb8e7e7a4d26739af7414019"
+          }
+        },
+        {
+          "client_id": "1019782830786-v0e1imv29s4flf0f93fovaq4q1kbq8q5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMVjZ3PNdNLftIvpzofLbpepr4Eg-uc1o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019782830786-v0e1imv29s4flf0f93fovaq4q1kbq8q5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

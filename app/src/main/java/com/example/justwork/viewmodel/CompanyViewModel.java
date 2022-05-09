@@ -17,31 +17,21 @@ import java.util.List;
 public class CompanyViewModel extends AndroidViewModel {
 
     private CompanyRepository companyRepository;
-    private String companyName;
+
 
     public CompanyViewModel(Application application){
         super(application);
         companyRepository = CompanyRepository.getInstance();
-        companyName = "";
+        
     }
 
-    public LiveData<List<JobApplication>> getJobApplicants() {
-        return companyRepository.getJobApplications();
+    public String getCompanyName(){
+        return companyRepository.getCompanyName();
     }
 
-    public void addJobApplication(JobApplication jobApplication){
-        companyRepository.addJobApplicant(jobApplication);
+    public int getCompanyCvr(){
+        return companyRepository.getCompanyCvr();
     }
 
-    public void deleteJobApplication(JobApplication jobApplication){
-        companyRepository.deleteJobApplicant(jobApplication);
-    }
 
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
 }

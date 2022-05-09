@@ -44,13 +44,13 @@ public class UserApplicationsFragment extends Fragment {
 
 //        username = view.findViewById(R.id.)
 
-        jobApplicationAdapter = new JobApplicationAdapter(jobViewModel.getJobApplications(username).getValue());
-        jobViewModel.getJobApplications(username).observe(getViewLifecycleOwner(), new Observer<List<JobApplication>>() {
-            @Override
-            public void onChanged(List<JobApplication> jobApplications) {
-                jobApplicationAdapter.setJobApplications(jobApplications);
-            }
-        });
+//        jobApplicationAdapter = new JobApplicationAdapter(jobViewModel.getJobApplications(username).getValue());
+//        jobViewModel.getJobApplications(username).observe(getViewLifecycleOwner(), new Observer<List<JobApplication>>() {
+//            @Override
+//            public void onChanged(List<JobApplication> jobApplications) {
+//                jobApplicationAdapter.setJobApplications(jobApplications);
+//            }
+//        });
         jobApplicationAdapter.setOnClickListener(job -> {
             //also smth
         });

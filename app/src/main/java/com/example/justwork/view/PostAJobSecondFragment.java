@@ -63,7 +63,8 @@ public class PostAJobSecondFragment extends Fragment {
                 Job toPost = new Job(ID_GENERATOR.getAndIncrement(), getArguments().getInt("jobSalary"), jobDate.getText().toString(),
                         getArguments().getString("jobDescription"), getArguments().getString("jobLocation"), contactInfo.getText().toString(),
                         Integer.parseInt(nrOfEmployees.getText().toString()), false, getArguments().getString("jobTitle")
-                        ,startTime.getText().toString(), endTime.getText().toString(), getArguments().getString("jobType"), companyViewModel.getCompanyName());
+                        ,startTime.getText().toString(), endTime.getText().toString(),
+                        getArguments().getString("jobType"), companyViewModel.getCompanyName(), companyViewModel.getCompanyCvr());
 
 
                 jobviewModel.addJob(toPost);

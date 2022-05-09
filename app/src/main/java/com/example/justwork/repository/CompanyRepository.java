@@ -3,6 +3,8 @@ package com.example.justwork.repository;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.justwork.DAO.DAO;
+import com.example.justwork.DAO.DAOImpl;
 import com.example.justwork.model.Job;
 import com.example.justwork.model.JobApplication;
 
@@ -11,15 +13,12 @@ import java.util.List;
 
 public class CompanyRepository {
 
-    private MutableLiveData<List<JobApplication>> jobApplicants;
-
     private static CompanyRepository instance;
+    private DAO dao;
 
 
     private CompanyRepository(){
-        jobApplicants = new MutableLiveData<>();
-        List<JobApplication> NewListJobApplicant = new ArrayList<>();
-        jobApplicants.setValue(NewListJobApplicant);
+        dao = DAOImpl.getInstance();
     }
 
     public static CompanyRepository getInstance(){
@@ -29,19 +28,15 @@ public class CompanyRepository {
         return instance;
     }
 
-    public LiveData<List<JobApplication>> getJobApplications(){
-        return jobApplicants;
+    public String getCompanyName(){
+        return dao.getCompany().getValue().getName();
     }
 
-    public void addJobApplicant(JobApplication jobApplication){
-        List<JobApplication> currentJobApplication = jobApplicants.getValue();
-        currentJobApplication.add(jobApplication);
-        jobApplicants.setValue(currentJobApplication);
+    public int getCompanyCvr(){
+        return dao.getCompany().getValue().getCvr();
     }
 
-    public void deleteJobApplicant(JobApplication jobApplication){
-        List<JobApplication> currentJobApplication = jobApplicants.getValue();
-        currentJobApplication.remove(jobApplication);
-        jobApplicants.setValue(currentJobApplication);
-    }
+
+
+
 }
