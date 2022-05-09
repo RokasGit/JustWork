@@ -101,9 +101,9 @@ public class Login extends Fragment {
                                         User user = snapshot.getValue(User.class);
 
                                         if(user != null){
-                                            System.out.println("employee");
+                                            navController.navigate(R.id.employeeHomeFragment);
                                         } else {
-                                            System.out.println("company");
+                                            navController.navigate(R.id.company_home);
                                         }
 
                                     }
