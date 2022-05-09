@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -16,10 +17,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.justwork.DAO.UserDAO;
+import com.example.justwork.DAO.UserDAOImpl;
 import com.example.justwork.R;
 import com.example.justwork.model.Company;
 import com.example.justwork.model.User;
 import com.example.justwork.model.UserType;
+import com.example.justwork.viewmodel.AccountViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -43,27 +47,19 @@ public class Login extends Fragment {
     private EditText personEmail;
     private EditText personPassword;
     private Button registerCompany;
-    private FirebaseAuth mAuth;
 
-    private FirebaseDatabase database;
-    private DatabaseReference dbRefUsers;
-    private DatabaseReference dbRefCompanies;
-
-
+    private AccountViewModel accountViewModel;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         loginView = inflater.inflate(R.layout.fragment_login, container, false);
         setupNavigation();
         initViews();
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        accountViewModel = new ViewModelProvider(this).get(AccountViewModel.class);
+        accountViewModel.getCompany().observe(getActivity(),this::navUpCompany);
+        accountViewModel.getEmployee().observe(getActivity(),this::navUpEmployee);
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
             reload();
         }
-
-        database = FirebaseDatabase.getInstance();
-        dbRefUsers = database.getReference().child("Users");
-        dbRefCompanies = database.getReference().child("Companies");
 
         return loginView;
     }
@@ -86,49 +82,14 @@ public class Login extends Fragment {
     }
 
     private void loginUser() {
-            mAuth.signInWithEmailAndPassword(personEmail.getText().toString(), personPassword.getText().toString())
-                    .addOnCompleteListener( getActivity(), new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d("Logged in", "signInWithEmail:success");
-                                FirebaseUser user = mAuth.getCurrentUser();
-
-                                database.getReference("Users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        User user = snapshot.getValue(User.class);
-
-                                        if(user != null){
-                                            navController.navigate(R.id.employeeHomeFragment);
-                                        } else {
-                                            navController.navigate(R.id.company_home);
-                                        }
-
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
-                                });
-
-
-
-                            }
-
-                                else {
-                                // If sign in fails, display a message to the user.
-                                Log.w("not logged in", "signInWithEmail:failure", task.getException());
-                                Toast.makeText(getActivity(), "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-
+        accountViewModel.login(personEmail.getText().toString(),personPassword.getText().toString());
     }
-
+    private void navUpEmployee(User user){
+        navController.navigate(R.id.employeeHomeFragment);
+    }
+    private void navUpCompany(Company company){
+        navController.navigate(R.id.company_home);
+    }
     private void reload() {
     }
 }

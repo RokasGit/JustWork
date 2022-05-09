@@ -3,17 +3,22 @@ package com.example.justwork.view;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.justwork.DAO.UserDAO;
+import com.example.justwork.DAO.UserDAOImpl;
 import com.example.justwork.R;
 import com.example.justwork.model.Company;
+import com.example.justwork.viewmodel.AccountViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
@@ -21,10 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class sign_up_company_second_fragment extends Fragment {
-    private FirebaseAuth mAuth;
-    private FirebaseDatabase database;
-    private DatabaseReference dbRef;
-
     private EditText companyCVRNo;
     private EditText companyAddress;
     private NavController navController;
@@ -34,17 +35,14 @@ public class sign_up_company_second_fragment extends Fragment {
     private String companyEmail;
     private Button signup;
 
-    String tempCVRNo;
-    String tempAddress;
-
+    private String tempCVRNo;
+    private String tempAddress;
+    private AccountViewModel accountViewModel;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_sign_up_company_second_fragment, container, false);
-        mAuth = FirebaseAuth.getInstance();
-        database = FirebaseDatabase.getInstance();
-        dbRef = database.getReference();
-
+        accountViewModel = new ViewModelProvider(this).get(AccountViewModel.class);
         setupNavigation();
         initViews();
 
@@ -82,19 +80,9 @@ public class sign_up_company_second_fragment extends Fragment {
         }
 
         int finalcvr = Integer.parseInt(tempCVRNo);
-        Company company = new Company(finalcvr, companyEmail, companyName, companyPassword, tempAddress);
 
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(company.getEmail(), company.getPassword())
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        dbRef.child("Companies").child(FirebaseAuth.getInstance().getUid()).setValue(company);
-                        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
-                                .setDisplayName(company.getName())
-                                .build();
-                        FirebaseAuth.getInstance().getCurrentUser().updateProfile(request);
-                        navController.navigate(R.id.company_home);
-                    }
-                });
+        accountViewModel.registerCompany(finalcvr,companyEmail,companyName,companyPassword,tempAddress);
+        navController.navigate(R.id.nav_logout);
 
 
     }
