@@ -26,12 +26,21 @@ public class UserDAOImpl implements UserDAO{
     private FirebaseAuth mAuth;
     private MutableLiveData<User> employee;
     private MutableLiveData<Company> company;
-    public UserDAOImpl(){
+    private static UserDAO userDAOInstance;
+    private UserDAOImpl(){
         databaseReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         employee = new MutableLiveData<>();
         company = new MutableLiveData<>();
     }
+
+    public static UserDAO getInstance() {
+        if(userDAOInstance==null){
+            userDAOInstance = new UserDAOImpl();
+        }
+        return userDAOInstance;
+    }
+
     @Override
     public void registerUser(int cpr, String username, String email, String password, int phoneNumber, String address, DrivingLicenceList drivingLicences, String gender, String nationality) {
         employee.setValue(new User(cpr, username, email, password, phoneNumber, address, gender,nationality));
@@ -44,8 +53,6 @@ public class UserDAOImpl implements UserDAO{
                                 .build();
                         mAuth.getCurrentUser().updateProfile(request);
                         System.out.println("REGISTER AS EMPLOYEE");
-                        mAuth.signOut();
-                        employee.setValue(null);
                     }
                 });
     }
@@ -108,8 +115,6 @@ public class UserDAOImpl implements UserDAO{
                                 .setDisplayName(company.getValue().getName())
                                 .build();
                         mAuth.getCurrentUser().updateProfile(request);
-                        company.setValue(null);
-                        mAuth.signOut();
                     }
                 });
     }

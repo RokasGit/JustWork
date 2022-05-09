@@ -3,6 +3,7 @@ package com.example.justwork.view;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -17,6 +18,7 @@ import com.example.justwork.DAO.UserDAO;
 import com.example.justwork.DAO.UserDAOImpl;
 import com.example.justwork.R;
 import com.example.justwork.model.Company;
+import com.example.justwork.viewmodel.AccountViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
@@ -35,11 +37,12 @@ public class sign_up_company_second_fragment extends Fragment {
 
     private String tempCVRNo;
     private String tempAddress;
-
+    private AccountViewModel accountViewModel;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_sign_up_company_second_fragment, container, false);
+        accountViewModel = new ViewModelProvider(this).get(AccountViewModel.class);
         setupNavigation();
         initViews();
 
@@ -78,9 +81,7 @@ public class sign_up_company_second_fragment extends Fragment {
 
         int finalcvr = Integer.parseInt(tempCVRNo);
 
-        // change to repository later.
-        UserDAO userDAO = new UserDAOImpl();
-        userDAO.registerCompany(finalcvr,companyEmail,companyName,companyPassword,tempAddress);
+        accountViewModel.registerCompany(finalcvr,companyEmail,companyName,companyPassword,tempAddress);
         navController.navigate(R.id.nav_logout);
 
 
