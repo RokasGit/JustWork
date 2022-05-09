@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.justwork.DAO.UserDAO;
+import com.example.justwork.DAO.UserDAOImpl;
 import com.example.justwork.R;
 import com.example.justwork.model.Company;
 import com.example.justwork.model.User;
@@ -86,49 +88,57 @@ public class Login extends Fragment {
     }
 
     private void loginUser() {
-            mAuth.signInWithEmailAndPassword(personEmail.getText().toString(), personPassword.getText().toString())
-                    .addOnCompleteListener( getActivity(), new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d("Logged in", "signInWithEmail:success");
-                                FirebaseUser user = mAuth.getCurrentUser();
-
-                                database.getReference("Users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        User user = snapshot.getValue(User.class);
-
-                                        if(user != null){
-                                            navController.navigate(R.id.employeeHomeFragment);
-                                        } else {
-                                            navController.navigate(R.id.company_home);
-                                        }
-
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
-                                });
-
-
-
-                            }
-
-                                else {
-                                // If sign in fails, display a message to the user.
-                                Log.w("not logged in", "signInWithEmail:failure", task.getException());
-                                Toast.makeText(getActivity(), "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-
+//            mAuth.signInWithEmailAndPassword(personEmail.getText().toString(), personPassword.getText().toString())
+//                    .addOnCompleteListener( getActivity(), new OnCompleteListener<AuthResult>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<AuthResult> task) {
+//                            if (task.isSuccessful()) {
+//                                // Sign in success, update UI with the signed-in user's information
+//                                Log.d("Logged in", "signInWithEmail:success");
+//                                FirebaseUser user = mAuth.getCurrentUser();
+//
+//                                database.getReference("Users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+//                                    @Override
+//                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                        User user = snapshot.getValue(User.class);
+//
+//                                        if(user != null){
+//                                            navController.navigate(R.id.employeeHomeFragment);
+//                                        } else {
+//                                            navController.navigate(R.id.company_home);
+//                                        }
+//
+//                                    }
+//
+//                                    @Override
+//                                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                                    }
+//                                });
+//
+//
+//
+//                            }
+//
+//                                else {
+//                                // If sign in fails, display a message to the user.
+//                                Log.w("not logged in", "signInWithEmail:failure", task.getException());
+//                                Toast.makeText(getActivity(), "Authentication failed.",
+//                                        Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+        UserDAO userDAO = new UserDAOImpl();
+        userDAO.login(personEmail.getText().toString(),personPassword.getText().toString());
+        userDAO.getCompany().observe(getActivity(),this::navUpCompany);
+        userDAO.getEmployee().observe(getActivity(),this::navUpEmployee);
     }
-
+    private void navUpEmployee(User user){
+        navController.navigate(R.id.employeeHomeFragment);
+    }
+    private void navUpCompany(Company company){
+        navController.navigate(R.id.company_home);
+    }
     private void reload() {
     }
 }

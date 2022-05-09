@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.justwork.DAO.UserDAO;
+import com.example.justwork.DAO.UserDAOImpl;
 import com.example.justwork.R;
 import com.example.justwork.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -124,19 +126,9 @@ public class signupEmployeeAdditionalDetailsFragment extends Fragment {
         }
 
         int finalcpr = Integer.parseInt(tempCpr);
-        User user = new User(finalcpr, username, email, password, phoneNumber, homeAddressTemp, genderTemp, nationalityTemp);
-//
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        dbRef.child("Users").child(FirebaseAuth.getInstance().getUid()).setValue(user);
-                        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
-                                .setDisplayName(user.getUserName())
-                                .build();
-                        FirebaseAuth.getInstance().getCurrentUser().updateProfile(request);
-                        navController.navigate(R.id.employeeHomeFragment);
-                    }
-                });
+        UserDAO userDAO = new UserDAOImpl();
+        userDAO.registerUser(finalcpr,username,email,password,phoneNumber,homeAddressTemp,null,genderTemp,nationalityTemp);
+        navController.navigate(R.id.nav_logout);
     }
 
     private void setupNavigation(){

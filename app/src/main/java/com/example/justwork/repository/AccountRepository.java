@@ -11,4 +11,7 @@ public class AccountRepository {
         }
         return instance;
     }
+    public void registerUser(){
+
+    }
 }

@@ -6,7 +6,9 @@ public class Company extends UserType{
     private String name;
     private String password;
     private String address;
-
+    public Company(){
+        super("Company");
+    }
     public Company(int cvr, String email, String name, String password, String address) {
         super("Company");
         this.cvr = cvr;
