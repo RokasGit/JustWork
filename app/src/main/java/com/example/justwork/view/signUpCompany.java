@@ -46,7 +46,7 @@ public class signUpCompany extends Fragment {
         next.setOnClickListener(view -> {
             if(registerCompany()){
                 Bundle registerInfo = new Bundle();
-                registerInfo.putString("Name", companyName.getText().toString().trim());
+                registerInfo.putString("companyName", companyName.getText().toString().trim());
                 registerInfo.putString("password", companyPassword.getText().toString().trim());
                 registerInfo.putString("email", companyEmail.getText().toString().trim());
 

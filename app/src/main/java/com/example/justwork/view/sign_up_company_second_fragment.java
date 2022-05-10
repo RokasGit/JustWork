@@ -54,7 +54,7 @@ public class sign_up_company_second_fragment extends Fragment {
         companyAddress = view.findViewById(R.id.set_company_headQ_address);
         signup = view.findViewById(R.id.button_company_signUp);
 
-        companyName = getArguments().getString("username");
+        companyName = getArguments().getString("companyName");
         companyPassword = getArguments().getString("password");
         companyEmail = getArguments().getString("email");
 
