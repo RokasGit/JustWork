@@ -22,7 +22,6 @@ public class JobViewModel extends AndroidViewModel {
         jobRepository = JobRepository.getInstance();
     }
 
-
     public LiveData<List<Job>> getJobs() {
         return jobRepository.getJobs();
     }
@@ -31,13 +30,15 @@ public class JobViewModel extends AndroidViewModel {
         jobRepository.addJob(job);
     }
 
+    public JobApplication getJobApplicationById(String id){
+        return jobRepository.getJobApplicationById(id);
+    }
 
+    public void addJobApplication(JobApplication jobApplication){
+        jobRepository.addJobApplication(jobApplication);
+    }
 
-//    public void addJobApplication(JobApplication jobApplication, String username){
-//        jobRepository.addJobApplication(jobApplication,username);
-//    }
-//
-//    public LiveData<List<JobApplication>> getJobApplications(String username) {
-//        return jobRepository.getJobApplications(username);
-//    }
+    public LiveData<List<JobApplication>> getJobApplications() {
+        return jobRepository.getJobApplicationsForCompany();
+    }
 }

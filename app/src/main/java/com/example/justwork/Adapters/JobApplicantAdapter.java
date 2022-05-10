@@ -12,11 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.justwork.R;
 import com.example.justwork.model.Job;
 import com.example.justwork.model.JobApplication;
-import com.example.justwork.model.User;
 import com.example.justwork.repository.JobRepository;
-import com.example.justwork.viewmodel.JobViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class JobApplicantAdapter extends RecyclerView.Adapter<JobApplicantAdapter.ViewHolder>{

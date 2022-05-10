@@ -47,29 +47,28 @@ public class JobApplicationsFragment extends Fragment {
         JobApplicationsRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
-//        applicantAdapter = new JobApplicantAdapter(viewModel.getJobApplicants().getValue());
-//
-//        viewModel.getJobApplicants().observe(getViewLifecycleOwner(), new Observer<List<JobApplication>>() {
-//            @Override
-//            public void onChanged(List<JobApplication> jobApplications) {
-//                applicantAdapter.setJobApplications(jobApplications);
-//            }
-//        });
+        applicantAdapter = new JobApplicantAdapter(viewModel.getJobApplications().getValue());
+
+        viewModel.getJobApplications().observe(getViewLifecycleOwner(), new Observer<List<JobApplication>>() {
+            @Override
+            public void onChanged(List<JobApplication> jobApplications) {
+                applicantAdapter.setJobApplications(jobApplications);
+            }
+        });
 
         setupNavigation();
 
-//        applicantAdapter.setOnClickListener(jobApplication -> {
-//            try {
-//
-//                Bundle toSend = new Bundle();
-//                toSend.putString("ApplicantEmail", jobApplication.getEmail());
-//                toSend.putString("ApplicationID", jobApplication.getJobApplicationID());
-//
-//                navController.navigate(R.id.view_Job_Applicant, toSend);
-//            } catch (Exception e){
-//
-//            }
-//        });
+        applicantAdapter.setOnClickListener(jobApplication -> {
+            try {
+
+                Bundle toSend = new Bundle();
+                toSend.putString("ApplicationID", jobApplication.getJobApplicationId());
+
+                navController.navigate(R.id.view_Job_Applicant, toSend);
+            } catch (Exception e){
+
+            }
+        });
 
         JobApplicationsRecycler.setAdapter(applicantAdapter);
 

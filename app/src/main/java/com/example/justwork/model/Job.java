@@ -1,9 +1,7 @@
 package com.example.justwork.model;
 
-import java.util.Date;
-
 public class Job {
-    private int id;
+    private String id;
     private double salary;
     private String date;
     private String description;
@@ -20,7 +18,7 @@ public class Job {
     public Job(){
 
     }
-    public Job(int id, double salary, String date, String description, String location, String contactInfo,
+    public Job( double salary, String date, String description, String location, String contactInfo,
                int amountOfNeededWorkers, boolean takenStatus, String title,
                String startTime, String endTime, String jobType, String companyName, int companyCvr) {
         this.id = id;
@@ -39,11 +37,11 @@ public class Job {
         this.companyCvr = companyCvr;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
