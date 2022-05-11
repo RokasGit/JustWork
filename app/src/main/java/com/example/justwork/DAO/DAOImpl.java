@@ -80,5 +80,10 @@ public class DAOImpl implements DAO{
         return jobDAO.getJobApplicationById(id);
     }
 
+    @Override
+    public void updateJobApplication(JobApplication jobApplication) {
+        jobDAO.updateJobApplication(jobApplication);
+    }
+
 
 }

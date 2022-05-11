@@ -38,6 +38,8 @@ public class JobRepository{
         dao.PostJob(job);
     }
 
+    public void updateJobApplication(JobApplication jobApplication){ dao.updateJobApplication(jobApplication);}
+
     public Job getCompanyJobById(String id) {
         return dao.getCompanyJobById(id);
     }

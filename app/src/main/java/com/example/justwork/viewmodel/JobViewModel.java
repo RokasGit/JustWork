@@ -34,6 +34,8 @@ public class JobViewModel extends AndroidViewModel {
         return jobRepository.getJobApplicationById(id);
     }
 
+    public void updateJobApplication(JobApplication jobApplication){ jobRepository.updateJobApplication(jobApplication);}
+
     public void addJobApplication(JobApplication jobApplication){
         jobRepository.addJobApplication(jobApplication);
     }

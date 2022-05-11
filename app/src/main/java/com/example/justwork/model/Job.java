@@ -21,7 +21,7 @@ public class Job {
     public Job( double salary, String date, String description, String location, String contactInfo,
                int amountOfNeededWorkers, boolean takenStatus, String title,
                String startTime, String endTime, String jobType, String companyName, int companyCvr) {
-        this.id = id;
+        this.id = "";
         this.salary = salary;
         this.date = date;
         this.description = description;

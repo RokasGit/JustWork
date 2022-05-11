@@ -8,20 +8,24 @@ public class JobApplication {
     private String jobId;
     private String status;
 
-    public JobApplication(int userId, String jobId, String status, int companyCvr, String JobApplicationId){
+    public JobApplication(){
+
+    }
+
+    public JobApplication(int userId, String jobId, String status, int companyCvr){
         this.jobId = jobId;
         this.userCpr = userId;
         this.status = status;
         this.companyCvr = companyCvr;
-        this.jobApplicationId = JobApplicationId;
+        this.jobApplicationId = "";
     }
 
 
-    public int getUserId() {
+    public int getUserCpr() {
         return userCpr;
     }
 
-    public void setUserId(int userId) {
+    public void setUserCpr(int userId) {
         this.userCpr = userId;
     }
 

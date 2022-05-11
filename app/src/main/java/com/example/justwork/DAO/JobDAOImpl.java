@@ -33,6 +33,9 @@ public class JobDAOImpl implements JobDAO{
         jobApplications = new MutableLiveData<>();
         Jobs.setValue(ifNullJob);
         jobApplications.setValue(ifNullJobApplications);
+
+//        JobApplication test = new JobApplication(123456, "-N1jP9YdDVwC6_UNcfn8","Applied",12123123);
+//        AddJobApplication(test);
     }
 
     public static JobDAO getInstance() {
@@ -69,7 +72,7 @@ public class JobDAOImpl implements JobDAO{
                     JobApplication temp= dataSnapshot.getValue(JobApplication.class);
 
 
-                    if (temp.getCompanyCvr() == cvr){
+                    if (temp.getCompanyCvr() == cvr && temp.getStatus().equals("Applied")){
                         jobsApplToGet.add(temp);
                     }
                 }
@@ -153,5 +156,10 @@ public class JobDAOImpl implements JobDAO{
         });
 
         return toGetJobApplication;
+    }
+
+    @Override
+    public void updateJobApplication(JobApplication jobApplication) {
+        databaseReference.child("JobApplication").child(jobApplication.getJobApplicationId()).setValue(jobApplication);
     }
 }

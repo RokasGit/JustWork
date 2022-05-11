@@ -21,5 +21,7 @@ public interface JobDAO {
 
     JobApplication getJobApplicationById(String id);
 
+    void updateJobApplication(JobApplication jobApplication);
+
 
 }

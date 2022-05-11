@@ -79,7 +79,8 @@ public class View_Job_Applicant extends Fragment {
         accept.setOnClickListener(v -> {
             try {
                 //update application needed
-                usersApplication.setStatus("Approved");
+                usersApplication.setStatus("Accepted");
+                viewModel.updateJobApplication(usersApplication);
                 navController.navigate(R.id.jobApplicationsFragment);
             } catch (Exception e){
                 e.printStackTrace();
@@ -89,7 +90,8 @@ public class View_Job_Applicant extends Fragment {
         decline.setOnClickListener(v -> {
             try {
                 //update application needed probably also delete.
-                usersApplication.setStatus("Disapproved");
+                usersApplication.setStatus("Rejected");
+                viewModel.updateJobApplication(usersApplication);
                 navController.navigate(R.id.jobApplicationsFragment);
             } catch (Exception e){
                 e.printStackTrace();
