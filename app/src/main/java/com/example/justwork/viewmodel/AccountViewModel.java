@@ -13,6 +13,7 @@ import com.example.justwork.repository.AccountRepository;
 
 public class AccountViewModel extends AndroidViewModel {
     private AccountRepository accountRepository;
+
     public AccountViewModel(Application application){
         super(application);
         accountRepository = AccountRepository.getInstance(application);
@@ -24,6 +25,7 @@ public class AccountViewModel extends AndroidViewModel {
     public void login(String email, String password){
         accountRepository.login(email,password);
     }
+
     public void registerCompany(int cvr, String email, String name, String password, String address){
         accountRepository.registerCompany(cvr, email, name, password, address);
     }

@@ -37,7 +37,6 @@ public class PostAJobSecondFragment extends Fragment {
     EditText nrOfEmployees;
     Button postJob;
 
-    private static AtomicInteger ID_GENERATOR = new AtomicInteger(1);
 
 
     @Override
@@ -60,10 +59,11 @@ public class PostAJobSecondFragment extends Fragment {
         postJob.setOnClickListener(v ->{
             try {
 
-                Job toPost = new Job(ID_GENERATOR.getAndIncrement(), getArguments().getInt("jobSalary"), jobDate.getText().toString(),
+                Job toPost = new Job(getArguments().getInt("jobSalary"), jobDate.getText().toString(),
                         getArguments().getString("jobDescription"), getArguments().getString("jobLocation"), contactInfo.getText().toString(),
                         Integer.parseInt(nrOfEmployees.getText().toString()), false, getArguments().getString("jobTitle")
-                        ,startTime.getText().toString(), endTime.getText().toString(), getArguments().getString("jobType"), companyViewModel.getCompanyName());
+                        ,startTime.getText().toString(), endTime.getText().toString(),
+                        getArguments().getString("jobType"), companyViewModel.getCompanyName(), companyViewModel.getCompanyCvr());
 
 
                 jobviewModel.addJob(toPost);

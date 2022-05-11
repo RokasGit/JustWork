@@ -1,4 +1,7 @@
 package com.example.justwork.DAO;
 
-public interface DAO extends UserDAO{
+import com.example.justwork.model.Company;
+
+public interface DAO extends UserDAO, JobDAO{
+
 }

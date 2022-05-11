@@ -3,26 +3,25 @@ package com.example.justwork.repository;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.justwork.DAO.DAO;
+import com.example.justwork.DAO.DAOImpl;
 import com.example.justwork.model.Job;
 import com.example.justwork.model.JobApplication;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class JobRepository{
 
-    private MutableLiveData<List<Job>> companyJobs;
-    private MutableLiveData<List<JobApplication>> userJobApplications;
+    private DAO dao;
+    private LiveData<List<Job>> companyJobs;
+    private LiveData<List<JobApplication>> compnayJobApplications;
     private static JobRepository instance;
 
     private JobRepository(){
-        companyJobs = new MutableLiveData<>();
-        List<Job> NewListJob = new ArrayList<>();
-        companyJobs.setValue(NewListJob);
+        dao = DAOImpl.getInstance();
+        companyJobs = dao.getCompanyJobs(dao.getCompany().getValue().getCvr());
 
-        userJobApplications = new MutableLiveData<>();
-        List<JobApplication> NewListJobApplication = new ArrayList<>();
-        userJobApplications.setValue(NewListJobApplication);
+        compnayJobApplications = dao.getJobApplicationsForCompany(dao.getCompany().getValue().getCvr());
     }
 
     public static JobRepository getInstance(){
@@ -37,29 +36,24 @@ public class JobRepository{
     }
 
     public void addJob(Job job){
-        List<Job> currentJobs = companyJobs.getValue();
-        currentJobs.add(job);
-        companyJobs.setValue(currentJobs);
+        dao.PostJob(job);
     }
 
+    public void updateJobApplication(JobApplication jobApplication){ dao.updateJobApplication(jobApplication);}
 
-    public LiveData<List<JobApplication>> getJobApplications(String username) {
-
-        List<JobApplication> jobApplications  = userJobApplications.getValue();
-        for (JobApplication jobApplication: jobApplications) {
-            if(!jobApplication.getJobApplicationID().equals(username)){ // if the username for this job application doesn't equal,
-                //it will be removed from list. List will be set only to those applications that have the username.
-                jobApplications.remove(jobApplication);
-            }
-        }
-        userJobApplications.setValue(jobApplications);
-        return userJobApplications;
+    public Job getCompanyJobById(String id) {
+        return dao.getCompanyJobById(id);
     }
 
-    public void addJobApplication(JobApplication jobApplication, String username) {
-        jobApplication.setJobApplicationID(username);
-        List<JobApplication> jobApplicationsToReturn  = userJobApplications.getValue();
-        jobApplicationsToReturn.add(jobApplication);
-        userJobApplications.setValue(jobApplicationsToReturn);
+    public JobApplication getJobApplicationById(String id){
+        return dao.getJobApplicationById(id);
+    }
+
+    public LiveData<List<JobApplication>> getJobApplicationsForCompany() {
+        return compnayJobApplications;
+    }
+
+    public void addJobApplication(JobApplication jobApplication) {
+       dao.AddJobApplication(jobApplication);
     }
 }
