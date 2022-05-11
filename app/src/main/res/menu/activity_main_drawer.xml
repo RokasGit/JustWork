@@ -9,7 +9,7 @@
             android:icon="@drawable/menu_profile"
             android:title="@string/menu_edit_profile" />
         <item
-            android:id="@+id/nav_applications"
+            android:id="@+id/jobApplicationsFragment"
             android:icon="@drawable/menu_applications"
             android:title="@string/menu_applications" />
         <item

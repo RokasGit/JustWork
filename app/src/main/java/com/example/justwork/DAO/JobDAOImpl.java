@@ -19,8 +19,6 @@ public class JobDAOImpl implements JobDAO{
     private DatabaseReference databaseReference;
     private MutableLiveData<List<Job>> Jobs;
     private MutableLiveData<List<JobApplication>> jobApplications;
-    private Job toGetJob;
-    private JobApplication toGetJobApplication;
     private static JobDAO jobDAOInstance;
 
 
@@ -123,39 +121,55 @@ public class JobDAOImpl implements JobDAO{
     @Override
     public Job getCompanyJobById(String id) {
 
+        //only for the company
 
-        databaseReference.child("Jobs").child(id+"").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                toGetJob = snapshot.getValue(Job.class);
+//        databaseReference.child("Jobs").child(id).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                toGetJob.setValue(snapshot.getValue(Job.class));
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+
+        List<Job> temp = Jobs.getValue();
+        for(int i = 0; i< temp.size(); i++){
+            if (temp.get(i).getId().equals(id)){
+                return temp.get(i);
             }
+        }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        return toGetJob;
+        return null;
     }
 
     @Override
     public JobApplication getJobApplicationById(String id) {
+        //Only for the company
 
-        databaseReference.child("JobApplication").child(id+"").addValueEventListener(new ValueEventListener() {
+//        databaseReference.child("JobApplication").child(id+"").addValueEventListener(new ValueEventListener() {
+//
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                toGetJobApplication.setValue(snapshot.getValue(JobApplication.class));
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                toGetJobApplication = snapshot.getValue(JobApplication.class);
+        List<JobApplication> temp = jobApplications.getValue();
+        for(int i = 0; i< temp.size(); i++){
+            if (temp.get(i).getJobApplicationId().equals(id)){
+                return temp.get(i);
             }
+        }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        return toGetJobApplication;
+        return null;
     }
 
     @Override
