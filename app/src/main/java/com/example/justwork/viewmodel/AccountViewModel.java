@@ -2,6 +2,7 @@ package com.example.justwork.viewmodel;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
@@ -14,7 +15,7 @@ import com.example.justwork.repository.AccountRepository;
 public class AccountViewModel extends AndroidViewModel {
     private AccountRepository accountRepository;
 
-    public AccountViewModel(Application application){
+    public AccountViewModel(@NonNull Application application){
         super(application);
         accountRepository = AccountRepository.getInstance(application);
     }

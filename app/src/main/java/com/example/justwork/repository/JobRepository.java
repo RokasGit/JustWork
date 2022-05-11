@@ -19,9 +19,12 @@ public class JobRepository{
 
     private JobRepository(){
         dao = DAOImpl.getInstance();
-        companyJobs = dao.getCompanyJobs(dao.getCompany().getValue().getCvr());
+        if(dao.getCompany().getValue()!=null){
+            companyJobs = dao.getCompanyJobs(dao.getCompany().getValue().getCvr());
+            compnayJobApplications = dao.getJobApplicationsForCompany(dao.getCompany().getValue().getCvr());
+        }
 
-        compnayJobApplications = dao.getJobApplicationsForCompany(dao.getCompany().getValue().getCvr());
+
     }
 
     public static JobRepository getInstance(){
@@ -42,7 +45,11 @@ public class JobRepository{
     public void updateJobApplication(JobApplication jobApplication){ dao.updateJobApplication(jobApplication);}
 
     public Job getCompanyJobById(String id) {
-        return dao.getCompanyJobById(id);
+            return dao.getCompanyJobById(id);
+
+    }
+    public LiveData<Job> findJobByID(String id){
+        return dao.findJobByID(id);
     }
 
     public JobApplication getJobApplicationById(String id){

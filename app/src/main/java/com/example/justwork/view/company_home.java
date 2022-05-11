@@ -64,6 +64,7 @@ public class company_home extends Fragment {
             @Override
             public void onChanged(List<Job> jobs) {
                 jobAdapter.setJobs(jobs);
+                JobRecyclerView.setAdapter(jobAdapter);
             }
         });
 

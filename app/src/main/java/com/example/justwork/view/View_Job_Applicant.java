@@ -55,8 +55,8 @@ public class View_Job_Applicant extends Fragment {
         applicantName = view.findViewById(R.id.view_jobApplicant_name);
         applicantGender = view.findViewById(R.id.view_jobApplicant_gender);
         ratingBar = view.findViewById(R.id.ratingBar);
-        applicantsAddress = view.findViewById(R.id.view_jobApplicant_address);
-        applicantsCrp = view.findViewById(R.id.view_jobApplicant_cpr);
+        applicantsAddress = view.findViewById(R.id.view_jobApplicant_editTextAddress);
+        applicantsCrp = view.findViewById(R.id.view_jobApplicant_editTextCpr);
         applicantsDrivingLicence = view.findViewById(R.id.view_jobApplicant_editTextLicence);
         accept = view.findViewById(R.id.view_jobApplicant_button_Accept);
         decline = view.findViewById(R.id.view_jobApplicant_button_Reject);

@@ -85,7 +85,7 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
 //            optionButton.setOnClickListener(v->{
 //                onClickListener.onClick();
 //            }); need to open some other view (Job info or company info?)
-            jobTitle.setOnClickListener(v -> {
+            itemView.setOnClickListener(v -> {
                 //onClickListener.onClick(jobApplications.get(getBindingAdapterPosition()));
             });
         }
