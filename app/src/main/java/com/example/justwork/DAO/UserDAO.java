@@ -22,7 +22,7 @@ public interface UserDAO {
 
     MutableLiveData<Company> getCompany();
 
-    void updateEmployeeInfo(String userName, String email, String password);
+    void updateEmployeeInfo(String userName, String password);
 
     LiveData<User> getEmptyEmployee();
 

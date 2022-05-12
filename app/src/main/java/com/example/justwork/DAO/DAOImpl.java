@@ -60,9 +60,9 @@ public class DAOImpl implements DAO{
     }
 
     @Override
-    public void updateEmployeeInfo(String userName, String email, String password) {
+    public void updateEmployeeInfo(String userName,  String password) {
         System.out.println("In simple fucking dao");
-        userDAO.updateEmployeeInfo(userName, email, password);
+        userDAO.updateEmployeeInfo(userName, password);
         System.out.println("Going to userdao now");
     }
 

@@ -162,25 +162,16 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public void updateEmployeeInfo(String userName, String email, String password) {
+    public void updateEmployeeInfo(String userName, String password) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
        DatabaseReference ref =  databaseReference.child("Users").child(currentUser);
        Map<String, Object> profileUpdates = new HashMap<>();
        profileUpdates.put("userName", userName);
-        profileUpdates.put("email", email);
         profileUpdates.put("password", password);
         System.out.println("going to put it in now");
         ref.updateChildren(profileUpdates);
-        user.updateEmail(email)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d("Email", "User email address updated.");
-                        }
-                    }
-                });
+
         user.updatePassword(password)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

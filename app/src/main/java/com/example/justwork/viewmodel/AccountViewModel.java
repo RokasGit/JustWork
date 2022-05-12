@@ -37,7 +37,7 @@ public class AccountViewModel extends AndroidViewModel {
         return accountRepository.getCompany();
     }
 
-    public void updateEmployeeInfo(String userName, String email, String password) {
-        accountRepository.updateEmployeeInfo(userName, email, password);
+    public void updateEmployeeInfo(String userName,  String password) {
+        accountRepository.updateEmployeeInfo(userName, password);
     }
 }

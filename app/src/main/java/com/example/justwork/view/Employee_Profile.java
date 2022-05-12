@@ -55,7 +55,7 @@ public class Employee_Profile extends Fragment {
         password = view.findViewById(R.id.Profile_editTextPassword);
         save = view.findViewById(R.id.saveChangesButton);
 
-        save.setOnClickListener(view-> accountViewModel.updateEmployeeInfo(username.getText().toString(), email.getText().toString(), password.getText().toString()));
+        save.setOnClickListener(view-> accountViewModel.updateEmployeeInfo(username.getText().toString(),  password.getText().toString()));
     }
     private void setupNavigation(){
         navController = NavHostFragment.findNavController(this);

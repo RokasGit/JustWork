@@ -52,7 +52,7 @@ public class AccountRepository {
         return companyLiveData;
     }
 
-    public void updateEmployeeInfo(String userName, String email, String password) {
-        dao.updateEmployeeInfo(userName, email, password);
+    public void updateEmployeeInfo(String userName, String password) {
+        dao.updateEmployeeInfo(userName, password);
     }
 }
