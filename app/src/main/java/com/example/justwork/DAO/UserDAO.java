@@ -1,5 +1,6 @@
 package com.example.justwork.DAO;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.justwork.model.Company;
@@ -20,4 +21,10 @@ public interface UserDAO {
     MutableLiveData<User> getEmployee();
 
     MutableLiveData<Company> getCompany();
+
+    void updateEmployeeInfo(String userName, String email, String password);
+
+    LiveData<User> getEmptyEmployee();
+
+    LiveData<Company> getEmptyCompany();
 }

@@ -17,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.justwork.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private ActivityMainBinding binding;
     private DrawerLayout drawerLayout;
+
 
     private NavigationView navigationView;
 
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_edit_profile, R.id.nav_applications, R.id.nav_notification_settings,R.id.employeeHomeFragment, R.id.company_home)
+                R.id.nav_edit_profile, R.id.nav_applications, R.id.nav_notification_settings,R.id.employeeHomeFragment, R.id.company_home, R.id.nav_logout)
                 .setOpenableLayout(drawerLayout)
                 .build();
        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

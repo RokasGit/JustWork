@@ -2,40 +2,23 @@ package com.example.justwork.view;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.justwork.DAO.UserDAO;
-import com.example.justwork.DAO.UserDAOImpl;
 import com.example.justwork.R;
 import com.example.justwork.model.Company;
 import com.example.justwork.model.User;
-import com.example.justwork.model.UserType;
 import com.example.justwork.viewmodel.AccountViewModel;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.EventListener;
 
 
 public class Login extends Fragment {
@@ -70,7 +53,7 @@ public class Login extends Fragment {
         navController = NavHostFragment.findNavController(this);
     }
     private void initViews(){
-        loginButton = loginView.findViewById(R.id.loginButton);
+        loginButton = loginView.findViewById(R.id.saveChangesButton);
         loginButton.setOnClickListener(view -> loginUser());
         createAccountAsUser = loginView.findViewById(R.id.register_as_user);
         createAccountAsUser.setOnClickListener(view->navController.navigate(R.id.signupEmployeeFragment));

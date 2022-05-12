@@ -36,4 +36,8 @@ public class AccountViewModel extends AndroidViewModel {
     public LiveData<Company> getCompany() {
         return accountRepository.getCompany();
     }
+
+    public void updateEmployeeInfo(String userName, String email, String password) {
+        accountRepository.updateEmployeeInfo(userName, email, password);
+    }
 }
