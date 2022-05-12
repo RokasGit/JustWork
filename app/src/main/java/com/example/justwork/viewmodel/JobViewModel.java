@@ -5,6 +5,7 @@ import android.content.res.Resources;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.justwork.model.Job;
@@ -22,7 +23,6 @@ public class JobViewModel extends AndroidViewModel {
         jobRepository = JobRepository.getInstance();
     }
 
-
     public LiveData<List<Job>> getJobs() {
         return jobRepository.getJobs();
     }
@@ -31,12 +31,17 @@ public class JobViewModel extends AndroidViewModel {
         jobRepository.addJob(job);
     }
 
-
-    public void addJobApplication(JobApplication jobApplication, String username){
-        jobRepository.addJobApplication(jobApplication,username);
+    public JobApplication getJobApplicationById(String id){
+        return jobRepository.getJobApplicationById(id);
     }
 
-    public LiveData<List<JobApplication>> getJobApplications(String username) {
-        return jobRepository.getJobApplications(username);
+    public void updateJobApplication(JobApplication jobApplication){ jobRepository.updateJobApplication(jobApplication);}
+
+    public void addJobApplication(JobApplication jobApplication){
+        jobRepository.addJobApplication(jobApplication);
+    }
+
+    public LiveData<List<JobApplication>> getJobApplications() {
+        return jobRepository.getJobApplicationsForCompany();
     }
 }

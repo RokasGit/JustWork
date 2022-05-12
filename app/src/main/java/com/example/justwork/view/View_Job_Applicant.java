@@ -17,17 +17,22 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.justwork.R;
+import com.example.justwork.model.JobApplication;
 import com.example.justwork.model.User;
 import com.example.justwork.viewmodel.CompanyViewModel;
+import com.example.justwork.viewmodel.JobViewModel;
 
 import org.w3c.dom.Text;
 
 
 public class View_Job_Applicant extends Fragment {
 
-    private CompanyViewModel viewModel;
+    private JobViewModel viewModel;
+
     private View view;
     private NavController navController;
+
+    JobApplication usersApplication;
 
     ImageView applicantImage;
     TextView applicantName;
@@ -44,7 +49,7 @@ public class View_Job_Applicant extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_view__job__applicant, container, false);
-        viewModel = new ViewModelProvider(this).get(CompanyViewModel.class);
+        viewModel = new ViewModelProvider(this).get(JobViewModel.class);
 
         applicantImage = view.findViewById(R.id.view_jobApplicant_imageView);
         applicantName = view.findViewById(R.id.view_jobApplicant_name);
@@ -58,6 +63,7 @@ public class View_Job_Applicant extends Fragment {
 
 
         User toShow = fetchUser();
+        usersApplication = viewModel.getJobApplicationById(getArguments().getString("ApplicationID"));
 
         //applicantImage.setImageDrawable(toShow.getPicture());
         applicantName.setText(toShow.getUserName());
@@ -72,7 +78,9 @@ public class View_Job_Applicant extends Fragment {
 
         accept.setOnClickListener(v -> {
             try {
-                toShow.getJobApplicationByID(getArguments().getString("ApplicationID")).setStatus("Approved");
+                //update application needed
+                usersApplication.setStatus("Accepted");
+                viewModel.updateJobApplication(usersApplication);
                 navController.navigate(R.id.jobApplicationsFragment);
             } catch (Exception e){
                 e.printStackTrace();
@@ -81,7 +89,9 @@ public class View_Job_Applicant extends Fragment {
 
         decline.setOnClickListener(v -> {
             try {
-                viewModel.deleteJobApplication(toShow.getJobApplicationByID(getArguments().getString("ApplicationID")));
+                //update application needed probably also delete.
+                usersApplication.setStatus("Rejected");
+                viewModel.updateJobApplication(usersApplication);
                 navController.navigate(R.id.jobApplicationsFragment);
             } catch (Exception e){
                 e.printStackTrace();

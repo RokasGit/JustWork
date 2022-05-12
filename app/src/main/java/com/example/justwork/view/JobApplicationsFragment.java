@@ -20,13 +20,15 @@ import com.example.justwork.Adapters.JobApplicantAdapter;
 import com.example.justwork.R;
 import com.example.justwork.model.JobApplication;
 import com.example.justwork.viewmodel.CompanyViewModel;
+import com.example.justwork.viewmodel.JobViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class JobApplicationsFragment extends Fragment {
 
-    private CompanyViewModel viewModel;
+    private JobViewModel viewModel;
     private View view;
     private NavController navController;
 
@@ -37,16 +39,17 @@ public class JobApplicationsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
         view = inflater.inflate(R.layout.fragment_job_applications, container, false);
-        viewModel = new ViewModelProvider(this).get(CompanyViewModel.class);
+        viewModel = new ViewModelProvider(this).get(JobViewModel.class);
 
         JobApplicationsRecycler = view.findViewById(R.id.search_resultListView);
 
         JobApplicationsRecycler.hasFixedSize();
         JobApplicationsRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        applicantAdapter = new JobApplicantAdapter(viewModel.getJobApplicants().getValue());
 
-        viewModel.getJobApplicants().observe(getViewLifecycleOwner(), new Observer<List<JobApplication>>() {
+        applicantAdapter = new JobApplicantAdapter(viewModel.getJobApplications().getValue());
+
+        viewModel.getJobApplications().observe(getViewLifecycleOwner(), new Observer<List<JobApplication>>() {
             @Override
             public void onChanged(List<JobApplication> jobApplications) {
                 applicantAdapter.setJobApplications(jobApplications);
@@ -59,8 +62,7 @@ public class JobApplicationsFragment extends Fragment {
             try {
 
                 Bundle toSend = new Bundle();
-                toSend.putString("ApplicantEmail", jobApplication.getEmail());
-                toSend.putString("ApplicationID", jobApplication.getJobApplicationID());
+                toSend.putString("ApplicationID", jobApplication.getJobApplicationId());
 
                 navController.navigate(R.id.view_Job_Applicant, toSend);
             } catch (Exception e){

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1019782830786",
+    "firebase_url": "https://justwork-c0d27-default-rtdb.firebaseio.com",
     "project_id": "justwork-c0d27",
     "storage_bucket": "justwork-c0d27.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1019782830786-ds27l26u69hn5ieeruoi03nfeb7ilhv5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.justwork",
+            "certificate_hash": "f0b16ed954509cc582383b40ddb554a55ae0771a"
+          }
+        },
         {
           "client_id": "1019782830786-ok3ug8gm7sm84ils165rvko7ug4bdshi.apps.googleusercontent.com",
           "client_type": 1,

@@ -13,7 +13,7 @@ public class User extends UserType{
     private String nationality;
 //    private String picture;
     private DrivingLicenceList drivingLicences;
-    private ArrayList<JobApplication> jobApplications;
+
 
     public User(){
         super("Employee");
@@ -31,7 +31,6 @@ public class User extends UserType{
         this.nationality = nationality;
 //        this.picture = picture;
         this.drivingLicences = new DrivingLicenceList();
-        jobApplications = new ArrayList<>();
     }
 
     public int getCpr() {
@@ -108,24 +107,5 @@ public class User extends UserType{
         this.drivingLicences = drivingLicences;
     }
 
-    public ArrayList<JobApplication> getJobApplications() {
-        return jobApplications;
-    }
-
-    public JobApplication getJobApplicationByID(String id){
-        for (JobApplication jobApplication: jobApplications) {
-            if(id.equals(jobApplication.getJobApplicationID())){
-                return jobApplication;
-            }
-        }
-        return null;
-    }
-
-    public void addJobApplication(Job job, String status){
-        JobApplication toAdd = new JobApplication(job.getId(), job.getSalary(), job.getDate(), job.getDescription(),
-                job.getLocation(), job.getContactInfo(), job.getAmountOfNeededWorkers(), job.isTakenStatus(), job.getTitle(), job.getStartTime(),
-                job.getEndTime(), job.getJobType(), job.getCompanyName(), status, userName, email);
-        jobApplications.add(toAdd);
-    }
 }
 
