@@ -3,6 +3,7 @@ package com.example.justwork.DAO;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.justwork.model.Company;
@@ -14,12 +15,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserDAOImpl implements UserDAO{
     private DatabaseReference databaseReference;
@@ -30,8 +35,12 @@ public class UserDAOImpl implements UserDAO{
     private UserDAOImpl(){
         databaseReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+        User ifNullEmployee = new User();
+        Company ifNullCompany = new Company();
         employee = new MutableLiveData<>();
+//        employee.setValue(ifNullEmployee);
         company = new MutableLiveData<>();
+//        company.setValue(ifNullCompany);
     }
 
     public static UserDAO getInstance() {
@@ -121,11 +130,86 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public MutableLiveData<User> getEmployee() {
+        String userId = "";
+        if(FirebaseAuth.getInstance().getCurrentUser().getUid() != null){
+            userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        }
+        else{
+            userId = "No user found";
+        }
+        final User[] tempUser = {new User()};
+
+        databaseReference.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                tempUser[0] = snapshot.getValue(User.class);
+                employee.setValue(tempUser[0]);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
         return employee;
     }
 
     @Override
     public MutableLiveData<Company> getCompany() {
+        return company;
+    }
+
+    @Override
+    public void updateEmployeeInfo(String userName, String email, String password) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+       DatabaseReference ref =  databaseReference.child("Users").child(currentUser);
+       Map<String, Object> profileUpdates = new HashMap<>();
+       profileUpdates.put("userName", userName);
+        profileUpdates.put("email", email);
+        profileUpdates.put("password", password);
+        System.out.println("going to put it in now");
+        ref.updateChildren(profileUpdates);
+        user.updateEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("Email", "User email address updated.");
+                        }
+                    }
+                });
+        user.updatePassword(password)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("Passowrd", "User email address updated.");
+                        }
+                    }
+                });
+        UserProfileChangeRequest profileUpdates2 = new UserProfileChangeRequest.Builder()
+                .setDisplayName(userName).build();
+        user.updateProfile(profileUpdates2)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("Profile Update", "User profile updated.");
+                        }
+                    }
+                });
+    }
+
+    @Override
+    public LiveData<User> getEmptyEmployee() {
+        return employee;
+    }
+
+    @Override
+    public LiveData<Company> getEmptyCompany() {
         return company;
     }
 

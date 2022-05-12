@@ -1,5 +1,9 @@
 package com.example.justwork.DAO;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.justwork.model.Company;
@@ -7,6 +11,11 @@ import com.example.justwork.model.DrivingLicenceList;
 import com.example.justwork.model.Job;
 import com.example.justwork.model.JobApplication;
 import com.example.justwork.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.List;
 
@@ -48,6 +57,23 @@ public class DAOImpl implements DAO{
     @Override
     public MutableLiveData<Company> getCompany() {
         return userDAO.getCompany();
+    }
+
+    @Override
+    public void updateEmployeeInfo(String userName, String email, String password) {
+        System.out.println("In simple fucking dao");
+        userDAO.updateEmployeeInfo(userName, email, password);
+        System.out.println("Going to userdao now");
+    }
+
+    @Override
+    public LiveData<User> getEmptyEmployee() {
+        return userDAO.getEmptyEmployee();
+    }
+
+    @Override
+    public LiveData<Company> getEmptyCompany() {
+        return userDAO.getEmptyCompany();
     }
 
     @Override
