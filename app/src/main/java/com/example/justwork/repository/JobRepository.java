@@ -1,7 +1,6 @@
 package com.example.justwork.repository;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import com.example.justwork.DAO.DAO;
 import com.example.justwork.DAO.DAOImpl;
@@ -19,9 +18,12 @@ public class JobRepository{
 
     private JobRepository(){
         dao = DAOImpl.getInstance();
-        companyJobs = dao.getCompanyJobs(dao.getCompany().getValue().getCvr());
+        if(dao.getCompany().getValue()!=null){
+            companyJobs = dao.getCompanyJobs(dao.getCompany().getValue().getCvr());
+            compnayJobApplications = dao.getJobApplicationsForCompany(dao.getCompany().getValue().getCvr());
+        }
 
-        compnayJobApplications = dao.getJobApplicationsForCompany(dao.getCompany().getValue().getCvr());
+
     }
 
     public static JobRepository getInstance(){
@@ -42,7 +44,11 @@ public class JobRepository{
     public void updateJobApplication(JobApplication jobApplication){ dao.updateJobApplication(jobApplication);}
 
     public Job getCompanyJobById(String id) {
-        return dao.getCompanyJobById(id);
+            return dao.getCompanyJobById(id);
+
+    }
+    public LiveData<Job> findJobByID(String id){
+        return dao.findJobByID(id);
     }
 
     public JobApplication getJobApplicationById(String id){
@@ -55,5 +61,9 @@ public class JobRepository{
 
     public void addJobApplication(JobApplication jobApplication) {
        dao.AddJobApplication(jobApplication);
+    }
+    public void applyForJob(int userCpr, int companyCvr, String jobId, String firstName,
+                            String lastName, String email, String message, String country, String status){
+        dao.applyForJob(userCpr, companyCvr, jobId, firstName, lastName, email, message, country, status);
     }
 }

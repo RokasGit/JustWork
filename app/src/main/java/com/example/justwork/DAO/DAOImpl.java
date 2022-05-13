@@ -1,8 +1,5 @@
 package com.example.justwork.DAO;
 
-import android.util.Log;
-
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -11,22 +8,19 @@ import com.example.justwork.model.DrivingLicenceList;
 import com.example.justwork.model.Job;
 import com.example.justwork.model.JobApplication;
 import com.example.justwork.model.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.List;
 
 public class DAOImpl implements DAO{
     private UserDAO userDAO;
     private JobDAO jobDAO;
+    private ListDAO listDAO;
     private static DAO daoInstance;
 
     private DAOImpl(){
         userDAO = UserDAOImpl.getInstance();
         jobDAO = JobDAOImpl.getInstance();
+        listDAO= ListDAOImpl.getInstance();
     }
     public static DAO getInstance(){
         if(daoInstance==null){
@@ -111,5 +105,35 @@ public class DAOImpl implements DAO{
         jobDAO.updateJobApplication(jobApplication);
     }
 
+    @Override
+    public void applyForJob(int userCpr, int companyCvr, String jobId, String firstName,
+                            String lastName, String email, String message, String country, String status) {
+        jobDAO.applyForJob(userCpr, companyCvr, jobId, firstName, lastName, email, message, country, status);
+    }
 
+
+    @Override
+    public LiveData<List<Job>> getAllJobs() {
+        return listDAO.getAllJobs();
+    }
+
+    @Override
+    public LiveData<List<Company>> getAllCompanies() {
+        return listDAO.getAllCompanies();
+    }
+
+    @Override
+    public LiveData<List<User>> getAllUsers() {
+        return listDAO.getAllUsers();
+    }
+
+    @Override
+    public MutableLiveData<Company> findCompanyByCVR(int cvr) {
+        return listDAO.findCompanyByCVR(cvr);
+    }
+
+    @Override
+    public MutableLiveData<Job> findJobByID(String id) {
+        return listDAO.findJobByID(id);
+    }
 }

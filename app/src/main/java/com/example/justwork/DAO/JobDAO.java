@@ -22,6 +22,8 @@ public interface JobDAO {
     JobApplication getJobApplicationById(String id);
 
     void updateJobApplication(JobApplication jobApplication);
+    void applyForJob(int userCpr, int companyCvr, String jobId, String firstName, String lastName,
+                     String email, String message, String country, String status);
 
 
 }

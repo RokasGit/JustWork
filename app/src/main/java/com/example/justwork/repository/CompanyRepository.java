@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.justwork.DAO.DAO;
 import com.example.justwork.DAO.DAOImpl;
+import com.example.justwork.model.Company;
 import com.example.justwork.model.Job;
 import com.example.justwork.model.JobApplication;
 
@@ -27,7 +28,9 @@ public class CompanyRepository {
         }
         return instance;
     }
-
+    public LiveData<Company> findCompanyByCVR(int cvr){
+        return dao.findCompanyByCVR(cvr);
+    }
     public String getCompanyName(){
         return dao.getCompany().getValue().getName();
     }

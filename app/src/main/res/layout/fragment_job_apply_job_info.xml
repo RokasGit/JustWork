@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--<ScrollView -->
+<?xml version="1.0" encoding="utf-8"?><!--<ScrollView -->
 <!--    android:layout_width="match_parent"-->
 <!--    android:layout_height="match_parent"-->
 <!--    xmlns:android="http://schemas.android.com/apk/res/android">-->
@@ -8,148 +7,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/dialog_roundcorners"
     tools:context=".view.job_apply_job_info">
 
-    <!-- TODO: Update blank fragment layout -->
     <ImageView
-        android:id="@+id/comapny_image"
+        android:id="@+id/job_applyInfo_logo"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/dg_jobs_logo"
+        android:src="@drawable/no_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/view_job_job_title"
-        style="@style/fragment_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/boldText"
         android:layout_marginTop="20dp"
+        android:gravity="center"
         android:text="@string/job_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comapny_image" />
+        app:layout_constraintTop_toBottomOf="@+id/job_applyInfo_logo" />
 
-    <LinearLayout
-        android:id="@+id/first_linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/job_details_company_name"
+        style="@style/smallText"
+        android:text="@string/job_details_company_name"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/job_details_company_address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_job_job_title" />
+
+    <TextView
+        android:id="@+id/job_details_company_address"
+        style="@style/smallText"
         android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/view_job_job_title">
+        android:text="@string/job_details_job_address"
+        android:textSize="16sp"
+        app:drawableStartCompat="@drawable/prompt_location"
+        app:layout_constraintBaseline_toBaselineOf="@+id/job_details_company_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/job_details_company_name" />
 
-        <TextView
-            android:id="@+id/job_details_company_name"
-            style="@style/ordinary_text"
-            android:layout_width="0sp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:gravity="center"
-            android:text="@string/job_details_company_name"
-            app:layout_constraintEnd_toStartOf="@+id/job_address"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintTop_toBottomOf="@+id/view_job_job_title" />
+    <TextView
+        android:id="@+id/job_details_job_type"
+        style="@style/smallText"
+        android:text="@string/job_details_job_type"
+        android:textSize="19sp"
+        app:drawableStartCompat="@drawable/prompt_job_period"
+        app:layout_constraintBaseline_toBaselineOf="@id/job_details_job_salary"
+        app:layout_constraintEnd_toStartOf="@id/job_details_job_salary"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/job_address"
-            style="@style/ordinary_text"
-            android:layout_width="0sp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:drawableStart="@drawable/prompt_location"
-            android:gravity="center"
-            android:text="@string/job_details_job_address"
-            app:layout_constraintTop_toBottomOf="@+id/view_job_job_title" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/second_linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+    <TextView
+        android:id="@+id/job_details_job_salary"
+        style="@style/smallText"
         android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/first_linear_layout">
+        android:text="@string/job_details_job_salary"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/job_details_company_address" />
 
-        <TextView
-            android:id="@+id/job_details_job_type"
-            style="@style/ordinary_text"
-            android:layout_width="0sp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:drawableStart="@drawable/prompt_job_period"
-            android:gravity="center"
-            android:text="@string/job_details_job_type"
-            app:layout_constraintEnd_toStartOf="@+id/job_address"
-            app:layout_constraintHorizontal_bias="0.4" />
-
-        <TextView
-            android:id="@+id/job_details_job_salary"
-            style="@style/ordinary_text"
-            android:layout_width="0sp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:gravity="center"
-            android:text="@string/job_details_job_salary" />
-    </LinearLayout>
 
     <Button
         android:id="@+id/job_details_job_description_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        style="@style/defaultButton"
         android:text="@string/job_details_description"
-        app:layout_constraintEnd_toStartOf="@+id/job_details_company_btn"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:textSize="12sp"
+         app:layout_constraintTop_toBottomOf="@id/job_details_job_type"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/second_linear_layout" />
+        app:layout_constraintEnd_toStartOf="@id/job_details_company_btn"/>
 
     <Button
         android:id="@+id/job_details_company_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/defaultButtonNotActive"
         android:text="@string/job_details_company"
-        app:layout_constraintBottom_toBottomOf="@+id/job_details_job_description_btn"
-        app:layout_constraintEnd_toStartOf="@+id/job_details_company_reviews"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/job_details_job_description_btn"
-        app:layout_constraintTop_toTopOf="@+id/job_details_job_description_btn" />
+        android:textSize="13sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/job_details_job_description_btn"
+        app:layout_constraintStart_toEndOf="@id/job_details_job_description_btn"
+        app:layout_constraintEnd_toEndOf="@id/job_details_company_reviews"
+         />
 
     <Button
         android:id="@+id/job_details_company_reviews"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/defaultButtonNotActive"
         android:text="@string/job_details_reviews"
-        app:layout_constraintBottom_toBottomOf="@+id/job_details_company_btn"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/job_details_company_btn"
-        app:layout_constraintTop_toTopOf="@+id/job_details_company_btn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBaseline_toBaselineOf="@id/job_details_company_btn"
+        app:layout_constraintStart_toEndOf="@id/job_details_company_btn"
+         />
 
     <TextView
         android:id="@+id/text_based_on_selected_btn"
-        style="@style/bolded_ordinary_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/boldText"
+        android:textSize="20sp"
         android:layout_marginTop="50dp"
         android:text="@string/job_details_description"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/job_details_company_btn" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+    <TextView
+        android:id="@+id/job_apply_info_description"
+        style="@style/smallText"
+        app:layout_constraintTop_toBottomOf="@id/text_based_on_selected_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_based_on_selected_btn" />
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
 
     <ImageButton
         android:id="@+id/ask_questions_btn"
@@ -157,26 +124,20 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/dialogue_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/apply_now_next_page_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/apply_now_next_page_btn"
-        app:layout_constraintTop_toTopOf="@+id/apply_now_next_page_btn"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
     <Button
         android:id="@+id/apply_now_next_page_btn"
         style="@style/defaultButton"
-        android:layout_width="243dp"
-        android:layout_height="wrap_content"
         android:text="@string/job_details_apply_now"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ask_questions_btn"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-        app:layout_constraintVertical_bias="0.505" />
+        app:layout_constraintEnd_toStartOf="@id/ask_questions_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+         />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-<!--</ScrollView>-->
+</androidx.constraintlayout.widget.ConstraintLayout><!--</ScrollView>-->

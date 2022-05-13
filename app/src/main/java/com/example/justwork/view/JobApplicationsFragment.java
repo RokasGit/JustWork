@@ -53,6 +53,7 @@ public class JobApplicationsFragment extends Fragment {
             @Override
             public void onChanged(List<JobApplication> jobApplications) {
                 applicantAdapter.setJobApplications(jobApplications);
+                JobApplicationsRecycler.setAdapter(applicantAdapter);
             }
         });
 

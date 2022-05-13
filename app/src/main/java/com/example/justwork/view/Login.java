@@ -29,7 +29,6 @@ public class Login extends Fragment {
     private TextView createAccountAsCompany;
     private EditText personEmail;
     private EditText personPassword;
-    private Button registerCompany;
 
     private AccountViewModel accountViewModel;
     @Override
@@ -38,8 +37,8 @@ public class Login extends Fragment {
         setupNavigation();
         initViews();
         accountViewModel = new ViewModelProvider(this).get(AccountViewModel.class);
-        accountViewModel.getCompany().observe(getActivity(),this::navUpCompany);
-        accountViewModel.getEmployee().observe(getActivity(),this::navUpEmployee);
+        accountViewModel.getCompany().observe(getViewLifecycleOwner(),this::navUpCompany);
+        accountViewModel.getEmployee().observe(getViewLifecycleOwner(),this::navUpEmployee);
         if(FirebaseAuth.getInstance().getCurrentUser() != null){
             reload();
         }
