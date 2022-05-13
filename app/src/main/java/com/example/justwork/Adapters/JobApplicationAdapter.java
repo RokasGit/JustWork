@@ -3,7 +3,7 @@ package com.example.justwork.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,7 +48,7 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //holder.companyLogo.setImageDrawable(jobs.get(position)); for image logo but we dont have that in class
-        Job tempJob = jobRepository.getCompanyJobById(jobApplications.get(position).getJobId());
+        Job tempJob = jobRepository.getJobById(jobApplications.get(position).getJobId());
 
         holder.jobTitle.setText(tempJob.getTitle());
         holder.companyName.setText(tempJob.getCompanyName());
@@ -71,7 +71,7 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
         TextView jobApplicationStatus;
         TextView jobType;
         TextView jobWage;
-        Button optionButton;
+        ImageButton optionButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

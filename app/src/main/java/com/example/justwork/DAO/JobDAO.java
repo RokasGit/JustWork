@@ -13,14 +13,6 @@ public interface JobDAO {
 
     void AddJobApplication(JobApplication jobApplication);
 
-    MutableLiveData<List<JobApplication>> getJobApplicationsForCompany(int cvr);
-
-    MutableLiveData<List<Job>> getCompanyJobs(int cvr);
-
-    Job getCompanyJobById(String id);
-
-    JobApplication getJobApplicationById(String id);
-
     void updateJobApplication(JobApplication jobApplication);
 
 

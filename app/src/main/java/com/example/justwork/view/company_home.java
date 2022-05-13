@@ -57,10 +57,10 @@ public class company_home extends Fragment {
         JobRecyclerView.hasFixedSize();
         JobRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        jobAdapter = new JobAdapter(viewModel.getJobs().getValue());
+        jobAdapter = new JobAdapter(viewModel.getJobsForLoggedCompany().getValue());
 
 
-        viewModel.getJobs().observe(getViewLifecycleOwner(), new Observer<List<Job>>() {
+        viewModel.getJobsForLoggedCompany().observe(getViewLifecycleOwner(), new Observer<List<Job>>() {
             @Override
             public void onChanged(List<Job> jobs) {
                 jobAdapter.setJobs(jobs);

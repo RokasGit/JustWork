@@ -21,6 +21,7 @@ import com.example.justwork.model.JobApplication;
 import com.example.justwork.model.User;
 import com.example.justwork.viewmodel.CompanyViewModel;
 import com.example.justwork.viewmodel.JobViewModel;
+import com.example.justwork.viewmodel.ListViewModel;
 
 import org.w3c.dom.Text;
 
@@ -28,6 +29,7 @@ import org.w3c.dom.Text;
 public class View_Job_Applicant extends Fragment {
 
     private JobViewModel viewModel;
+    private ListViewModel listViewModel;
 
     private View view;
     private NavController navController;
@@ -50,6 +52,7 @@ public class View_Job_Applicant extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_view__job__applicant, container, false);
         viewModel = new ViewModelProvider(this).get(JobViewModel.class);
+        listViewModel = new ViewModelProvider(this).get(ListViewModel.class);
 
         applicantImage = view.findViewById(R.id.view_jobApplicant_imageView);
         applicantName = view.findViewById(R.id.view_jobApplicant_name);
@@ -61,9 +64,10 @@ public class View_Job_Applicant extends Fragment {
         accept = view.findViewById(R.id.view_jobApplicant_button_Accept);
         decline = view.findViewById(R.id.view_jobApplicant_button_Reject);
 
-
-        User toShow = fetchUser();
         usersApplication = viewModel.getJobApplicationById(getArguments().getString("ApplicationID"));
+        User toShow = fetchUser();
+
+
 
         //applicantImage.setImageDrawable(toShow.getPicture());
         applicantName.setText(toShow.getUserName());
@@ -103,8 +107,7 @@ public class View_Job_Applicant extends Fragment {
     }
 
     private User fetchUser(){
-        //from database fetch a user with corresponding email: getArguments().getString("ApplicantEmail")
-        User user = null;
+        User user = listViewModel.getUserByCpr(usersApplication.getUserCpr());
         return user;
     }
 

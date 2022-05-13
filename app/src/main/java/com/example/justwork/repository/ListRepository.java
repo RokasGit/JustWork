@@ -1,6 +1,7 @@
 package com.example.justwork.repository;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.justwork.DAO.DAO;
 import com.example.justwork.DAO.DAOImpl;
@@ -41,5 +42,22 @@ public class ListRepository {
 
     public LiveData<List<User>> getUsers() {
         return users;
+    }
+
+    public User getUserByCpr(int cpr){
+
+        List<User> temp = users.getValue();
+
+
+        System.out.println("========");
+        System.out.println("AAAAAAAAAA+ " + temp.size());
+
+        for (int i = 0; i< users.getValue().size(); i++) {
+            if (users.getValue().get(i).getCpr() == cpr){
+                return users.getValue().get(i);
+            }
+        }
+
+        return null;
     }
 }

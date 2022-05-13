@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.justwork.model.Company;
 import com.example.justwork.model.Job;
+import com.example.justwork.model.JobApplication;
 import com.example.justwork.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +22,7 @@ public class ListDAOImpl implements ListDAO {
     private DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
     private MutableLiveData<List<Job>> jobs;
+    private MutableLiveData<List<JobApplication>> jobApplications;
     private MutableLiveData<List<User>> users;
     private MutableLiveData<List<Company>> companies;
     private static ListDAO listDAOInstance;
@@ -34,6 +36,8 @@ public class ListDAOImpl implements ListDAO {
         companies.setValue(new ArrayList<>());
         jobs = new MutableLiveData<>();
         jobs.setValue(new ArrayList<>());
+        jobApplications = new MutableLiveData<>();
+        jobApplications.setValue(new ArrayList<>());
     }
 
     public static ListDAO getInstance() {
@@ -61,6 +65,29 @@ public class ListDAOImpl implements ListDAO {
             }
         });
         return jobs;
+    }
+
+    @Override
+    public LiveData<List<JobApplication>> getAllJobApplications() {
+
+        databaseReference.child("JobApplication").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<JobApplication> jobHolder = new ArrayList<>();
+
+                for (DataSnapshot job : snapshot.getChildren()) {
+                    jobHolder.add(job.getValue(JobApplication.class));
+                }
+
+                jobApplications.setValue(jobHolder);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        return jobApplications;
     }
 
     @Override
@@ -104,12 +131,12 @@ public class ListDAOImpl implements ListDAO {
                 }
                 users.setValue(userHolder);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
+
         return users;
     }
 
@@ -130,6 +157,7 @@ public class ListDAOImpl implements ListDAO {
     public MutableLiveData<Job> findJobByID(String id) {
         List<Job> tempJobs = jobs.getValue();
         MutableLiveData<Job> tempJob = new MutableLiveData<>();
+
         for(int i=0;i<tempJobs.size();i++){
             if(tempJobs.get(i).getId().equals(id)){
                 tempJob.setValue(tempJobs.get(i));
@@ -137,5 +165,19 @@ public class ListDAOImpl implements ListDAO {
             }
         }
         return tempJob;
+    }
+
+    @Override
+    public MutableLiveData<JobApplication> findJobApplicationByID(String id) {
+        List<JobApplication> tempAppJobs = jobApplications.getValue();
+        MutableLiveData<JobApplication> tempAppJob = new MutableLiveData<>();
+
+        for(int i=0;i<tempAppJobs.size();i++){
+            if(tempAppJobs.get(i).getJobApplicationId().equals(id)){
+                tempAppJob.setValue(tempAppJobs.get(i));
+                return tempAppJob;
+            }
+        }
+        return tempAppJob;
     }
 }
