@@ -26,7 +26,7 @@
     <string name="job_apply_message">Message</string>
     <string name="job_apply_CV">CV</string>
     <string name="job_apply_upload_here">Upload Here</string>
-    <string name="signup_employeeUsername">Username</string>
+    <string name="signup_employeeUsername">Full name</string>
     <string name="signup_employeeEmail">Email Address</string>
     <string name="employee_signupPassword">Password</string>
     <string name="signup_employeeNEXT">NEXT</string>
