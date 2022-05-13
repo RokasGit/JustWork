@@ -92,7 +92,7 @@
     <fragment
         android:id="@+id/sign_up_company_second_fragment"
         android:name="com.example.justwork.view.sign_up_company_second_fragment"
-        android:label="sign_up_company_second_fragment" >
+        android:label="Sign up company" >
         <action
             android:id="@+id/action_sign_up_company_second_fragment_to_signUpCompany"
             app:destination="@id/signUpCompany" />
@@ -100,7 +100,7 @@
     <fragment
         android:id="@+id/employeeHomeFragment"
         android:name="com.example.justwork.view.EmployeeHomeFragment"
-        android:label=""
+        android:label="Employee Home"
         tools:layout="@layout/fragment_employee_home" >
         <action
             android:id="@+id/action_employeeHomeFragment_to_searchFragment"
@@ -115,7 +115,7 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.justwork.view.SearchFragment"
-        android:label="fragment_search"
+        android:label="Search"
         tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/action_searchFragment_to_search_filter2"
@@ -127,7 +127,7 @@
     <fragment
         android:id="@+id/search_filter"
         android:name="com.example.justwork.view.search_filter"
-        android:label="fragment_search_filter"
+        android:label="Search Filter"
         tools:layout="@layout/fragment_search_filter" >
         <action
             android:id="@+id/action_search_filter2_to_searchFragment2"
@@ -136,7 +136,7 @@
     <fragment
         android:id="@+id/job_apply_job_info"
         android:name="com.example.justwork.view.job_apply_job_info"
-        android:label="fragment_job_apply_job_info"
+        android:label="Job Apply Info"
         tools:layout="@layout/fragment_job_apply_job_info" >
         <action
             android:id="@+id/action_job_apply_job_info_to_employeeHomeFragment"
@@ -148,7 +148,7 @@
     <fragment
         android:id="@+id/job_apply_form"
         android:name="com.example.justwork.view.job_apply_form"
-        android:label="job_apply_form" >
+        android:label="Job Apply Form" >
         <action
             android:id="@+id/action_job_apply_form_to_job_apply_job_info"
             app:destination="@id/job_apply_job_info" />
@@ -156,7 +156,7 @@
     <fragment
         android:id="@+id/company_home"
         android:name="com.example.justwork.view.company_home"
-        android:label="fragment_company_home"
+        android:label="Company Home"
         tools:layout="@layout/fragment_company_home" >
         <action
             android:id="@+id/action_company_home_to_postAJob"
@@ -168,7 +168,7 @@
     <fragment
         android:id="@+id/postAJob"
         android:name="com.example.justwork.view.PostAJob"
-        android:label="PostAJob" >
+        android:label="Post A Job" >
         <action
             android:id="@+id/action_postAJob_to_company_home"
             app:destination="@id/company_home" />
@@ -179,7 +179,7 @@
     <fragment
         android:id="@+id/postAJobSecondFragment"
         android:name="com.example.justwork.view.PostAJobSecondFragment"
-        android:label="fragment_post_a_job_second"
+        android:label="Post A Job"
         tools:layout="@layout/fragment_post_a_job_second" >
         <action
             android:id="@+id/action_postAJobSecondFragment_to_postAJob"
@@ -188,7 +188,7 @@
     <fragment
         android:id="@+id/jobApplicationsFragment"
         android:name="com.example.justwork.view.JobApplicationsFragment"
-        android:label="fragment_job_applications"
+        android:label="Job Applications"
         tools:layout="@layout/fragment_job_applications" >
         <action
             android:id="@+id/action_jobApplicationsFragment_to_company_home"
@@ -200,7 +200,7 @@
     <fragment
         android:id="@+id/view_Job_Applicant"
         android:name="com.example.justwork.view.View_Job_Applicant"
-        android:label="fragment_view__job__applicant"
+        android:label="View Job Applicant"
         tools:layout="@layout/fragment_view__job__applicant" >
         <action
             android:id="@+id/action_view_Job_Applicant_to_jobApplicationsFragment"

@@ -20,8 +20,8 @@ public class AccountRepository {
     //    private
     private AccountRepository(Application application) {
         dao = DAOImpl.getInstance();
-        companyLiveData = dao.getCompany();
-        employeeLiveData = dao.getEmployee();
+        companyLiveData = dao.getEmptyCompany();
+        employeeLiveData = dao.getEmptyEmployee();
     }
 
     public static AccountRepository getInstance(Application application) {
@@ -52,4 +52,7 @@ public class AccountRepository {
         return companyLiveData;
     }
 
+    public void updateEmployeeInfo(String userName, String email, String password) {
+        dao.updateEmployeeInfo(userName, email, password);
+    }
 }
