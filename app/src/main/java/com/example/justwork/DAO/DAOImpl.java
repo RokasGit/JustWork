@@ -22,11 +22,13 @@ import java.util.List;
 public class DAOImpl implements DAO{
     private UserDAO userDAO;
     private JobDAO jobDAO;
+    private ListDAO listDAO;
     private static DAO daoInstance;
 
     private DAOImpl(){
         userDAO = UserDAOImpl.getInstance();
         jobDAO = JobDAOImpl.getInstance();
+        listDAO= ListDAOImpl.getInstance();
     }
     public static DAO getInstance(){
         if(daoInstance==null){
@@ -112,4 +114,28 @@ public class DAOImpl implements DAO{
     }
 
 
+    @Override
+    public LiveData<List<Job>> getAllJobs() {
+        return listDAO.getAllJobs();
+    }
+
+    @Override
+    public LiveData<List<Company>> getAllCompanies() {
+        return listDAO.getAllCompanies();
+    }
+
+    @Override
+    public LiveData<List<User>> getAllUsers() {
+        return listDAO.getAllUsers();
+    }
+
+    @Override
+    public MutableLiveData<Company> findCompanyByCVR(int cvr) {
+        return listDAO.findCompanyByCVR(cvr);
+    }
+
+    @Override
+    public MutableLiveData<Job> findJobByID(String id) {
+        return listDAO.findJobByID(id);
+    }
 }

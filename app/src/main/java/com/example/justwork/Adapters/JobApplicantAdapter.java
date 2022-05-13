@@ -78,7 +78,7 @@ public class JobApplicantAdapter extends RecyclerView.Adapter<JobApplicantAdapte
             salary = itemView.findViewById(R.id.search_applicant_salary);
             address = itemView.findViewById(R.id.search_applicant_companyAddress);
             postTime = itemView.findViewById(R.id.search_applicant_postTime);
-            jobTitle.setOnClickListener(v->{
+            itemView.setOnClickListener(v->{
                 onClickListener.onClick(jobApplications.get(getBindingAdapterPosition()));
             });
         }

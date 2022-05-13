@@ -34,6 +34,12 @@ public class JobViewModel extends AndroidViewModel {
     public JobApplication getJobApplicationById(String id){
         return jobRepository.getJobApplicationById(id);
     }
+    public Job getCompanyJobById(String id){
+       return jobRepository.getCompanyJobById(id);
+    }
+    public LiveData<Job> findJobByID(String id){
+        return jobRepository.findJobByID(id);
+    }
 
     public void updateJobApplication(JobApplication jobApplication){ jobRepository.updateJobApplication(jobApplication);}
 

@@ -44,11 +44,13 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //holder.companyLogo.setImageDrawable(jobs.get(position)); for image logo but we dont have that in class
+        holder.companyName.setText(jobs.get(position).getCompanyName());
         holder.jobTitle.setText(jobs.get(position).getTitle());
         holder.companyName.setText(jobs.get(position).getCompanyName());
         holder.jobDuration.setText(jobs.get(position).getJobType());
         holder.jobAddress.setText(jobs.get(position).getLocation());
-        holder.jobWage.setText(jobs.get(position).getSalary() + "");
+        String salary = jobs.get(position).getSalary() + " dkk/h";
+        holder.jobWage.setText(salary);
     }
 
     @Override
@@ -72,7 +74,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
             jobAddress = itemView.findViewById(R.id.search_companyAddress);
             jobDuration = itemView.findViewById(R.id.search_postTime);
             jobWage = itemView.findViewById(R.id.search_salary);
-            jobTitle.setOnClickListener(v -> {
+            itemView.setOnClickListener(v -> {
                 onClickListener.onClick(jobs.get(getBindingAdapterPosition()));
             });
         }
