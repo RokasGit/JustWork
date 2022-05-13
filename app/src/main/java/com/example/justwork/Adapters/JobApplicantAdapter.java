@@ -46,7 +46,7 @@ public class JobApplicantAdapter extends RecyclerView.Adapter<JobApplicantAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // holder.userImage.setImageDrawable(users.get(position).getPicture()); Picture problems
-        Job tempJob = jobRepository.getCompanyJobById(jobApplications.get(position).getJobId());
+        Job tempJob = jobRepository.getJobById(jobApplications.get(position).getJobId());
 
         holder.companyName.setText(tempJob.getCompanyName());
         holder.jobTitle.setText(tempJob.getTitle());

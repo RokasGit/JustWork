@@ -81,31 +81,15 @@ public class DAOImpl implements DAO{
     }
 
     @Override
-    public MutableLiveData<List<JobApplication>> getJobApplicationsForCompany(int cvr) {
-        return jobDAO.getJobApplicationsForCompany(cvr);
-    }
-
-    @Override
-    public MutableLiveData<List<Job>> getCompanyJobs(int cvr) {
-        return jobDAO.getCompanyJobs(cvr);
-    }
-
-    @Override
-    public Job getCompanyJobById(String id) {
-        return jobDAO.getCompanyJobById(id);
-    }
-
-    @Override
-    public JobApplication getJobApplicationById(String id) {
-        return jobDAO.getJobApplicationById(id);
-    }
-
-    @Override
     public void updateJobApplication(JobApplication jobApplication) {
         jobDAO.updateJobApplication(jobApplication);
     }
 
     @Override
+    public LiveData<List<JobApplication>> getAllJobApplications(){
+        return listDAO.getAllJobApplications();
+    }
+
     public void applyForJob(int userCpr, int companyCvr, String jobId, String firstName,
                             String lastName, String email, String message, String country, String status) {
         jobDAO.applyForJob(userCpr, companyCvr, jobId, firstName, lastName, email, message, country, status);
@@ -135,5 +119,15 @@ public class DAOImpl implements DAO{
     @Override
     public MutableLiveData<Job> findJobByID(String id) {
         return listDAO.findJobByID(id);
+    }
+
+    @Override
+    public MutableLiveData<JobApplication> findJobApplicationByID(String id) {
+        return listDAO.findJobApplicationByID(id);
+    }
+
+    @Override
+    public MutableLiveData<User> getUserByCpr(int cpr) {
+        return listDAO.getUserByCpr(cpr);
     }
 }

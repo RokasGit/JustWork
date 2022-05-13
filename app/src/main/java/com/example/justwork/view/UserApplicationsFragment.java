@@ -51,9 +51,7 @@ public class UserApplicationsFragment extends Fragment {
 //                jobApplicationAdapter.setJobApplications(jobApplications);
 //            }
 //        });
-        jobApplicationAdapter.setOnClickListener(job -> {
-            //also smth
-        });
+
 
         jobApplicationsRecyclerView.setAdapter(jobApplicationAdapter);
         setupNavigation();
