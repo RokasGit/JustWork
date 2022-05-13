@@ -6,18 +6,69 @@ public class JobApplication {
     private int userCpr;
     private int companyCvr;
     private String jobId;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String message;
+    private String country;
     private String status;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
 
     public JobApplication(){
 
     }
 
-    public JobApplication(int userId, String jobId, String status, int companyCvr){
-        this.jobId = jobId;
-        this.userCpr = userId;
-        this.status = status;
-        this.companyCvr = companyCvr;
-        this.jobApplicationId = "";
+    public JobApplication(String jobApplicationId, int userCpr, int companyCvr,String jobId, String firstName,String lastName,
+                          String email, String message, String country,String status){
+        this.jobApplicationId= jobApplicationId;
+        this.userCpr=userCpr;
+        this.companyCvr=companyCvr;
+        this.jobId=jobId;
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.email=email;
+        this.message=message;
+        this.country=country;
+        this.status=status;
     }
 
 

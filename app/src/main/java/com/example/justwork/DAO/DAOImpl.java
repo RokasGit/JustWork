@@ -1,8 +1,5 @@
 package com.example.justwork.DAO;
 
-import android.util.Log;
-
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -11,11 +8,6 @@ import com.example.justwork.model.DrivingLicenceList;
 import com.example.justwork.model.Job;
 import com.example.justwork.model.JobApplication;
 import com.example.justwork.model.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.List;
 
@@ -97,6 +89,12 @@ public class DAOImpl implements DAO{
     public LiveData<List<JobApplication>> getAllJobApplications(){
         return listDAO.getAllJobApplications();
     }
+
+    public void applyForJob(int userCpr, int companyCvr, String jobId, String firstName,
+                            String lastName, String email, String message, String country, String status) {
+        jobDAO.applyForJob(userCpr, companyCvr, jobId, firstName, lastName, email, message, country, status);
+    }
+
 
     @Override
     public LiveData<List<Job>> getAllJobs() {

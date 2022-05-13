@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.justwork.R;
 import com.example.justwork.model.Company;
@@ -77,8 +78,20 @@ public class job_apply_job_info extends Fragment {
         jobDescription.setText(jobToDisplay.getDescription());
         applyNowButton = jobApplyInfoView.findViewById(R.id.apply_now_next_page_btn);
         contactButton = jobApplyInfoView.findViewById(R.id.ask_questions_btn);
+        contactButton.setOnClickListener(view -> noImplementation());
+        companyButton.setOnClickListener(view -> noImplementation());
+        reviewButton.setOnClickListener(view->noImplementation());
+        applyNowButton.setOnClickListener(view ->applyNow());
     }
-
+    private void applyNow(){
+        Bundle bundle = new Bundle();
+        bundle.putString("jobID",jobID);
+        bundle.putInt("companyCVR",companyToDisplay.getCvr());
+        navController.navigate(R.id.job_apply_form,bundle);
+    }
+    private void noImplementation(){
+        Toast.makeText(getActivity(),"NOT IMPLEMENTED",Toast.LENGTH_SHORT).show();
+    }
     private void setupNavigation() {
         navController = NavHostFragment.findNavController(this);
     }
