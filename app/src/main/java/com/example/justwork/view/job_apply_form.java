@@ -61,6 +61,13 @@ public class job_apply_form extends Fragment {
     private void initView() {
         firstName = jobApplyFormView.findViewById(R.id.job_apply_first_name_edit_text);
         lastName = jobApplyFormView.findViewById(R.id.job_apply_last_name_edit_text);
+        String[] fullname = accountViewModel.getEmployee().getValue().getUserName().split(" ");
+        if(fullname.length>1){
+            firstName.setText(fullname[0]);
+            lastName.setText(fullname[1]);
+        }else{
+            firstName.setText(fullname[0]);
+        }
         email = jobApplyFormView.findViewById(R.id.job_apply_applicants_email);
         email.setText(accountViewModel.getEmployee().getValue().getEmail());
         country = jobApplyFormView.findViewById(R.id.spinner_countries);
