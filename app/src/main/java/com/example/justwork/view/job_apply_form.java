@@ -3,64 +3,110 @@ package com.example.justwork.view;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.example.justwork.Adapters.CountryAdapter;
 import com.example.justwork.R;
+import com.example.justwork.viewmodel.AccountViewModel;
+import com.example.justwork.viewmodel.JobViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link job_apply_form#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class job_apply_form extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public job_apply_form() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment job_apply_form.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static job_apply_form newInstance(String param1, String param2) {
-        job_apply_form fragment = new job_apply_form();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private String jobID;
+    private int companyCVR;
+    private View jobApplyFormView;
+    private JobViewModel jobViewModel;
+    private AccountViewModel accountViewModel;
+    private NavController navController;
+    private CountryAdapter countryAdapter;
+    // Views
+    private EditText firstName;
+    private EditText lastName;
+    private EditText email;
+    private Spinner country;
+    private EditText message;
+    private Button uploadCvButton;
+    private Button applyNowButton;
+    private String countrySelected;
+    // Variables
+    private ArrayList<String> countryList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_job_apply_form, container, false);
+        jobApplyFormView = inflater.inflate(R.layout.fragment_job_apply_form, container, false);
+        jobID = getArguments().getString("jobID");
+        companyCVR = getArguments().getInt("companyCVR");
+        jobViewModel = new ViewModelProvider(this).get(JobViewModel.class);
+        accountViewModel = new ViewModelProvider(this).get(AccountViewModel.class);
+        initView();
+        setupNavigation();
+        return jobApplyFormView;
+    }
+
+    private void initView() {
+        firstName = jobApplyFormView.findViewById(R.id.job_apply_first_name_edit_text);
+        lastName = jobApplyFormView.findViewById(R.id.job_apply_last_name_edit_text);
+        email = jobApplyFormView.findViewById(R.id.job_apply_applicants_email);
+        email.setText(accountViewModel.getEmployee().getValue().getEmail());
+        country = jobApplyFormView.findViewById(R.id.spinner_countries);
+        initList();
+        countryAdapter = new CountryAdapter(getContext(), countryList);
+        country.setAdapter(countryAdapter);
+        countrySelected = "Not Selected";
+        country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                countrySelected = (String) adapterView.getItemAtPosition(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        message = jobApplyFormView.findViewById(R.id.job_apply_application_message);
+        uploadCvButton = jobApplyFormView.findViewById(R.id.job_apply_upload_cv_btn);
+        uploadCvButton.setOnClickListener(view -> noImplementation());
+        applyNowButton = jobApplyFormView.findViewById(R.id.applyNowButton);
+        applyNowButton.setOnClickListener(view ->applyToJob());
+    }
+
+    private void setupNavigation() {
+        navController = NavHostFragment.findNavController(this);
+    }
+    private void applyToJob(){
+        jobViewModel.applyForJob(accountViewModel.getEmployee().getValue().getCpr(), companyCVR, jobID,
+                firstName.getText().toString(), lastName.getText().toString(),
+                email.getText().toString(), message.getText().toString(), countrySelected, "Applied");
+        String successMessage = "Successfully applied for the job in the company: " + companyCVR;
+        Toast.makeText(getContext(),successMessage,Toast.LENGTH_SHORT);
+        navController.navigate(R.id.employeeHomeFragment);
+    }
+
+    private void noImplementation() {
+        Toast.makeText(getActivity(), "NOT IMPLEMENTED", Toast.LENGTH_SHORT).show();
+    }
+
+    private void initList() {
+        countryList = new ArrayList<>();
+        countryList.add("Not Selected");
+        countryList.add("Denmark");
+        countryList.add("Moldova");
+        countryList.add("Lithuania");
     }
 }

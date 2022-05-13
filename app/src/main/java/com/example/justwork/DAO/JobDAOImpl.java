@@ -3,8 +3,10 @@ package com.example.justwork.DAO;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.justwork.model.Company;
 import com.example.justwork.model.Job;
 import com.example.justwork.model.JobApplication;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -176,4 +178,16 @@ public class JobDAOImpl implements JobDAO{
     public void updateJobApplication(JobApplication jobApplication) {
         databaseReference.child("JobApplication").child(jobApplication.getJobApplicationId()).setValue(jobApplication);
     }
+
+    @Override
+    public void applyForJob(int userCpr,
+                            int companyCvr, String jobId, String firstName, String lastName,
+                            String email, String message, String country, String status) {
+        String jobApplicationId = databaseReference.push().getKey();
+        JobApplication jobApplication = new JobApplication(jobApplicationId,userCpr,companyCvr,jobId,firstName,lastName,
+                email,message,country,status);
+        databaseReference.child("JobApplication").child(jobApplication.getJobApplicationId()).setValue(jobApplication);
+
+    }
+
 }

@@ -125,4 +125,5 @@
     <string name="employee_signupPhoneNumber">ex: 52682010</string>
     <string name="RegisterUser">Register as Employee</string>
     <string name="RegisterCompoany">Register as Company</string>
+    <string name="country">Country</string>
 </resources>

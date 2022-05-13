@@ -8,11 +8,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         tools:context=".view.job_apply_form">
 
-        <!-- TODO: Update blank fragment layout -->
 
         <TextView
             android:id="@+id/job_apply_first_name"
@@ -36,7 +33,7 @@
             android:id="@+id/job_apply_first_name_edit_text"
             style="@style/editTextStyling"
             android:layout_marginTop="28dp"
-            android:layout_marginEnd="0dp"
+            android:layout_marginEnd="10dp"
             android:gravity="center"
             android:inputType="textPersonName"
             android:hint="@string/job_apply_fisrt_name"
@@ -47,7 +44,7 @@
         <EditText
             android:id="@+id/job_apply_last_name_edit_text"
             style="@style/editTextStyling"
-            android:layout_marginStart="0dp"
+            android:layout_marginStart="10dp"
             android:gravity="center"
             android:inputType="textPersonName"
             android:hint="@string/job_apply_last_name"
@@ -69,6 +66,7 @@
             android:id="@+id/job_apply_applicants_email"
             style="@style/editTextStyling"
             android:gravity="center"
+            android:enabled="false"
             android:inputType="textEmailAddress"
             android:hint="@string/job_apply_your_email"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,6 +76,7 @@
         <TextView
             android:id="@+id/job_apply_country"
             style="@style/smallText"
+
             android:text="@string/job_apply_country"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,8 +84,11 @@
 
         <Spinner
             android:id="@+id/spinner_countries"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/white_roundcorners"
+            android:layout_height="50dp"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +105,7 @@
         <EditText
             android:id="@+id/job_apply_application_message"
             style="@style/editTextStyling"
-            android:layout_height="60dp"
+            android:layout_height="150dp"
             android:hint="@string/message_hint"
             android:gravity="start|top"
             android:inputType="textMultiLine"
@@ -133,7 +135,7 @@
             app:layout_constraintTop_toBottomOf="@+id/job_apply_cv" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/applyNowButton"
             style="@style/defaultButton"
             android:text="@string/job_details_apply_now"
             app:layout_constraintEnd_toEndOf="parent"
