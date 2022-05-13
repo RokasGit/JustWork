@@ -32,5 +32,5 @@ public class ListViewModel extends AndroidViewModel {
         return listRepository.getUsers();
     }
 
-    public User getUserByCpr(int cpr) {return listRepository.getUserByCpr(cpr);}
+    public LiveData<User> getUserByCpr(int cpr) {return listRepository.getUserByCpr(cpr);}
 }

@@ -91,11 +91,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/view_jobApplicant_editTextCpr"
+        app:layout_constraintStart_toEndOf="@id/view_jobApplicant_editCpr"
         app:layout_constraintTop_toBottomOf="@+id/view_jobApplicant_Licence" />
 
     <EditText
-        android:id="@+id/view_jobApplicant_editTextCpr"
+        android:id="@+id/view_jobApplicant_editCpr"
         style="@style/editTextStyling"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="10dp"
@@ -114,7 +114,7 @@
         android:textColor="#1976D2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_jobApplicant_editTextCpr" />
+        app:layout_constraintTop_toBottomOf="@+id/view_jobApplicant_editCpr" />
 
     <Button
         android:id="@+id/view_jobApplicant_button_Reject"

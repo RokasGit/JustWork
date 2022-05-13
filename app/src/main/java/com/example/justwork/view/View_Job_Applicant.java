@@ -59,7 +59,7 @@ public class View_Job_Applicant extends Fragment {
         applicantGender = view.findViewById(R.id.view_jobApplicant_gender);
         ratingBar = view.findViewById(R.id.ratingBar);
         applicantsAddress = view.findViewById(R.id.view_jobApplicant_editTextAddress);
-        applicantsCrp = view.findViewById(R.id.view_jobApplicant_editTextCpr);
+        applicantsCrp = view.findViewById(R.id.view_jobApplicant_editCpr);
         applicantsDrivingLicence = view.findViewById(R.id.view_jobApplicant_editTextLicence);
         accept = view.findViewById(R.id.view_jobApplicant_button_Accept);
         decline = view.findViewById(R.id.view_jobApplicant_button_Reject);
@@ -69,13 +69,13 @@ public class View_Job_Applicant extends Fragment {
 
 
 
-        //applicantImage.setImageDrawable(toShow.getPicture());
+
         applicantName.setText(toShow.getUserName());
         applicantGender.setText(toShow.getGender());
         ratingBar.setRating(5); // needs rating
         applicantsAddress.setText(toShow.getAddress());
-        applicantsCrp.setText(toShow.getCpr());
-        applicantsDrivingLicence.setText(toShow.getDrivingLicences().toString());
+        //applicantsCrp.setText(toShow.getCpr());
+        applicantsDrivingLicence.setText("Not implemented");
 
 
         setupNavigation();
@@ -107,7 +107,7 @@ public class View_Job_Applicant extends Fragment {
     }
 
     private User fetchUser(){
-        User user = listViewModel.getUserByCpr(usersApplication.getUserCpr());
+        User user = listViewModel.getUserByCpr(usersApplication.getUserCpr()).getValue();
         return user;
     }
 

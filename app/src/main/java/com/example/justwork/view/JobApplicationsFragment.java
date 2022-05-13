@@ -24,6 +24,7 @@ import com.example.justwork.repository.AccountRepository;
 import com.example.justwork.viewmodel.AccountViewModel;
 import com.example.justwork.viewmodel.CompanyViewModel;
 import com.example.justwork.viewmodel.JobViewModel;
+import com.example.justwork.viewmodel.ListViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,8 @@ public class JobApplicationsFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_job_applications, container, false);
         viewModel = new ViewModelProvider(this).get(JobViewModel.class);
         accountViewModel = new ViewModelProvider(this).get(AccountViewModel.class);
+        new ViewModelProvider(this).get(ListViewModel.class);
+
 
         JobApplicationsRecycler = view.findViewById(R.id.search_resultListView);
         JobApplicationsRecycler.hasFixedSize();
@@ -56,7 +59,12 @@ public class JobApplicationsFragment extends Fragment {
 
         if(accountViewModel.getCompany().getValue() == null){
 
+
             jobApplicationAdapter = new JobApplicationAdapter(viewModel.getJobAppForUser().getValue());
+
+            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            System.out.println(viewModel.getJobAppForUser().getValue().toString());
+            System.out.println(viewModel.getJobAppForUser().getValue().get(0).getJobId());
 
             viewModel.getJobAppForUser().observe(getViewLifecycleOwner(), new Observer<List<JobApplication>>() {
                 @Override

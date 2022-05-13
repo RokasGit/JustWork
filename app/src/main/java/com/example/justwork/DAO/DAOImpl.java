@@ -127,4 +127,9 @@ public class DAOImpl implements DAO{
     public MutableLiveData<JobApplication> findJobApplicationByID(String id) {
         return listDAO.findJobApplicationByID(id);
     }
+
+    @Override
+    public MutableLiveData<User> getUserByCpr(int cpr) {
+        return listDAO.getUserByCpr(cpr);
+    }
 }

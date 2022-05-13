@@ -20,29 +20,23 @@ import java.util.List;
 public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAdapter.ViewHolder> {
 
     private List<JobApplication> jobApplications;
-    private JobAdapter.onClickListener onClickListener;
     private JobRepository jobRepository;
-
-    public void setOnClickListener(JobAdapter.onClickListener onClickListener){
-        this.onClickListener = onClickListener;
-        this.jobRepository = JobRepository.getInstance();
-    }
 
     public JobApplicationAdapter(List<JobApplication> jobApplications){
         this.jobApplications = jobApplications;
+        this.jobRepository = JobRepository.getInstance();
     }
 
     public void setJobApplications(List<JobApplication> jobApplications){
         this.jobApplications = jobApplications;
     }
 
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.rv_job_application_item, parent, false);
-        return new JobApplicationAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -62,8 +56,6 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
         return jobApplications.size();
     }
 
-
-
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView companyLogo;
         TextView companyName;
@@ -82,16 +74,8 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
             jobType = itemView.findViewById(R.id.job_application_job_type);
             jobWage = itemView.findViewById(R.id.job_application_salary);
             optionButton = itemView.findViewById(R.id.job_application_options_btn);
-//            optionButton.setOnClickListener(v->{
-//                onClickListener.onClick();
-//            }); need to open some other view (Job info or company info?)
-            itemView.setOnClickListener(v -> {
-                //onClickListener.onClick(jobApplications.get(getBindingAdapterPosition()));
-            });
         }
     }
 
-    public interface onClickListener{
-        void onClick(Job job);
-    }
+
 }

@@ -44,20 +44,7 @@ public class ListRepository {
         return users;
     }
 
-    public User getUserByCpr(int cpr){
-
-        List<User> temp = users.getValue();
-
-
-        System.out.println("========");
-        System.out.println("AAAAAAAAAA+ " + temp.size());
-
-        for (int i = 0; i< users.getValue().size(); i++) {
-            if (users.getValue().get(i).getCpr() == cpr){
-                return users.getValue().get(i);
-            }
-        }
-
-        return null;
+    public LiveData<User> getUserByCpr(int cpr){
+        return dao.getUserByCpr(cpr);
     }
 }

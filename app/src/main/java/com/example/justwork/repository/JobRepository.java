@@ -20,7 +20,7 @@ public class JobRepository{
 
     private JobRepository(){
         dao = DAOImpl.getInstance();
-        if(dao.getCompany().getValue()!=null){
+        if(dao.getCompany().getValue()!=null || dao.getEmployee().getValue() != null){
             AllJobs = dao.getAllJobs();
             AllJobApplications = dao.getAllJobApplications();
         }
@@ -76,9 +76,11 @@ public class JobRepository{
         List<JobApplication> toGather = new ArrayList<>();
         MutableLiveData<List<JobApplication>> toGet = new MutableLiveData<>();
 
-        for (int i = 0; i < AllJobApplications.getValue().size(); i++){
-            if (AllJobApplications.getValue().get(i).getUserCpr() == dao.getEmployee().getValue().getCpr()){
-                toGather.add(AllJobApplications.getValue().get(i));
+        if(AllJobApplications.getValue() != null){
+            for (int i = 0; i < AllJobApplications.getValue().size(); i++){
+                if (AllJobApplications.getValue().get(i).getUserCpr() == dao.getEmployee().getValue().getCpr()){
+                    toGather.add(AllJobApplications.getValue().get(i));
+                }
             }
         }
 

@@ -87,6 +87,7 @@ public class ListDAOImpl implements ListDAO {
 
             }
         });
+
         return jobApplications;
     }
 
@@ -179,5 +180,19 @@ public class ListDAOImpl implements ListDAO {
             }
         }
         return tempAppJob;
+    }
+
+    @Override
+    public MutableLiveData<User> getUserByCpr(int cpr) {
+        MutableLiveData<User> user = new MutableLiveData<>();
+
+        for (int i = 0; i< users.getValue().size(); i++) {
+            System.out.println(users.getValue().get(i).getCpr());
+            if (users.getValue().get(i).getCpr() == cpr){
+                user.setValue(users.getValue().get(i));
+                return user;
+            }
+        }
+        return user;
     }
 }
