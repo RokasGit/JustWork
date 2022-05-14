@@ -67,8 +67,10 @@ public class JobViewModel extends AndroidViewModel {
                             String lastName, String email, String message, String country, String status){
         jobRepository.applyForJob(userCpr, companyCvr, jobId, firstName, lastName, email, message, country, status);
     }
-
     public void updateJob(String jobId) {
         jobRepository.updateJob(jobId);
+    }
+    public boolean updateJobByCancel(String jobID){
+        return jobRepository.updateJobByCancel(jobID);
     }
 }

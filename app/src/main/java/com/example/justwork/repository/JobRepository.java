@@ -127,4 +127,7 @@ public class JobRepository{
     public void updateJob(String jobId) {
         dao.updateJob(jobId);
     }
+    public boolean updateJobByCancel(String jobID){
+        return dao.updateJobByCancel(jobID);
+    }
 }
