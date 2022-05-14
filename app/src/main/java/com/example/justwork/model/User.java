@@ -37,7 +37,7 @@ public class User extends UserType{
         return cpr;
     }
 
-    public void setCpr(int cpr) {
+    public void setCpr(long cpr) {
         this.cpr = cpr;
     }
 
