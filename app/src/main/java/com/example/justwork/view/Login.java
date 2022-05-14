@@ -61,15 +61,20 @@ public class Login extends Fragment {
 
         personEmail = loginView.findViewById(R.id.Login_editTextTextPersonEmail);
         personPassword = loginView.findViewById(R.id.Login_editTextTextPassword);
+
+
     }
 
     private void loginUser() {
         accountViewModel.login(personEmail.getText().toString(),personPassword.getText().toString());
     }
     private void navUpEmployee(User user){
+
         navController.navigate(R.id.employeeHomeFragment);
+
     }
     private void navUpCompany(Company company){
+
         navController.navigate(R.id.company_home);
     }
     private void reload() {

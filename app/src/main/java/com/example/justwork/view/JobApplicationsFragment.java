@@ -37,6 +37,7 @@ public class JobApplicationsFragment extends Fragment {
     private NavController navController;
     private AccountViewModel accountViewModel;
 
+
     RecyclerView JobApplicationsRecycler;
     JobApplicantAdapter applicantAdapter;
     JobApplicationAdapter jobApplicationAdapter;
@@ -64,16 +65,19 @@ public class JobApplicationsFragment extends Fragment {
 
             System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
             System.out.println(viewModel.getJobAppForUser().getValue().toString());
-            System.out.println(viewModel.getJobAppForUser().getValue().get(0).getJobId());
+//            System.out.println(viewModel.getJobAppForUser().getValue().get(0).getJobId() + "AAAAVHGVHGVHGVNMHCH");
 
             viewModel.getJobAppForUser().observe(getViewLifecycleOwner(), new Observer<List<JobApplication>>() {
                 @Override
                 public void onChanged(List<JobApplication> jobApplications) {
                     jobApplicationAdapter.setJobApplications(jobApplications);
+                    JobApplicationsRecycler.setAdapter(jobApplicationAdapter);
+                    System.out.println("Deeeeeeeeeeeeeeeeeeeleting");
                 }
             });
 
-            JobApplicationsRecycler.setAdapter(jobApplicationAdapter);
+
+//            JobApplicationsRecycler.setAdapter(jobApplicationAdapter);
 
 
         } else {

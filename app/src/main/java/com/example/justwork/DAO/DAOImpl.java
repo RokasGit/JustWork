@@ -29,7 +29,7 @@ public class DAOImpl implements DAO{
         return daoInstance;
     }
     @Override
-    public void registerUser(int cpr, String username, String email, String password, int phoneNumber, String address, DrivingLicenceList drivingLicences, String gender, String nationality) {
+    public void registerUser(long cpr, String username, String email, String password, int phoneNumber, String address, DrivingLicenceList drivingLicences, String gender, String nationality) {
         userDAO.registerUser(cpr,username,email,password,phoneNumber,address,drivingLicences,gender,nationality);
     }
 
@@ -90,9 +90,14 @@ public class DAOImpl implements DAO{
         return listDAO.getAllJobApplications();
     }
 
-    public void applyForJob(int userCpr, int companyCvr, String jobId, String firstName,
+    public void applyForJob(long userCpr, int companyCvr, String jobId, String firstName,
                             String lastName, String email, String message, String country, String status) {
         jobDAO.applyForJob(userCpr, companyCvr, jobId, firstName, lastName, email, message, country, status);
+    }
+
+    @Override
+    public void cancelJobApplication(String id) {
+        jobDAO.cancelJobApplication(id);
     }
 
 
@@ -127,7 +132,7 @@ public class DAOImpl implements DAO{
     }
 
     @Override
-    public MutableLiveData<User> getUserByCpr(int cpr) {
+    public MutableLiveData<User> getUserByCpr(long cpr) {
         return listDAO.getUserByCpr(cpr);
     }
 }

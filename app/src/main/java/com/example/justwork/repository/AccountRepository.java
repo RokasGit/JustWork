@@ -31,7 +31,7 @@ public class AccountRepository {
         return instance;
     }
 
-    public void registerUser(int cpr, String username, String email, String password, int phoneNumber,
+    public void registerUser(long cpr, String username, String email, String password, int phoneNumber,
                              String address, DrivingLicenceList drivingLicences, String gender, String nationality) {
         dao.registerUser(cpr, username, email, password, phoneNumber, address, drivingLicences, gender, nationality);
     }

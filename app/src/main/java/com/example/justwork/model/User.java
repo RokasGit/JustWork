@@ -3,7 +3,7 @@ package com.example.justwork.model;
 import java.util.ArrayList;
 
 public class User extends UserType{
-    private int cpr;
+    private long cpr;
     private String userName;
     private String email;
     private String password;
@@ -19,7 +19,7 @@ public class User extends UserType{
         super("Employee");
     }
 
-    public User(int cpr, String userName, String email, String password, int phoneNumber, String address, String gender, String nationality) {
+    public User(long cpr, String userName, String email, String password, int phoneNumber, String address, String gender, String nationality) {
         super("Employee");
         this.cpr = cpr;
         this.userName = userName;
@@ -33,7 +33,7 @@ public class User extends UserType{
         this.drivingLicences = new DrivingLicenceList();
     }
 
-    public int getCpr() {
+    public long getCpr() {
         return cpr;
     }
 

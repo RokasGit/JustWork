@@ -43,12 +43,19 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //holder.companyLogo.setImageDrawable(jobs.get(position)); for image logo but we dont have that in class
         Job tempJob = jobRepository.getJobById(jobApplications.get(position).getJobId());
+        JobApplication jbApp = jobApplications.get(position);
 
         holder.jobTitle.setText(tempJob.getTitle());
         holder.companyName.setText(tempJob.getCompanyName());
         holder.jobApplicationStatus.setText(tempJob.getJobType());
         holder.jobType.setText(tempJob.getLocation());
         holder.jobWage.setText(tempJob.getSalary() + "");
+        holder.cancelButton.setOnClickListener(view->{
+            jobRepository.cancelJob(jbApp.getJobApplicationId());
+            System.out.println(tempJob.getId() + "AAAAAAAAAAAAAAAA");
+            jobApplications.remove(jbApp);
+            notifyDataSetChanged();
+        });
     }
 
     @Override
@@ -63,7 +70,7 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
         TextView jobApplicationStatus;
         TextView jobType;
         TextView jobWage;
-        ImageButton optionButton;
+        ImageButton cancelButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,7 +80,7 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
             jobApplicationStatus = itemView.findViewById(R.id.job_application_status);
             jobType = itemView.findViewById(R.id.job_application_job_type);
             jobWage = itemView.findViewById(R.id.job_application_salary);
-            optionButton = itemView.findViewById(R.id.job_application_options_btn);
+            cancelButton = itemView.findViewById(R.id.job_application_cancel_btn);
         }
     }
 

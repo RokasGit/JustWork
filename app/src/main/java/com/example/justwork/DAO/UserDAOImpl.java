@@ -51,7 +51,7 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public void registerUser(int cpr, String username, String email, String password, int phoneNumber, String address, DrivingLicenceList drivingLicences, String gender, String nationality) {
+    public void registerUser(long cpr, String username, String email, String password, int phoneNumber, String address, DrivingLicenceList drivingLicences, String gender, String nationality) {
         employee.setValue(new User(cpr, username, email, password, phoneNumber, address, gender,nationality));
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
@@ -80,11 +80,14 @@ public class UserDAOImpl implements UserDAO{
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     if(snapshot.getValue(User.class)!=null){
                                         employee.setValue(snapshot.getValue(User.class));
+                                        System.out.println("Logging in as employee");
+
                                     }else{
                                         databaseReference.child("Companies").child(user.getUid()).addValueEventListener(new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                 company.setValue(snapshot.getValue(Company.class));
+                                                System.out.println("Logging in as company");
                                             }
 
                                             @Override

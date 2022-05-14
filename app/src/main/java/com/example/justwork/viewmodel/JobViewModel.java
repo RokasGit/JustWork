@@ -63,7 +63,7 @@ public class JobViewModel extends AndroidViewModel {
     public LiveData<List<JobApplication>> getJobApplications() {
         return jobRepository.getJobApplications();
     }
-    public void applyForJob(int userCpr, int companyCvr, String jobId, String firstName,
+    public void applyForJob(long userCpr, int companyCvr, String jobId, String firstName,
                             String lastName, String email, String message, String country, String status){
         jobRepository.applyForJob(userCpr, companyCvr, jobId, firstName, lastName, email, message, country, status);
     }

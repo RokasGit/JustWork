@@ -11,7 +11,7 @@ import com.example.justwork.model.UserType;
 public interface UserDAO {
 
 
-    void registerUser(int cpr, String username, String email, String password, int phoneNumber,
+    void registerUser(long cpr, String username, String email, String password, int phoneNumber,
                       String address, DrivingLicenceList drivingLicences, String gender, String nationality);
 
     void login(String email, String password);

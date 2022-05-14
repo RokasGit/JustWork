@@ -5,10 +5,15 @@ import android.view.View;
 import android.view.Menu;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.justwork.R;
+import com.example.justwork.model.Company;
+import com.example.justwork.model.User;
+import com.example.justwork.viewmodel.AccountViewModel;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -27,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private ActivityMainBinding binding;
     private DrawerLayout drawerLayout;
+    private TextView navName;
+    private TextView navEmail;
+    private AccountViewModel accountViewModel;
 
 
     private NavigationView navigationView;
@@ -34,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        accountViewModel = new ViewModelProvider(this).get(AccountViewModel.class);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -47,10 +56,36 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.appBarMain.toolbar);
         navigationView = binding.navView;
         navigationView.setItemIconTintList(null);
+        try{
+            accountViewModel.getCompany().observe(this, this::setCompanyName);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        try{
+            accountViewModel.getEmployee().observe(this, this::setEmployeeName);
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }
+    private void setEmployeeName(User user){
+        View headView = navigationView.getHeaderView(0);
+        ((TextView) headView.findViewById(R.id.nav_header_fullName)).setText(user.getUserName());
+        ((TextView) headView.findViewById(R.id.nav_header_email)).setText(user.getEmail());
+
+
+    }
+    private void setCompanyName(Company company){
+        View headView = navigationView.getHeaderView(0);
+        ((TextView) headView.findViewById(R.id.nav_header_fullName)).setText(company.getName());
+        ((TextView) headView.findViewById(R.id.nav_header_email)).setText(company.getEmail());
+    }
+
     private void setupNavigation(){
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_edit_profile, R.id.nav_applications, R.id.nav_notification_settings,R.id.employeeHomeFragment, R.id.company_home, R.id.nav_logout)
                 .setOpenableLayout(drawerLayout)
