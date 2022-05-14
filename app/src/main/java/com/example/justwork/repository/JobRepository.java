@@ -51,7 +51,6 @@ public class JobRepository{
                     toGather.add(AllJobApplications.getValue().get(i));
                 }
         }
-        System.out.println();
 
         toGet.setValue(toGather);
 
