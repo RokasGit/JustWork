@@ -14,6 +14,9 @@ public interface JobDAO {
     void AddJobApplication(JobApplication jobApplication);
 
     void updateJobApplication(JobApplication jobApplication);
+
+    void DeleteJobApplication(JobApplication jobApplication);
+
     void applyForJob(long userCpr, int companyCvr, String jobId, String firstName, String lastName,
                      String email, String message, String country, String status);
 

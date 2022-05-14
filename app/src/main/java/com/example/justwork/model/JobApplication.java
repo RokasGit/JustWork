@@ -1,5 +1,8 @@
 package com.example.justwork.model;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
 public class JobApplication {
 
     private String jobApplicationId;
