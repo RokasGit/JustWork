@@ -53,6 +53,9 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
         holder.cancelButton.setOnClickListener(view->{
             jobRepository.cancelJob(jbApp.getJobApplicationId());
             System.out.println(tempJob.getId() + "AAAAAAAAAAAAAAAA");
+            if(jobApplications.get(position).getStatus().equals("Accepted")){
+                jobRepository.updateJobByCancel(tempJob.getId());
+            }
             jobApplications.remove(jbApp);
             notifyDataSetChanged();
         });

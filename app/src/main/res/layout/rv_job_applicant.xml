@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/search_applicant_companyName"
+        android:id="@+id/job_applicant_job_position"
         style="@style/smallText"
         android:text="@string/rv_jobApplicantPosition"
         android:textSize="16sp"
@@ -26,14 +26,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/search_applicant_jobTitle"
+        android:id="@+id/search_applicant_fullName"
         style="@style/boldText"
         android:text="@string/rv_job_applicantName"
         android:textSize="20sp"
         android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/search_applicant_image"
-        app:layout_constraintTop_toBottomOf="@+id/search_applicant_companyName" />
+        app:layout_constraintTop_toBottomOf="@+id/job_applicant_job_position" />
 
     <TextView
         android:id="@+id/search_applicant_salary"
@@ -42,7 +42,7 @@
         android:textSize="16sp"
         android:text="@string/search_salary"
         app:layout_constraintStart_toEndOf="@+id/search_applicant_image"
-        app:layout_constraintTop_toBottomOf="@+id/search_applicant_jobTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/search_applicant_fullName" />
 
     <TextView
         android:id="@+id/search_applicant_companyAddress"

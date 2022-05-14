@@ -48,9 +48,11 @@ public class JobApplicantAdapter extends RecyclerView.Adapter<JobApplicantAdapte
         // holder.userImage.setImageDrawable(users.get(position).getPicture()); Picture problems
         Job tempJob = jobRepository.getJobById(jobApplications.get(position).getJobId());
 
-        holder.companyName.setText(tempJob.getCompanyName());
         holder.jobTitle.setText(tempJob.getTitle());
-        holder.salary.setText(tempJob.getSalary()+"");
+        String fullName = jobApplications.get(position).getFirstName() + " " + jobApplications.get(position).getLastName();
+        holder.fullName.setText(fullName);
+        String salary = tempJob.getSalary() +"dkk/h";
+        holder.salary.setText(salary);
         holder.address.setText(tempJob.getLocation());
         holder.postTime.setText(tempJob.getJobType());
 
@@ -63,8 +65,8 @@ public class JobApplicantAdapter extends RecyclerView.Adapter<JobApplicantAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView userImage;
-        TextView companyName;
         TextView jobTitle;
+        TextView fullName;
         TextView salary;
         TextView address;
         TextView postTime;
@@ -73,8 +75,8 @@ public class JobApplicantAdapter extends RecyclerView.Adapter<JobApplicantAdapte
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             userImage = itemView.findViewById(R.id.search_applicant_image);
-            companyName = itemView.findViewById(R.id.search_applicant_companyName);
-            jobTitle = itemView.findViewById(R.id.search_applicant_jobTitle);
+            jobTitle = itemView.findViewById(R.id.job_applicant_job_position);
+            fullName = itemView.findViewById(R.id.search_applicant_fullName);
             salary = itemView.findViewById(R.id.search_applicant_salary);
             address = itemView.findViewById(R.id.search_applicant_companyAddress);
             postTime = itemView.findViewById(R.id.search_applicant_postTime);
