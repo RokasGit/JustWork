@@ -67,7 +67,7 @@ public class View_Job_Applicant extends Fragment {
 
 
 
-        applicantName.setText(toShow.getUserName());
+        applicantName.setText(usersApplication.getFirstName() + " " + usersApplication.getLastName());
         applicantGender.setText(toShow.getGender());
         ratingBar.setRating(5); // needs rating
         applicantsAddress.setText(toShow.getAddress());
@@ -93,6 +93,7 @@ public class View_Job_Applicant extends Fragment {
                 //update application needed probably also delete.
                 usersApplication.setStatus("Rejected");
                 viewModel.updateJobApplication(usersApplication);
+                viewModel.deleteJobApplication(usersApplication);
                 navController.navigate(R.id.jobApplicationsFragment);
             } catch (Exception e){
                 e.printStackTrace();

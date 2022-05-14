@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.justwork.R;
 import com.example.justwork.model.Job;
 import com.example.justwork.model.JobApplication;
+import com.example.justwork.model.User;
 import com.example.justwork.repository.JobRepository;
+import com.example.justwork.repository.ListRepository;
 
 import java.util.List;
 
@@ -21,10 +23,12 @@ public class JobApplicantAdapter extends RecyclerView.Adapter<JobApplicantAdapte
     private List<JobApplication> jobApplications;
     private onClickListener onClickListener;
     private JobRepository jobRepository;
+    private ListRepository listRepository;
 
     public JobApplicantAdapter(List<JobApplication> jobApplications){
         this.jobApplications = jobApplications;
         this.jobRepository = JobRepository.getInstance();
+        this.listRepository = ListRepository.getInstance();
     }
 
     public void setJobApplications(List<JobApplication> jobApplications) {
@@ -46,10 +50,12 @@ public class JobApplicantAdapter extends RecyclerView.Adapter<JobApplicantAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // holder.userImage.setImageDrawable(users.get(position).getPicture()); Picture problems
-        Job tempJob = jobRepository.getJobById(jobApplications.get(position).getJobId());
+        JobApplication application = jobApplications.get(position);
+        Job tempJob = jobRepository.getJobById(application.getJobId());
+
 
         holder.companyName.setText(tempJob.getCompanyName());
-        holder.jobTitle.setText(tempJob.getTitle());
+        holder.jobTitle.setText(application.getFirstName() + " " + application.getLastName());
         holder.salary.setText(tempJob.getSalary()+"");
         holder.address.setText(tempJob.getLocation());
         holder.postTime.setText(tempJob.getJobType());

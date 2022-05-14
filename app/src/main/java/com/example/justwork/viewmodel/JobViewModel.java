@@ -56,6 +56,10 @@ public class JobViewModel extends AndroidViewModel {
 
     public void updateJobApplication(JobApplication jobApplication){ jobRepository.updateJobApplication(jobApplication);}
 
+    public void deleteJobApplication(JobApplication jobApplication){
+        jobRepository.deleteJobApplication(jobApplication);
+    }
+
     public void addJobApplication(JobApplication jobApplication){
         jobRepository.addJobApplication(jobApplication);
     }

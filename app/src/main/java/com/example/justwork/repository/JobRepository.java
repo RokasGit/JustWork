@@ -43,11 +43,13 @@ public class JobRepository{
         List<Job> toGather = new ArrayList<>();
         MutableLiveData<List<Job>> toGet = new MutableLiveData<>();
 
-        for (int i = 0; i<AllJobs.getValue().size(); i++){
-            if (AllJobs.getValue().get(i).getCompanyCvr() == dao.getCompany().getValue().getCvr()){
-                toGather.add(AllJobs.getValue().get(i));
-            }
-        }
+       if (AllJobs.getValue() != null){
+           for (int i = 0; i<AllJobs.getValue().size(); i++){
+               if (AllJobs.getValue().get(i).getCompanyCvr() == dao.getCompany().getValue().getCvr()){
+                   toGather.add(AllJobs.getValue().get(i));
+               }
+           }
+       }
 
         toGet.setValue(toGather);
 
@@ -59,12 +61,13 @@ public class JobRepository{
         List<JobApplication> toGather = new ArrayList<>();
         MutableLiveData<List<JobApplication>> toGet = new MutableLiveData<>();
 
-        for (int i = 0; i<AllJobApplications.getValue().size(); i++){
+        if(AllJobApplications.getValue() != null){
+            for (int i = 0; i<AllJobApplications.getValue().size(); i++){
                 if (AllJobApplications.getValue().get(i).getCompanyCvr() == dao.getCompany().getValue().getCvr()){
                     toGather.add(AllJobApplications.getValue().get(i));
                 }
+            }
         }
-
 
         toGet.setValue(toGather);
 
@@ -79,10 +82,12 @@ public class JobRepository{
         if(AllJobApplications.getValue() != null){
             for (int i = 0; i < AllJobApplications.getValue().size(); i++){
                 if (AllJobApplications.getValue().get(i).getUserCpr() == dao.getEmployee().getValue().getCpr()){
-                    toGather.add(AllJobApplications.getValue().get(i));
+                        toGather.add(AllJobApplications.getValue().get(i));
                 }
             }
         }
+
+
 
         toGet.setValue(toGather);
 
@@ -94,6 +99,10 @@ public class JobRepository{
     }
 
     public void updateJobApplication(JobApplication jobApplication){ dao.updateJobApplication(jobApplication);}
+
+    public void deleteJobApplication(JobApplication jobApplication){
+        dao.DeleteJobApplication(jobApplication);
+    }
 
     public Job getJobById(String id) {
             return dao.findJobByID(id).getValue();

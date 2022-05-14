@@ -86,6 +86,11 @@ public class DAOImpl implements DAO{
     }
 
     @Override
+    public void DeleteJobApplication(JobApplication jobApplication) {
+        jobDAO.DeleteJobApplication(jobApplication);
+    }
+
+    @Override
     public LiveData<List<JobApplication>> getAllJobApplications(){
         return listDAO.getAllJobApplications();
     }
