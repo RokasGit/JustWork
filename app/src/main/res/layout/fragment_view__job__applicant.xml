@@ -61,7 +61,7 @@
         style="@style/editTextStyling"
         android:layout_marginTop="12dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +89,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/view_jobApplicant_editCpr"
         app:layout_constraintTop_toBottomOf="@+id/view_jobApplicant_Licence" />
@@ -100,7 +100,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="10dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="none"
         app:layout_constraintEnd_toStartOf="@id/view_jobApplicant_editTextLicence"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_jobApplicant_cpr" />

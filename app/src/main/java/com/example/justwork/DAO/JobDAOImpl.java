@@ -64,6 +64,11 @@ public class JobDAOImpl implements JobDAO{
     }
 
     @Override
+    public void DeleteJobApplication(JobApplication jobApplication) {
+        databaseReference.child("JobApplication").child(jobApplication.getJobApplicationId()).removeValue();
+    }
+
+    @Override
     public void applyForJob(long userCpr,
                             int companyCvr, String jobId, String firstName, String lastName,
                             String email, String message, String country, String status) {

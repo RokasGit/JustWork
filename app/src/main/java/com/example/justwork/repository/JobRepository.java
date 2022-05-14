@@ -81,6 +81,10 @@ public class JobRepository{
 
     public void updateJobApplication(JobApplication jobApplication){ dao.updateJobApplication(jobApplication);}
 
+    public void deleteJobApplication(JobApplication jobApplication){
+        dao.DeleteJobApplication(jobApplication);
+    }
+
     public Job getJobById(String id) {
             return dao.findJobByID(id).getValue();
 

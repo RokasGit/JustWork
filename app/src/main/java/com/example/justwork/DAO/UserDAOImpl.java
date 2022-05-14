@@ -131,28 +131,28 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public MutableLiveData<User> getEmployee() {
-        String userId = "";
-        if(FirebaseAuth.getInstance().getCurrentUser().getUid() != null){
-            userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        }
-        else{
-            userId = "No user found";
-        }
-        final User[] tempUser = {new User()};
-
-        databaseReference.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                tempUser[0] = snapshot.getValue(User.class);
-                employee.setValue(tempUser[0]);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
+//        String userId = "";
+//        if(FirebaseAuth.getInstance().getCurrentUser().getUid() != null){
+//            userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        }
+//        else{
+//            userId = "No user found";
+//        }
+//        final User[] tempUser = {new User()};
+//
+//        databaseReference.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                tempUser[0] = snapshot.getValue(User.class);
+//                employee.setValue(tempUser[0]);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//
 
         return employee;
     }

@@ -1,9 +1,14 @@
 package com.example.justwork.view;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -58,8 +63,28 @@ public class JobApplicationsFragment extends Fragment {
 
         setupNavigation();
 
-        if (accountViewModel.getCompany().getValue() == null) {
-            jobApplicationAdapter = new JobApplicationAdapter(viewModel.getJobAppForUser().getValue());
+       if(accountViewModel.getCompany().getValue() == null){
+
+            List<JobApplication> toGetJobApp = viewModel.getJobAppForUser().getValue();
+
+
+            jobApplicationAdapter = new JobApplicationAdapter(toGetJobApp);
+
+            for (int i = 0; i<toGetJobApp.size(); i++){
+                if(toGetJobApp.get(i).getStatus().equals("Accepted")){
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(getContext(), "JobApplications")
+                            .setContentTitle("Application accepted")
+                            .setContentText("Your application for " + toGetJobApp.get(i).getCompanyCvr() + " has been accepted")
+                            .setSmallIcon(R.drawable.dg_jobs_logo)
+                            .setAutoCancel(true);
+
+                    NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getContext());
+                    notificationManagerCompat.notify(1, builder.build());
+                }
+            }
+
+
+
             viewModel.getJobAppForUser().observe(getViewLifecycleOwner(), new Observer<List<JobApplication>>() {
                 @Override
                 public void onChanged(List<JobApplication> jobApplications) {
