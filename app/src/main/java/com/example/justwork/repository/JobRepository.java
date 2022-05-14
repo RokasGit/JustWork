@@ -123,4 +123,7 @@ public class JobRepository{
     public void cancelJob(String id) {
         dao.cancelJobApplication(id);
     }
+    public boolean updateJobByCancel(String jobID){
+        return dao.updateJobByCancel(jobID);
+    }
 }

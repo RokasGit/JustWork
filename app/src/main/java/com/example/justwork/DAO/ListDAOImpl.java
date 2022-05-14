@@ -195,4 +195,18 @@ public class ListDAOImpl implements ListDAO {
         }
         return user;
     }
+
+    @Override
+    public synchronized boolean updateJobByCancel(String jobID) {
+        for(Job job : jobs.getValue()){
+            if(jobID.equals(job.getId())){
+                if(job.getAmountOfNeededWorkers()<=0 ){
+                    job.setTakenStatus(false);
+                }
+                job.setAmountOfNeededWorkers(job.getAmountOfNeededWorkers()+1);
+                databaseReference.child("Jobs").child(job.getId()).setValue(job);
+            }
+        }
+        return false;
+    }
 }

@@ -135,4 +135,9 @@ public class DAOImpl implements DAO{
     public MutableLiveData<User> getUserByCpr(long cpr) {
         return listDAO.getUserByCpr(cpr);
     }
+
+    @Override
+    public boolean updateJobByCancel(String jobID) {
+        return listDAO.updateJobByCancel(jobID);
+    }
 }
