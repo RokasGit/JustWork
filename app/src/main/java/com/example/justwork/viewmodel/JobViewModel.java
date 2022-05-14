@@ -24,7 +24,19 @@ public class JobViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Job>> getJobs() {
-        return jobRepository.getJobs();
+        return jobRepository.getAllJobs();
+    }
+
+    public LiveData<List<Job>> getJobsForLoggedCompany(){
+        return jobRepository.getJobsForLoggedCompany();
+    }
+
+    public LiveData<List<JobApplication>> getJobAppForUser(){
+        return jobRepository.getJobAppForUser();
+    }
+
+    public LiveData<List<JobApplication>> getJobAppForCompany(){
+        return jobRepository.getJobAppForCompany();
     }
 
     public void addJob(Job job) {
@@ -34,9 +46,10 @@ public class JobViewModel extends AndroidViewModel {
     public JobApplication getJobApplicationById(String id){
         return jobRepository.getJobApplicationById(id);
     }
-    public Job getCompanyJobById(String id){
-       return jobRepository.getCompanyJobById(id);
+    public Job getJobById(String id){
+       return jobRepository.getJobById(id);
     }
+
     public LiveData<Job> findJobByID(String id){
         return jobRepository.findJobByID(id);
     }
@@ -48,7 +61,7 @@ public class JobViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<JobApplication>> getJobApplications() {
-        return jobRepository.getJobApplicationsForCompany();
+        return jobRepository.getJobApplications();
     }
     public void applyForJob(int userCpr, int companyCvr, String jobId, String firstName,
                             String lastName, String email, String message, String country, String status){

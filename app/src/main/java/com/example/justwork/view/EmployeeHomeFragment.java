@@ -23,6 +23,7 @@ import com.example.justwork.Adapters.JobAdapter;
 import com.example.justwork.R;
 import com.example.justwork.model.Job;
 import com.example.justwork.viewmodel.CompanyViewModel;
+import com.example.justwork.viewmodel.JobViewModel;
 import com.example.justwork.viewmodel.ListViewModel;
 
 import java.util.List;
@@ -43,6 +44,8 @@ public class EmployeeHomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         employeeHomeView = inflater.inflate(R.layout.fragment_employee_home, container, false);
         listViewModel = new ViewModelProvider(this).get(ListViewModel.class);
+        new ViewModelProvider(this).get(JobViewModel.class);
+
         setupNavigation();
         initViews();
         return employeeHomeView;
