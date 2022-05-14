@@ -100,6 +100,11 @@ public class DAOImpl implements DAO{
         jobDAO.cancelJobApplication(id);
     }
 
+    @Override
+    public void updateJob(String jobId) {
+        listDAO.updateJob(jobId);
+    }
+
 
     @Override
     public LiveData<List<Job>> getAllJobs() {

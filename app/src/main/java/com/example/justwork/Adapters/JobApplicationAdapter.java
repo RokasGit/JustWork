@@ -47,7 +47,7 @@ public class JobApplicationAdapter extends RecyclerView.Adapter<JobApplicationAd
 
         holder.jobTitle.setText(tempJob.getTitle());
         holder.companyName.setText(tempJob.getCompanyName());
-        holder.jobApplicationStatus.setText(tempJob.getJobType());
+        holder.jobApplicationStatus.setText(jbApp.getStatus());
         holder.jobType.setText(tempJob.getLocation());
         holder.jobWage.setText(tempJob.getSalary() + "");
         holder.cancelButton.setOnClickListener(view->{

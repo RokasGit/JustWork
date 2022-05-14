@@ -82,6 +82,7 @@ public class View_Job_Applicant extends Fragment {
                 //update application needed
                 usersApplication.setStatus("Accepted");
                 viewModel.updateJobApplication(usersApplication);
+                viewModel.updateJob(usersApplication.getJobId());
                 navController.navigate(R.id.jobApplicationsFragment);
             } catch (Exception e){
                 e.printStackTrace();

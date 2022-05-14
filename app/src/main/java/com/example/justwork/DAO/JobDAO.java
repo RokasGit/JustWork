@@ -19,4 +19,5 @@ public interface JobDAO {
 
 
     void cancelJobApplication(String id);
+
 }
