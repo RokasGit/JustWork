@@ -52,10 +52,11 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public void registerUser(long cpr, String username, String email, String password, int phoneNumber, String address, DrivingLicenceList drivingLicences, String gender, String nationality) {
-        employee.setValue(new User(cpr, username, email, password, phoneNumber, address, gender,nationality));
+
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
+                        employee.setValue(new User(cpr, username, email, password, phoneNumber, address, gender,nationality));
                         databaseReference.child("Users").child(mAuth.getUid()).setValue( employee.getValue());
                         UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
                                 .setDisplayName(employee.getValue().getUserName())
