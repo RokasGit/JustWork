@@ -11,6 +11,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -62,13 +63,38 @@ public class JobDAOImpl implements JobDAO{
     }
 
     @Override
-    public void applyForJob(int userCpr,
+    public void applyForJob(long userCpr,
                             int companyCvr, String jobId, String firstName, String lastName,
                             String email, String message, String country, String status) {
         String jobApplicationId = databaseReference.push().getKey();
         JobApplication jobApplication = new JobApplication(jobApplicationId,userCpr,companyCvr,jobId,firstName,lastName,
                 email,message,country,status);
         databaseReference.child("JobApplication").child(jobApplication.getJobApplicationId()).setValue(jobApplication);
+
+    }
+
+    @Override
+    public void cancelJobApplication(String id) {
+        List<JobApplication> tempjobsapplications = jobApplications.getValue();
+        Query query = databaseReference.child("JobApplication").child(id);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                snapshot.getRef().removeValue();
+                tempjobsapplications.remove(snapshot.getValue(JobApplication.class));
+                jobApplications.setValue(tempjobsapplications);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        System.out.println("Job application deleted successfully");
+        System.out.println(databaseReference.child("JobApplication").child(id) );
+        databaseReference.child("JobApplication").child(id).setValue(null);
+        System.out.println("Set that job application to null");
+
 
     }
 

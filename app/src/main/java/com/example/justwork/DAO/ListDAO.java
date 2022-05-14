@@ -18,5 +18,5 @@ public interface ListDAO {
     MutableLiveData<Company> findCompanyByCVR(int cvr);
     MutableLiveData<Job> findJobByID(String id);
     MutableLiveData<JobApplication> findJobApplicationByID(String id);
-    MutableLiveData<User> getUserByCpr(int cpr);
+    MutableLiveData<User> getUserByCpr(long cpr);
 }

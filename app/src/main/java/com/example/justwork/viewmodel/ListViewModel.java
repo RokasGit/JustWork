@@ -5,7 +5,6 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.justwork.model.Company;
 import com.example.justwork.model.Job;
@@ -32,5 +31,5 @@ public class ListViewModel extends AndroidViewModel {
         return listRepository.getUsers();
     }
 
-    public LiveData<User> getUserByCpr(int cpr) {return listRepository.getUserByCpr(cpr);}
+    public LiveData<User> getUserByCpr(long cpr) {return listRepository.getUserByCpr(cpr);}
 }

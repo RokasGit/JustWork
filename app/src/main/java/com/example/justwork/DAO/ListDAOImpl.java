@@ -183,7 +183,7 @@ public class ListDAOImpl implements ListDAO {
     }
 
     @Override
-    public MutableLiveData<User> getUserByCpr(int cpr) {
+    public MutableLiveData<User> getUserByCpr(long cpr) {
         MutableLiveData<User> user = new MutableLiveData<>();
 
         for (int i = 0; i< users.getValue().size(); i++) {

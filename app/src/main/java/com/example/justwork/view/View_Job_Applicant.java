@@ -19,11 +19,8 @@ import android.widget.TextView;
 import com.example.justwork.R;
 import com.example.justwork.model.JobApplication;
 import com.example.justwork.model.User;
-import com.example.justwork.viewmodel.CompanyViewModel;
 import com.example.justwork.viewmodel.JobViewModel;
 import com.example.justwork.viewmodel.ListViewModel;
-
-import org.w3c.dom.Text;
 
 
 public class View_Job_Applicant extends Fragment {

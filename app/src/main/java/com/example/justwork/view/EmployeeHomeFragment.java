@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.justwork.Adapters.JobAdapter;
@@ -38,6 +39,9 @@ public class EmployeeHomeFragment extends Fragment {
     private RecyclerView popularJobsRecyclerView;
     private RecyclerView recentJobsRecyclerView;
     private JobAdapter jobAdapter;
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,6 +77,8 @@ public class EmployeeHomeFragment extends Fragment {
         recentJobsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recentJobsRecyclerView.setAdapter(jobAdapter);
         listViewModel.getJobs().observe(getViewLifecycleOwner(), this::updateJobs);
+
+
     }
 
     private void updateJobs(List<Job> jobs) {

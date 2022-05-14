@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.justwork.R;
 import com.example.justwork.model.User;
@@ -25,6 +26,7 @@ public class Employee_Profile extends Fragment {
     private EditText email;
     private EditText password;
     private Button save;
+    private TextView nameAndLastName;
     private View view;
     private AccountViewModel accountViewModel;
     private NavController navController;
@@ -41,6 +43,7 @@ public class Employee_Profile extends Fragment {
                 username.setText(user.getUserName());
                 email.setText(user.getEmail());
                 password.setText(user.getPassword());
+                nameAndLastName.setText(user.getUserName());
             }
         });
 
@@ -54,8 +57,12 @@ public class Employee_Profile extends Fragment {
         email = view.findViewById(R.id.Profile_editTextEmail);
         password = view.findViewById(R.id.Profile_editTextPassword);
         save = view.findViewById(R.id.saveChangesButton);
+        nameAndLastName = view.findViewById(R.id.Profile_Name);
 
-        save.setOnClickListener(view-> accountViewModel.updateEmployeeInfo(username.getText().toString(), email.getText().toString(), password.getText().toString()));
+        save.setOnClickListener(view-> {
+            accountViewModel.updateEmployeeInfo(username.getText().toString(),  password.getText().toString());
+            navController.navigate(R.id.employeeHomeFragment);
+        });
     }
     private void setupNavigation(){
         navController = NavHostFragment.findNavController(this);

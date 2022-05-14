@@ -1,6 +1,7 @@
 package com.example.justwork.repository;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.justwork.DAO.DAO;
 import com.example.justwork.DAO.DAOImpl;
@@ -114,8 +115,12 @@ public class JobRepository{
     public void addJobApplication(JobApplication jobApplication) {
        dao.AddJobApplication(jobApplication);
     }
-    public void applyForJob(int userCpr, int companyCvr, String jobId, String firstName,
+    public void applyForJob(long userCpr, int companyCvr, String jobId, String firstName,
                             String lastName, String email, String message, String country, String status){
         dao.applyForJob(userCpr, companyCvr, jobId, firstName, lastName, email, message, country, status);
+    }
+
+    public void cancelJob(String id) {
+        dao.cancelJobApplication(id);
     }
 }

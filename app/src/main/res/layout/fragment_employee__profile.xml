@@ -65,7 +65,7 @@
     <EditText
         android:id="@+id/Profile_editTextEmail"
         style="@style/editTextStyling"
-        android:inputType="textEmailAddress"
+        android:inputType="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Profile_Email" />

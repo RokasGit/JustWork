@@ -19,7 +19,7 @@ public class AccountViewModel extends AndroidViewModel {
         super(application);
         accountRepository = AccountRepository.getInstance(application);
     }
-    public void registerUser(int cpr, String username, String email, String password, int phoneNumber,
+    public void registerUser(long cpr, String username, String email, String password, int phoneNumber,
                              String address, DrivingLicenceList drivingLicences, String gender, String nationality){
         accountRepository.registerUser(cpr, username, email, password, phoneNumber, address, drivingLicences, gender, nationality);
     }
@@ -38,7 +38,7 @@ public class AccountViewModel extends AndroidViewModel {
         return accountRepository.getCompany();
     }
 
-    public void updateEmployeeInfo(String userName, String email, String password) {
-        accountRepository.updateEmployeeInfo(userName, email, password);
+    public void updateEmployeeInfo(String userName,  String password) {
+        accountRepository.updateEmployeeInfo(userName, password);
     }
 }

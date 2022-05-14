@@ -99,7 +99,7 @@ public class signupEmployeeAdditionalDetailsFragment extends Fragment {
             return;
         }
 
-        int finalcpr = Integer.parseInt(tempCpr);
+        long finalcpr = Long.parseLong(tempCpr);
         accountViewModel.registerUser(finalcpr, username, email, password, phoneNumber, homeAddressTemp, null, genderTemp, nationalityTemp);
         navController.navigate(R.id.nav_logout);
     }

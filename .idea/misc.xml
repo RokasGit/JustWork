@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/asold/AndroidStudioProjects/JustWork/app/src/main/res/layout/activity_main.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/asold/AndroidStudioProjects/JustWork/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
+        <entry key="..\:/Users/asold/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_job_applications.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/asold/AndroidStudioProjects/JustWork/app/src/main/res/layout/fragment_user_applications.xml" value="0.13253012048192772" />
+        <entry key="..\:/Users/asold/AndroidStudioProjects/JustWork/app/src/main/res/layout/nav_header_main.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/asold/AndroidStudioProjects/JustWork/app/src/main/res/layout/rv_job_application_item.xml" value="0.4" />
+        <entry key="..\:/Users/asold/AndroidStudioProjects/JustWork/app/src/main/res/menu/activity_main_drawer.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/button_roundcorners.xml" value="0.127" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/button_roundcorners_notactive.xml" value="0.129" />
         <entry key="..\:/Users/rokas/AndroidStudioProjects/JustWork/app/src/main/res/drawable/edittext_roundcorners.xml" value="0.129" />

@@ -3,7 +3,7 @@ package com.example.justwork.model;
 public class JobApplication {
 
     private String jobApplicationId;
-    private int userCpr;
+    private long userCpr;
     private int companyCvr;
     private String jobId;
     private String firstName;
@@ -57,7 +57,7 @@ public class JobApplication {
 
     }
 
-    public JobApplication(String jobApplicationId, int userCpr, int companyCvr,String jobId, String firstName,String lastName,
+    public JobApplication(String jobApplicationId, long userCpr, int companyCvr,String jobId, String firstName,String lastName,
                           String email, String message, String country,String status){
         this.jobApplicationId= jobApplicationId;
         this.userCpr=userCpr;
@@ -72,11 +72,11 @@ public class JobApplication {
     }
 
 
-    public int getUserCpr() {
+    public long getUserCpr() {
         return userCpr;
     }
 
-    public void setUserCpr(int userId) {
+    public void setUserCpr(long userId) {
         this.userCpr = userId;
     }
 

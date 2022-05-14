@@ -11,7 +11,7 @@ import com.example.justwork.model.UserType;
 public interface UserDAO {
 
 
-    void registerUser(int cpr, String username, String email, String password, int phoneNumber,
+    void registerUser(long cpr, String username, String email, String password, int phoneNumber,
                       String address, DrivingLicenceList drivingLicences, String gender, String nationality);
 
     void login(String email, String password);
@@ -22,7 +22,7 @@ public interface UserDAO {
 
     MutableLiveData<Company> getCompany();
 
-    void updateEmployeeInfo(String userName, String email, String password);
+    void updateEmployeeInfo(String userName, String password);
 
     LiveData<User> getEmptyEmployee();
 
