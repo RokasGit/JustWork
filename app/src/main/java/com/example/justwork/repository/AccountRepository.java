@@ -20,6 +20,7 @@ public class AccountRepository {
     //    private
     private AccountRepository(Application application) {
         dao = DAOImpl.getInstance();
+
         companyLiveData = dao.getEmptyCompany();
         employeeLiveData = dao.getEmptyEmployee();
     }
