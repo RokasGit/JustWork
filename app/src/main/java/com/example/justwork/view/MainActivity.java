@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.justwork.R;
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private TextView navName;
     private TextView navEmail;
+    private ImageView logout;
     private AccountViewModel accountViewModel;
 
 
@@ -67,12 +68,24 @@ public class MainActivity extends AppCompatActivity {
         catch (Exception e){
             System.out.println(e);
         }
+//        View headView = navigationView.getHeaderView(0);
+//        logout = navigationView2.findViewById(R.id.nav_logout);
+        setupNavigation();
+//        System.out.println(navigationView2.findViewById(R.id.nav_logout) + "AAAAAAAAAAAAAAAAAAAA");
+//        logout.setOnClickListener(view->{
+//            FirebaseAuth.getInstance().signOut();
+//            navController.navigate(R.id.action_splashScreen_to_login);
+//            System.out.println("Loggin out as user");
+//        });
+
+
     }
+
+
     private void setEmployeeName(User user){
         View headView = navigationView.getHeaderView(0);
         ((TextView) headView.findViewById(R.id.nav_header_fullName)).setText(user.getUserName());
         ((TextView) headView.findViewById(R.id.nav_header_email)).setText(user.getEmail());
-
 
     }
     private void setCompanyName(Company company){

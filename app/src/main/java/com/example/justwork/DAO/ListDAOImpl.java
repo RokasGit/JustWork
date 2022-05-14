@@ -197,6 +197,23 @@ public class ListDAOImpl implements ListDAO {
     }
 
     @Override
+    public void updateJob(String jobId) {
+        Job tempJob = null;
+        for (Job job : jobs.getValue()) {
+            System.out.println(job.getId());
+            if(job.getId().equals(jobId)){
+                tempJob = job;
+                System.out.println("Matching job found");
+                tempJob.setAmountOfNeededWorkers(tempJob.getAmountOfNeededWorkers()-1);
+                System.out.println();
+                if(tempJob.getAmountOfNeededWorkers()<=0){
+                    tempJob.setTakenStatus(true);
+                }
+                databaseReference.child("Jobs").child(tempJob.getId()).setValue(tempJob);
+            }
+        }
+    }
+    @Override
     public synchronized boolean updateJobByCancel(String jobID) {
         for(Job job : jobs.getValue()){
             if(jobID.equals(job.getId())){
