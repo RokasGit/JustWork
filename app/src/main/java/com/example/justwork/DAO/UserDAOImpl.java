@@ -62,7 +62,6 @@ public class UserDAOImpl implements UserDAO{
                                 .setDisplayName(employee.getValue().getUserName())
                                 .build();
                         mAuth.getCurrentUser().updateProfile(request);
-                        System.out.println("REGISTER AS EMPLOYEE");
                     }
                 });
     }
@@ -81,15 +80,13 @@ public class UserDAOImpl implements UserDAO{
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     if(snapshot.getValue(User.class)!=null){
                                         employee.setValue(snapshot.getValue(User.class));
-                                        System.out.println("Logging in as employee");
 
                                     }else{
                                         databaseReference.child("Companies").child(user.getUid()).addValueEventListener(new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                 company.setValue(snapshot.getValue(Company.class));
-                                                System.out.println("Logging in as company");
-                                            }
+                                             }
 
                                             @Override
                                             public void onCancelled(@NonNull DatabaseError error) {
@@ -173,7 +170,6 @@ public class UserDAOImpl implements UserDAO{
        Map<String, Object> profileUpdates = new HashMap<>();
        profileUpdates.put("userName", userName);
         profileUpdates.put("password", password);
-        System.out.println("going to put it in now");
         ref.updateChildren(profileUpdates);
 
         user.updatePassword(password)

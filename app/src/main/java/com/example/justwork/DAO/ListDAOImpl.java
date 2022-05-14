@@ -132,6 +132,7 @@ public class ListDAOImpl implements ListDAO {
                 }
                 users.setValue(userHolder);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -145,10 +146,12 @@ public class ListDAOImpl implements ListDAO {
     public MutableLiveData<Company> findCompanyByCVR(int cvr) {
         List<Company> tempCompanies = companies.getValue();
         MutableLiveData<Company> tempCompany = new MutableLiveData<>();
-        for(int i=0;i<tempCompanies.size();i++){
-            if(tempCompanies.get(i).getCvr()==cvr){
-                tempCompany.setValue(tempCompanies.get(i));
-                return tempCompany;
+        if(companies.getValue()!=null){
+            for (int i = 0; i < companies.getValue().size(); i++) {
+                if (companies.getValue().get(i).getCvr() == cvr) {
+                    tempCompany.setValue(companies.getValue().get(i));
+                    return tempCompany;
+                }
             }
         }
         return tempCompany;
@@ -156,13 +159,14 @@ public class ListDAOImpl implements ListDAO {
 
     @Override
     public MutableLiveData<Job> findJobByID(String id) {
-        List<Job> tempJobs = jobs.getValue();
         MutableLiveData<Job> tempJob = new MutableLiveData<>();
 
-        for(int i=0;i<tempJobs.size();i++){
-            if(tempJobs.get(i).getId().equals(id)){
-                tempJob.setValue(tempJobs.get(i));
-                return tempJob;
+        if(jobs.getValue()!=null){
+            for (int i = 0; i < jobs.getValue().size(); i++) {
+                if (jobs.getValue().get(i).getId().equals(id)) {
+                    tempJob.setValue(jobs.getValue().get(i));
+                    return tempJob;
+                }
             }
         }
         return tempJob;
@@ -170,13 +174,13 @@ public class ListDAOImpl implements ListDAO {
 
     @Override
     public MutableLiveData<JobApplication> findJobApplicationByID(String id) {
-        List<JobApplication> tempAppJobs = jobApplications.getValue();
         MutableLiveData<JobApplication> tempAppJob = new MutableLiveData<>();
-
-        for(int i=0;i<tempAppJobs.size();i++){
-            if(tempAppJobs.get(i).getJobApplicationId().equals(id)){
-                tempAppJob.setValue(tempAppJobs.get(i));
-                return tempAppJob;
+        if(jobApplications.getValue()!=null){
+            for (int i = 0; i < jobApplications.getValue().size(); i++) {
+                if (jobApplications.getValue().get(i).getJobApplicationId().equals(id)) {
+                    tempAppJob.setValue(jobApplications.getValue().get(i));
+                    return tempAppJob;
+                }
             }
         }
         return tempAppJob;
@@ -186,11 +190,13 @@ public class ListDAOImpl implements ListDAO {
     public MutableLiveData<User> getUserByCpr(long cpr) {
         MutableLiveData<User> user = new MutableLiveData<>();
 
-        for (int i = 0; i< users.getValue().size(); i++) {
-            System.out.println(users.getValue().get(i).getCpr());
-            if (users.getValue().get(i).getCpr() == cpr){
-                user.setValue(users.getValue().get(i));
-                return user;
+        if(users.getValue()!=null){
+            for (int i = 0; i < users.getValue().size(); i++) {
+                System.out.println(users.getValue().get(i).getCpr());
+                if (users.getValue().get(i).getCpr() == cpr) {
+                    user.setValue(users.getValue().get(i));
+                    return user;
+                }
             }
         }
         return user;
@@ -199,31 +205,49 @@ public class ListDAOImpl implements ListDAO {
     @Override
     public void updateJob(String jobId) {
         Job tempJob = null;
-        for (Job job : jobs.getValue()) {
-            System.out.println(job.getId());
-            if(job.getId().equals(jobId)){
-                tempJob = job;
-                System.out.println("Matching job found");
-                tempJob.setAmountOfNeededWorkers(tempJob.getAmountOfNeededWorkers()-1);
-                System.out.println();
-                if(tempJob.getAmountOfNeededWorkers()<=0){
-                    tempJob.setTakenStatus(true);
+        if(jobs.getValue() != null){
+            for (Job job : jobs.getValue()) {
+                if (job.getId().equals(jobId)) {
+                    tempJob = job;
+                    tempJob.setAmountOfNeededWorkers(tempJob.getAmountOfNeededWorkers() - 1);
+                    if (tempJob.getAmountOfNeededWorkers() <= 0) {
+                        tempJob.setTakenStatus(true);
+                    }
+                    databaseReference.child("Jobs").child(tempJob.getId()).setValue(tempJob);
                 }
-                databaseReference.child("Jobs").child(tempJob.getId()).setValue(tempJob);
             }
         }
     }
+
     @Override
     public synchronized boolean updateJobByCancel(String jobID) {
-        for(Job job : jobs.getValue()){
-            if(jobID.equals(job.getId())){
-                if(job.getAmountOfNeededWorkers()<=0 ){
-                    job.setTakenStatus(false);
+        if(jobs.getValue() != null){
+            for (Job job : jobs.getValue()) {
+                if (jobID.equals(job.getId())) {
+                    if (job.getAmountOfNeededWorkers() <= 0) {
+                        job.setTakenStatus(false);
+                    }
+                    job.setAmountOfNeededWorkers(job.getAmountOfNeededWorkers() + 1);
+                    databaseReference.child("Jobs").child(job.getId()).setValue(job);
                 }
-                job.setAmountOfNeededWorkers(job.getAmountOfNeededWorkers()+1);
-                databaseReference.child("Jobs").child(job.getId()).setValue(job);
             }
         }
         return false;
+    }
+
+    @Override
+    public MutableLiveData<List<Job>> getJobsByCompanyCVR(int cvr) {
+        MutableLiveData<List<Job>> toGet = new MutableLiveData<>();
+        toGet.setValue(new ArrayList<>());
+
+        if (jobs.getValue() != null) {
+            for (Job job : jobs.getValue()) {
+                if (job.getCompanyCvr() == cvr) {
+                    toGet.getValue().add(job);
+                }
+            }
+        }
+
+        return toGet;
     }
 }

@@ -21,4 +21,5 @@ public interface ListDAO {
     MutableLiveData<User> getUserByCpr(long cpr);
     void updateJob(String jobId);
     boolean updateJobByCancel(String jobID);
+    MutableLiveData<List<Job>> getJobsByCompanyCVR(int cvr);
 }

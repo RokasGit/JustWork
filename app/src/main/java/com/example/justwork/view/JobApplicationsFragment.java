@@ -43,7 +43,7 @@ public class JobApplicationsFragment extends Fragment {
     JobApplicationAdapter jobApplicationAdapter;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_job_applications, container, false);
         viewModel = new ViewModelProvider(this).get(JobViewModel.class);
@@ -58,28 +58,15 @@ public class JobApplicationsFragment extends Fragment {
 
         setupNavigation();
 
-        if(accountViewModel.getCompany().getValue() == null){
-
-
+        if (accountViewModel.getCompany().getValue() == null) {
             jobApplicationAdapter = new JobApplicationAdapter(viewModel.getJobAppForUser().getValue());
-
-            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-            System.out.println(viewModel.getJobAppForUser().getValue().toString());
-//            System.out.println(viewModel.getJobAppForUser().getValue().get(0).getJobId() + "AAAAVHGVHGVHGVNMHCH");
-
             viewModel.getJobAppForUser().observe(getViewLifecycleOwner(), new Observer<List<JobApplication>>() {
                 @Override
                 public void onChanged(List<JobApplication> jobApplications) {
                     jobApplicationAdapter.setJobApplications(jobApplications);
                     JobApplicationsRecycler.setAdapter(jobApplicationAdapter);
-                    System.out.println("Deeeeeeeeeeeeeeeeeeeleting");
                 }
             });
-
-
-//            JobApplicationsRecycler.setAdapter(jobApplicationAdapter);
-
-
         } else {
 
             applicantAdapter = new JobApplicantAdapter(viewModel.getJobAppForCompany().getValue());
@@ -87,10 +74,10 @@ public class JobApplicationsFragment extends Fragment {
             viewModel.getJobAppForCompany().observe(getViewLifecycleOwner(), new Observer<List<JobApplication>>() {
                 @Override
                 public void onChanged(List<JobApplication> jobApplications) {
-                    applicantAdapter.setJobApplications(jobApplications);
+                    applicantAdapter.setJobApplications(viewModel.getJobAppForCompany().getValue());
+                    JobApplicationsRecycler.setAdapter(applicantAdapter);
                 }
             });
-
 
 
             applicantAdapter.setOnClickListener(jobApplication -> {
@@ -100,7 +87,7 @@ public class JobApplicationsFragment extends Fragment {
                     toSend.putString("ApplicationID", jobApplication.getJobApplicationId());
 
                     navController.navigate(R.id.view_Job_Applicant, toSend);
-                } catch (Exception e){
+                } catch (Exception e) {
 
                 }
             });
@@ -111,7 +98,7 @@ public class JobApplicationsFragment extends Fragment {
         return view;
     }
 
-    private void setupNavigation(){
+    private void setupNavigation() {
         navController = NavHostFragment.findNavController(this);
     }
 }

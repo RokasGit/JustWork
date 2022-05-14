@@ -20,10 +20,8 @@ public class JobRepository{
 
     private JobRepository(){
         dao = DAOImpl.getInstance();
-        if(dao.getCompany().getValue()!=null || dao.getEmployee().getValue() != null){
-            AllJobs = dao.getAllJobs();
-            AllJobApplications = dao.getAllJobApplications();
-        }
+        AllJobs = dao.getAllJobs();
+        AllJobApplications = dao.getAllJobApplications();
 
 
     }
@@ -40,18 +38,7 @@ public class JobRepository{
     }
 
     public LiveData<List<Job>> getJobsForLoggedCompany(){
-        List<Job> toGather = new ArrayList<>();
-        MutableLiveData<List<Job>> toGet = new MutableLiveData<>();
-
-        for (int i = 0; i<AllJobs.getValue().size(); i++){
-            if (AllJobs.getValue().get(i).getCompanyCvr() == dao.getCompany().getValue().getCvr()){
-                toGather.add(AllJobs.getValue().get(i));
-            }
-        }
-
-        toGet.setValue(toGather);
-
-        return toGet;
+        return dao.getJobsByCompanyCVR(dao.getCompany().getValue().getCvr());
     }
 
     public LiveData<List<JobApplication>> getJobAppForCompany(){
@@ -60,11 +47,11 @@ public class JobRepository{
         MutableLiveData<List<JobApplication>> toGet = new MutableLiveData<>();
 
         for (int i = 0; i<AllJobApplications.getValue().size(); i++){
-                if (AllJobApplications.getValue().get(i).getCompanyCvr() == dao.getCompany().getValue().getCvr()){
+                if (AllJobApplications.getValue().get(i).getCompanyCvr() == dao.getCompany().getValue().getCvr() && AllJobApplications.getValue().get(i).getStatus().equals("Applied")){
                     toGather.add(AllJobApplications.getValue().get(i));
                 }
         }
-
+        System.out.println();
 
         toGet.setValue(toGather);
 

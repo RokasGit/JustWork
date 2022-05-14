@@ -55,9 +55,7 @@ public class DAOImpl implements DAO{
 
     @Override
     public void updateEmployeeInfo(String userName,  String password) {
-        System.out.println("In simple fucking dao");
         userDAO.updateEmployeeInfo(userName, password);
-        System.out.println("Going to userdao now");
     }
 
     @Override
@@ -144,5 +142,10 @@ public class DAOImpl implements DAO{
     @Override
     public boolean updateJobByCancel(String jobID) {
         return listDAO.updateJobByCancel(jobID);
+    }
+
+    @Override
+    public MutableLiveData<List<Job>> getJobsByCompanyCVR(int cvr) {
+        return listDAO.getJobsByCompanyCVR(cvr);
     }
 }

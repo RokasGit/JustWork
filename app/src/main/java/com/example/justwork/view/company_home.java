@@ -25,6 +25,7 @@ import com.example.justwork.R;
 import com.example.justwork.model.Job;
 import com.example.justwork.viewmodel.CompanyViewModel;
 import com.example.justwork.viewmodel.JobViewModel;
+import com.example.justwork.viewmodel.ListViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,21 +34,22 @@ import java.util.List;
 public class company_home extends Fragment {
 
     private JobViewModel viewModel;
+    private ListViewModel listViewModel;
     private View view;
     private NavController navController;
 
-    EditText searchBar;
-    ImageView filterOptions;
-    Button postAJob;
-    RecyclerView JobRecyclerView;
-    JobAdapter jobAdapter;
+    private EditText searchBar;
+    private ImageView filterOptions;
+    private Button postAJob;
+    private RecyclerView JobRecyclerView;
+    private JobAdapter jobAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_company_home, container, false);
         viewModel = new ViewModelProvider(this).get(JobViewModel.class);
-
+        listViewModel = new ViewModelProvider(this).get(ListViewModel.class);
         searchBar = view.findViewById(R.id.company_home_search);
         filterOptions = view.findViewById(R.id.company_home_imageView2);
         postAJob = view.findViewById(R.id.company_home_button_postJob);
@@ -58,22 +60,14 @@ public class company_home extends Fragment {
         JobRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         jobAdapter = new JobAdapter(viewModel.getJobsForLoggedCompany().getValue());
-
-
-        viewModel.getJobsForLoggedCompany().observe(getViewLifecycleOwner(), new Observer<List<Job>>() {
-            @Override
-            public void onChanged(List<Job> jobs) {
-                jobAdapter.setJobs(jobs);
-                JobRecyclerView.setAdapter(jobAdapter);
-            }
-        });
+        JobRecyclerView.setAdapter(jobAdapter);
+        listViewModel.getJobs().observe(getViewLifecycleOwner(),view ->updateJobs());
 
 
         jobAdapter.setOnClickListener(job -> {
             //something
         });
 
-        JobRecyclerView.setAdapter(jobAdapter);
 
         setupNavigation();
         initViews();
@@ -81,16 +75,19 @@ public class company_home extends Fragment {
         return view;
     }
 
-    private void setupNavigation(){
+    private void setupNavigation() {
         navController = NavHostFragment.findNavController(this);
     }
 
-    private void initViews(){
+    private void updateJobs() {
+        jobAdapter.setJobs(viewModel.getJobsForLoggedCompany().getValue());
+        JobRecyclerView.setAdapter(jobAdapter);
+    }
+
+    private void initViews() {
         filterOptions.setOnClickListener(view -> navController.navigate(R.id.searchFragment));
         postAJob.setOnClickListener(view -> navController.navigate(R.id.postAJob));
     }
-
-
 
 
 }

@@ -49,7 +49,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
         holder.companyName.setText(jobs.get(position).getCompanyName());
         holder.jobDuration.setText(jobs.get(position).getJobType());
         holder.jobAddress.setText(jobs.get(position).getLocation());
-        String salary = jobs.get(position).getSalary() + " dkk/h";
+        String salary = jobs.get(position).getSalary() + "dkk/h";
         holder.jobWage.setText(salary);
     }
 

@@ -60,6 +60,7 @@ public class JobDAOImpl implements JobDAO{
     @Override
     public void updateJobApplication(JobApplication jobApplication) {
         databaseReference.child("JobApplication").child(jobApplication.getJobApplicationId()).setValue(jobApplication);
+
     }
 
     @Override
@@ -90,12 +91,7 @@ public class JobDAOImpl implements JobDAO{
 
             }
         });
-        System.out.println("Job application deleted successfully");
-        System.out.println(databaseReference.child("JobApplication").child(id) );
-        databaseReference.child("JobApplication").child(id).setValue(null);
-        System.out.println("Set that job application to null");
-
-
+       databaseReference.child("JobApplication").child(id).setValue(null);
     }
 
 
