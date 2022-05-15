@@ -71,7 +71,7 @@ public class View_Job_Applicant extends Fragment {
         applicantGender.setText(toShow.getGender());
         ratingBar.setRating(5); // needs rating
         applicantsAddress.setText(toShow.getAddress());
-        //applicantsCrp.setText(toShow.getCpr());
+        applicantsCrp.setText(toShow.getCpr()+"");
         applicantsDrivingLicence.setText("Not implemented");
 
 
