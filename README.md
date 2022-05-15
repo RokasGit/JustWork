@@ -36,27 +36,27 @@ Company
   
   The number of requirement does not specify importance, it is there for identification of the requirement.
 # Critical:
-1.  As a company I want to post a job with general information(salary, date, time, location, description, contact information, amount of workers) for users to see it as an available job, such that they could start applying.
-2.  As a user I want to apply for a job so I can earn some money.
-3.  As a company I want to be able to accept a user (worker) for a job they have applied for, so that the job is done.
-4.  As a user I want to see the jobs that are requiring workers so that I know where to apply
-5.  As a user, I want to be able to cancel my job, such that the employer would be able to see my cancellation.
-6.  As a company I want to be able to set job status as “taken” so that I could indicate that the job offer is no longer available.
+1.  As a company I want to post a job with general information(salary, date, time, location, description, contact information, amount of workers) for users to see it as an available job, such that they could start applying.  (Done)
+2.  As a user I want to apply for a job so I can earn some money. (DONE)
+3.  As a company I want to be able to accept a user (worker) for a job they have applied for, so that the job is done. (DONE)
+4.  As a user I want to see the jobs that are requiring workers so that I know where to apply (Done)
+5.  As a user, I want to be able to cancel my job, such that the employer would be able to see my cancellation. (DONE)
+6.  As a company I want to be able to set job status as “taken” so that I could indicate that the job offer is no longer available. (DONE)
 # High:
-7.  As a user I want to Login to the application, so that I can use the system.
-8.  As a User I want to create an account, so that I can find some jobs for my free time.
-9.  As a user I want to see the job summary for a specific job, so that I know it's suitable for me.
-10. As a company, I want to be able to make a work spot available again, if the user cancelled the shift, such that I would not need to create a new one.
-11. As a user I want to receive a notification when one of my jobs is accepted. 
-12. As an application manager, I want to be able to see user applications for the system use, such that I could approve or reject them.
-13. As an application manager, I want to be able to see company applications for the system use, such that I could approve or reject them.
-14. As an application manager, I want to be able to see approved company lists, such that I could suspend or endorse them.
-15. As a user I want to Login to the application, so that I can use the system.
+7.  As a user I want to Login to the application, so that I can use the system. (DONE)
+8.  As a User I want to create an account, so that I can find some jobs for my free time. (DONE)
+9.  As a user I want to see the job summary for a specific job, so that I know it's suitable for me. (DONE)
+10. As a company, I want to be able to make a work spot available again, if the user cancelled the shift, such that I would not need to create a new one. (DONE)
+11. As a user I want to receive a notification when one of my jobs is accepted.  (DONE)
+12. As an application manager, I want to be able to see user applications for the system use, such that I could approve or reject them. (NOT STARTED)
+13. As an application manager, I want to be able to see company applications for the system use, such that I could approve or reject them. (NOT STARTED)
+14. As an application manager, I want to be able to see approved company lists, such that I could suspend or endorse them. (NOT STARTED)
 # Low:
-16. As a company/user, I want to be able to view my profile, such that I could see my username, picture, email address.
-17. As a user I want to see a list of notifications, such that I could view them at any time.
-18. As a user I want to view my statistics so that I know what I have been doing.   
-19. As a user I want to view my statistics so that I know what I have been doing.
-20. As a user I want to write a review for the company that I have worked for, so other users can see what I think about that employer. 
+15. As a company/user, I want to be able to view my profile, such that I could see my username, picture, email address.  (DONE)
+16. As a user I want to see a list of notifications, such that I could view them at any time. (NOT STARTED)
+17. As a user I want to view my statistics so that I know what I have been doing. (NOT STARTED)   
+18. As a user I want to write a review for the company that I have worked for, so other users can see what I think about that employer. (NOT STARTED)
+
+12/18 Completed.
 
 
